@@ -1,0 +1,151 @@
+<Project >
+
+  <!-- Solution wide default location of the version file for all projects in the solution -->
+  <!-- Can be overridden if desired by a property of the same name in a project file for an assembly -->
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- Solution wide default location of the version file for all projects in the solution -->
+    <!-- Can be overridden if desired by a property of the same name in a project file for an assembly -->
+    <VersionFile Condition=" '$(VersionFile)' == '' ">$(MSBuildProjectDirectory)\properties\AssemblyInfo.cs</VersionFile>
+  </PropertyGroup>
+
+  <!-- The Build Configuration properties common for every assembly, can be overwritten in individual .csproj files -->
+  <PropertyGroup>
+    <Configurations>Debug;Release;ReleaseWithTrace;</Configurations>
+    <!-- When building against anything except net5.0, the c# V9 keyword 'init' throws errors-->
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;</TargetFrameworks>
+    <TargetFrameworks>net5.0;</TargetFrameworks>
+    <RuntimeIdentifiers>win10-x64;linux-x64</RuntimeIdentifiers>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- Nullable Reference Type support solution-wide -->
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- solution-wide properties to include in every project -->
+  <PropertyGroup>
+    <!-- specify the root directory of the solution, relative to the location where the current project is found -->
+    <!-- when msbuild is run by Visual Studio 15.8.2, ($(MSBuildRuntimeType) != 'Core') the property $(SolutionDir) is already defined at this point, so this line is not executed -->
+    <!-- when msbuild is run by dotnet command, ($(MSBuildRuntimeType) == 'Core') the property $(SolutionDir) is not defined at this point, so this line is executed -->
+    <!-- ToDo: Major pain point, there is no way to know how far up SolutionDir may be.  In this repository, code is always two subdirectories down from the solution dir -->
+
+    <!-- the result is that the $(SolutionDir) is set properly regardless of the $(MSBuildRuntimeType) -->
+    <SolutionDir >$(MSBuildProjectDirectory)\..\..\</SolutionDir>
+
+    <!-- The Roslyn Code Analyzers for FxCop Rules should be installed as a Nuget Package at the Solution level, per this article https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers?view=vs-2019 -->
+    <!-- Per this article https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019#nuget-package-versus-vsix-extension the legacy post-build code analysis tools should be turned off -->
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+
+    <!-- Enable or disable MSBuild's Binary Build Log for all projects in the solution -->
+    <binaryLogger>
+    <LogFile>msbuild.binlog</LogFile>
+    </binaryLogger>
+    <!-- Enable or disable MSBuild's file-based Build Log for all projects in the solution -->
+    <fileLogger>
+    <LogFile>msbuild.log</LogFile>
+    </fileLogger>
+  </PropertyGroup>
+
+  <!-- NuGet Package information for all assemblies in the solution -->
+  <PropertyGroup>
+    <Company></Company>
+    <Copyright>William Hertzing</Copyright>
+    <Authors>William Hertzing</Authors>
+    <Product>ATAP.Utilities</Product>
+    <ProductName>ATAP.Utilities</ProductName>
+    <RepositoryUrl>https://github.com/BillHertzing/ATAP.Utilities</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>www.project.url</PackageProjectUrl>
+    <PackageIconUrl>www.icon.url</PackageIconUrl>
+    <PackageTags>Testing, experimental, alpha, ATAP, ATAP.Utilities</PackageTags>
+    <PackageReleaseNotes>Initial implementation/test of ATAP.Utilities Nuget packaging</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <!-- NuGet Local Feed location, using an environment variable and fallback -->
+  <PropertyGroup>
+    <NuGetLocalFeedPath Condition=" '$(NuGetLocalFeedPath)' == '' ">C:\Dropbox\NuGetLocalFeed</NuGetLocalFeedPath>
+  </PropertyGroup>
+
+  <!-- Do not allow the compiler to generate Binding Redirects -->
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects Condition=" '$(AutoGenerateBindingRedirects)' == '' ">false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <!-- To support Microsoft Source Link, allow .pdf files in the generated NuGet package -->
+  <PropertyGroup>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <!-- Define the maximum number of CPUs to use when building in parallel. value of 1 indicates to not build anything in parallel, and makes reading the build log linear -->
+  <PropertyGroup>
+    <maxcpucount>1</maxcpucount>
+  </PropertyGroup>
+
+  <!--  Set MSBuild output verbosity and warnings to ignore. The disabled warnings are regarding the nullable reference types, until I can figure out the correct way to use them along with the 'default' argument specification -->
+  <!-- Attribution: https://github.com/lecaillon/Evolve/blob/master/src/Evolve/Evolve.csproj has a working example to silence many nullability warnings, but similar does not work for NuGet package warnings -->
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);8600;8601;8602;8603;8604;8605;8618;8625;8629</NoWarn>
+  </PropertyGroup>
+  <!-- Attribution: many posts about this on the internet, nobody seems to have solved the problem. At least, my attempts using the following flags fails -->
+    <!-- disable the nullable warnings when compiling
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net35' OR '$(TargetFramework)' == 'net461' OR '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net5.0'">
+    <NoWarn>$(NoWarn);8600;8601;8602;8603;8604</NoWarn>
+    <Warninglevel>0</Warninglevel>
+    <clp>NoSummary</clp>
+    <clp>ErrorsOnly</clp>
+    <clp>NoItemAndPropertyList</clp>
+    </PropertyGroup>
+  -->
+
+  <!-- Release Configuration compilation symbols, flags and build options -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DefineConstants>RELEASE;</DefineConstants>
+  </PropertyGroup>
+
+  <!-- ReleaseWithTrace Configuration compilation symbols, flags and build options -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithTrace|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DefineConstants>RELEASE;TRACE;</DefineConstants>
+  </PropertyGroup>
+
+  <!-- Debug Configuration compilation symbols, flags and build options -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <!-- Using Fody for methodBoundryAspect messes up debugging symbols https://github.com/vescon/MethodBoundaryAspect.Fody/issues/71 -->
+    <!-- <DefineConstants>DEBUG;TRACE;</DefineConstants> -->
+    <DefineConstants>DEBUG;</DefineConstants>
+  </PropertyGroup>
+
+  <!-- .NET Standard any version references, compilation flags and build options -->
+  <PropertyGroup Condition="$(TargetFramework.Contains('netstandard'))">
+    <DefineConstants>NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+
+  <!-- .NET Standard 2.0 references, compilation flags and build options -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <!-- .NET Standard 2.1 references, compilation flags and build options -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.1'">
+    <DefineConstants>NETSTANDARD2_1</DefineConstants>
+  </PropertyGroup>
+
+  <!-- .NET Core references, compilation flags and build options -->
+  <PropertyGroup Condition="$(TargetFramework.Contains('netcore'))">
+    <DefineConstants>NETCORE;</DefineConstants>
+  </PropertyGroup>
+
+  <!-- Demonstrate the difference between a msbuild run from inside Visual Studio, and a msbuild called from dotnet CLI
+       Replace Never with Clean -->
+  <Target Name="HighlightDifferencesBetweenMSBuild" BeforeTargets="Never">
+    <Message  Text="MSBuildRuntimeType = $(MSBuildRuntimeType)" />
+    <Message Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'" Text="SolutionDir undefined or null"/>
+    <Message Condition="$(SolutionDir) != '' And $(SolutionDir) != '*Undefined*'" Text="SolutionDir =$(SolutionDir)"/>
+  </Target>
+
+</Project>

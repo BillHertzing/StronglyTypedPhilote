@@ -1,0 +1,44 @@
+{
+
+  "omnisharp.enableEditorConfigSupport": true,
+  "omnisharp.useGlobalMono": "never",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "testExplorer.addToEditorContextMenu": true,
+  "dotnet-test-explorer.testProjectPath": "**/*UnitTests.csproj",
+  "yaml.schemas": {
+      "file:///toc.schema.json": "/toc\\.yml/i"
+  },
+  "cSpell.enableFiletypes": [
+      "sql"
+  ],
+  "cSpell.allowCompoundWords": true,
+  "cSpell.userWords": [
+      "Finalizer",
+      "GDOT",
+      "GHBS",
+      "GHHS",
+      "Guids",
+      "IORM",
+      "Itenso",
+      "KVPs",
+      "MSMQ",
+      "Newtonsoft",
+      "Philote",
+      "Propertys",
+      "Serilog",
+      "Usings",
+      "Xunit",
+      "atap",
+      "datas",
+      "localizers",
+      "number",
+      "of",
+      "graphid",
+      "whertzing"
+  ],
+  "cSpell.words": [
+      "globbing",
+      "serializers"
+  ]
+}
