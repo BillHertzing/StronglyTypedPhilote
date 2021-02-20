@@ -7,6 +7,8 @@ using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
 
+using System.ComponentModel;
+
 // For the tests that use the new Serializer/Deserializer
 using System.Text.Json;
 // For the tests that use the old Newtonsoft Serializer/Deserializer
@@ -15,21 +17,21 @@ using System.Text.Json;
 namespace ATAP.Utilities.StronglyTypedId.UnitTests
 {
 
-  public partial class StronglyTypedIDSerializationUnitTests001 : IClassFixture<Fixture>
+  public partial class StronglyTypedIDSerializationUnitTests001 : IClassFixture<SerializationFixture>
   {
 
     [Theory]
     [MemberData(nameof(StronglyTypedIdSerializationTestDataGenerator<Guid>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdSerializationTestDataGenerator<Guid>))]
-    public void GuidIdDeserializeFromJSON(StronglyTypedIdSerializationTestData<Guid> inStronglyTypedIdTestData)
-    {
-      if (inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("0000") | inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("01234"))
+    public void GuidIdDeserializeFromJSON(StronglyTypedIdSerializationTestData<Guid> inStronglyTypedIdTestData) {
+
+      if (inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("0000",System.StringComparison.InvariantCulture) | inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("01234",System.StringComparison.InvariantCulture))
       {
-        //var stronglyTypedId = Fixture.Serializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId);
-        var stronglyTypedId =  JsonSerializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        //var stronglyTypedId = SerializationFixture.Serializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        var stronglyTypedId =  JsonSerializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId, SerializationFixture.JsonSerializerOptions);
         stronglyTypedId.Should().BeOfType(typeof(GuidStronglyTypedId));
         // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
-        //Fixture.Serializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId).Should().Be(inStronglyTypedIdTestData.StronglyTypedId);
-         JsonSerializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId).Should().Be(inStronglyTypedIdTestData.StronglyTypedId);
+        //SerializationFixture.Serializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId).Should().Be(inStronglyTypedIdTestData.StronglyTypedId);
+         JsonSerializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().Be(inStronglyTypedIdTestData.StronglyTypedId);
       }
       else
       {
@@ -42,15 +44,32 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
     public void GuidIdSerializeToJSON(StronglyTypedIdSerializationTestData<Guid> inStronglyTypedIdTestData)
     {
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
-      if (inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("0000") | inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("01234"))
+      if (inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("0000",System.StringComparison.InvariantCulture) )
       {
-        //Fixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
-         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        //SerializationFixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
       }
       else
       {
-        //Fixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
-         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+        //SerializationFixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+      }
+    }
+
+    [Theory]
+    [MemberData(nameof(StronglyTypedIdSerializationTestDataGenerator<int>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdSerializationTestDataGenerator<int>))]
+    public void IntIdSerializeToJSON(StronglyTypedIdSerializationTestData<int> inStronglyTypedIdTestData)
+    {
+      // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random ints, the rest are random
+      if ( inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("1234",System.StringComparison.InvariantCulture) || inStronglyTypedIdTestData.StronglyTypedId.ToString().Equals("0"))
+      {
+        //SerializationFixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+      }
+      else
+      {
+        //SerializationFixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string),"the serializer should have returned a string representation of the StronglyTypedId ");
       }
     }
 

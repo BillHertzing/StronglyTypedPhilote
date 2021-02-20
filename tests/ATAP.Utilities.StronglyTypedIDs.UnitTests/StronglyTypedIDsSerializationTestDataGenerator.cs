@@ -10,7 +10,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
   //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes
   public class StronglyTypedIdSerializationTestData<TValue>
   {
-    public IStronglyTypedId<TValue> StronglyTypedId;
+    public IStronglyTypedId<TValue>
+    StronglyTypedId;
     public string SerializedStronglyTypedId;
 
     public StronglyTypedIdSerializationTestData()

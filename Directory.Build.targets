@@ -80,7 +80,7 @@
     <Copy SourceFiles="@(JsonSettingsFiles)" DestinationFolder="$(OutDir)" />
   </Target>
 
-  <!-- Targets for multiframework publishing courtesy of
+  <!-- Targets for multiframework and multiple Runtime Identifiers publishing courtesy of
     this stackoverflow answer https://stackoverflow.com/questions/43947599/how-to-publish-for-all-target-frameworks
     this GIST:https://gist.github.com/dasMulli/b14026437468ce4b56ef93e010f24a36
     and this issue: https://github.com/dotnet/sdk/issues/9363
@@ -100,8 +100,9 @@
     <MSBuild Projects="$(MSBuildProjectFile)" Targets="PublishAll" Properties="TargetFramework=%(_PublishFramework.Identity)" />
   </Target>
 
-  <Target Name="PublishAll" DependsOnTargets="PublishProjectIfFrameworkSet;PublishProjectForAllRIDsIfTargetFrameworkSet;PublishProjectForAllFrameworksIfFrameworkUnset" />
   <Target Name="PublishProjectIfFrameworkSet" DependsOnTargets="Publish" Condition=" '$(TargetFramework)' != '' " />
+
+  <Target Name="PublishAll" DependsOnTargets="PublishProjectIfFrameworkSet;PublishProjectForAllRIDsIfTargetFrameworkSet;PublishProjectForAllFrameworksIfFrameworkUnset" />
 
   <!-- Microsoft Source Link for every project -->
   <ItemGroup>
@@ -112,9 +113,9 @@
   </ItemGroup>
 
   <!-- Include Roslyn Code Analysis for every project -->
-  <!--<ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers"></PackageReference>
-  </ItemGroup>-->
+  </ItemGroup>
 
 <!-- Centrally manage package versions for all NuGet package dependencies, courtesy of https://www.strathweb.com/2018/07/solution-wide-nuget-package-version-handling-with-msbuild-15/ -->
   <ItemGroup>
@@ -130,6 +131,9 @@
     <!-- Reactive Extensions -->
     <PackageReference Update="System.Reactive" Version="5.0.0" />
 
+    <!-- Immutable collections -->
+    <PackageReference Update="System.Collections.Immutable" Version="5.0.0" />
+
     <!-- ServiceStack  -->
     <PackageReference Update="ServiceStack" Version="5.10.4" />
     <!-- ServiceStack serializers and dump utility -->
@@ -143,6 +147,12 @@
 
     <!-- Library of rich time and interval manipulation routines -->
     <PackageReference Update="TimePeriodLibrary.NET" Version="2.1.1" />
+
+    <!-- Package to ease spawning of and communications with processes -->
+    <PackageReference Update="MedallionShell" Version="1.6.2" />
+
+    <!-- Package to use real-world Units of Measure -->
+    <PackageReference Update="UnitsNet" Version="4.77.0" />
 
     <!-- Packages necessary to run the Net Core Generic Host and web server hosts Server -->
     <PackageReference Update="Microsoft.Extensions.Configuration" Version="5.0.0" />
@@ -213,13 +223,6 @@
 
     <!-- Packages to add xUnit Testing dotnet tool -->
     <DotNetCliToolReference Update="dotnet-xunit" Version="2.3.1" />
-
-    <!-- To Be Sorted -->
-    <PackageReference Update="MedallionShell" Version="1.6.2" />
-    <PackageReference Update="UnitsNet" Version="4.77.0" />
-    <PackageReference Update="NLog" Version="4.7.0" />
-    <PackageReference Update="NLog.Config" Version="4.7.0" />
-    <PackageReference Update="System.Collections.Immutable" Version="5.0.0" />
 
   </ItemGroup>
 
