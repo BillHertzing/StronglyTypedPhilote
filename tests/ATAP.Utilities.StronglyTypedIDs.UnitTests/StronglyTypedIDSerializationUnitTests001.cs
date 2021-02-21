@@ -16,7 +16,9 @@ using System.Text.Json;
 
 namespace ATAP.Utilities.StronglyTypedId.UnitTests
 {
-
+  // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commentedout below
+  //  [CollectionDefinition(nameof(StronglyTypedIDSerializationUnitTests001), DisableParallelization = true)]
+	//  [Collection(nameof(StronglyTypedIDSerializationUnitTests001))]
   public partial class StronglyTypedIDSerializationUnitTests001 : IClassFixture<SerializationFixture>
   {
 
@@ -60,11 +62,14 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
     [MemberData(nameof(StronglyTypedIdSerializationTestDataGenerator<int>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdSerializationTestDataGenerator<int>))]
     public void IntIdSerializeToJSON(StronglyTypedIdSerializationTestData<int> inStronglyTypedIdTestData)
     {
-      // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random ints, the rest are random
+      // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
       if ( inStronglyTypedIdTestData.StronglyTypedId.ToString().StartsWith("1234",System.StringComparison.InvariantCulture) || inStronglyTypedIdTestData.StronglyTypedId.ToString().Equals("0"))
       {
         //SerializationFixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
-         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        // JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        var x = JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions);
+        var y = inStronglyTypedIdTestData.SerializedStronglyTypedId;
+        x.Should().Be(y);
       }
       else
       {

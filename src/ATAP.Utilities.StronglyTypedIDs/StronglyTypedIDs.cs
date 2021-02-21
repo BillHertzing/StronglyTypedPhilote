@@ -35,7 +35,7 @@ namespace ATAP.Utilities.StronglyTypedID {
       Value = (typeof(TValue)) switch {
         Type inttype when typeof(TValue) == typeof(int) => (TValue)(object)new Random().Next(),
         Type guidtype when typeof(TValue) == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
-        _ => throw new Exception(String.Format("Invalid TValue type {0}", typeof(TValue)))
+        _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}" ))
       };
     }
     public StronglyTypedId(TValue value) {
@@ -108,15 +108,20 @@ namespace ATAP.Utilities.StronglyTypedID {
     }
 
     public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType) {
-      if (value is null)
+      if (value is null) {
         throw new ArgumentNullException(nameof(value));
+      }
 
       var stronglyTypedId = (StronglyTypedId<TValue>)value;
       TValue idValue = stronglyTypedId.Value;
-      if (destinationType == typeof(string))
+      if (destinationType == typeof(string)) {
         return idValue.ToString()!;
-      if (destinationType == typeof(TValue))
+      }
+
+      if (destinationType == typeof(TValue)) {
         return idValue;
+      }
+
       return base.ConvertTo(context, culture, value, destinationType);
     }
   }

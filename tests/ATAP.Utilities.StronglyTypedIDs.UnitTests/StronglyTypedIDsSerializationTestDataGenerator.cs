@@ -10,9 +10,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
   //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes
   public class StronglyTypedIdSerializationTestData<TValue>
   {
-    public IStronglyTypedId<TValue>
-    StronglyTypedId;
-    public string SerializedStronglyTypedId;
+    public IStronglyTypedId<TValue>  StronglyTypedId { get; set; }
+    public string SerializedStronglyTypedId { get; set; }
 
     public StronglyTypedIdSerializationTestData()
     {
@@ -43,7 +42,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
           break;
         // ToDo: replace with new custom exception and localization of exception message
         default:
-          throw new Exception(String.Format("Invalid TValue type {0}", typeof(TValue)));
+          throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}" ));
       }
     }
 
