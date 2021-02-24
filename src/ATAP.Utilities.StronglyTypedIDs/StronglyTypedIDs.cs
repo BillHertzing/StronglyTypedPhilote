@@ -219,7 +219,7 @@ namespace ATAP.Utilities.StronglyTypedID {
         }
         else {
           // Hack, used because only ServiceStack Json serializers add extra enclosing ".
-          //  but, neither simpleJson nor NewtonSoft will serialize this at all
+          //  but, neither simpleJson nor Newtonsoft will serialize this at all
           iValue = value.Trim('"');
           success = Guid.TryParse(iValue, out Guid newValue);
           if (!success) { throw new NotSupportedException($"Guid.TryParse failed, value {value} cannot be parsed as a GUID"); }

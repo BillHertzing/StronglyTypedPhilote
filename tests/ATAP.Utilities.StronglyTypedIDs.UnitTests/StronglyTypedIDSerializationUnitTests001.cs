@@ -26,7 +26,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
       if (inStronglyTypedIdTestData.SerializedStronglyTypedId.StartsWith("\"0000", System.StringComparison.InvariantCulture) || inStronglyTypedIdTestData.SerializedStronglyTypedId.StartsWith("\"01234", System.StringComparison.InvariantCulture)) {
         // SerializationFixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
-        // JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        // JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerSettings).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
 
         var x = JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions);
         var y = inStronglyTypedIdTestData.SerializedStronglyTypedId;
@@ -45,7 +45,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
       if (inStronglyTypedIdTestData.SerializedStronglyTypedId.StartsWith("1234", System.StringComparison.InvariantCulture) || inStronglyTypedIdTestData.SerializedStronglyTypedId.Equals("0")) {
         //SerializationFixture.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
         JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);
-        // var x = JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerOptions);
+        // var x = JsonSerializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId, SerializationFixture.JsonSerializerSettings);
         // var y = inStronglyTypedIdTestData.SerializedStronglyTypedId;
         // x.Should().Be(y);
       }

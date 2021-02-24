@@ -63,6 +63,7 @@
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs\ATAP.Utilities.StronglyTypedIDs.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs.Interfaces\ATAP.Utilities.StronglyTypedIDs.Interfaces.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson.csproj" />
+    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft.csproj" />
   </ItemGroup>
 
 </Project>
