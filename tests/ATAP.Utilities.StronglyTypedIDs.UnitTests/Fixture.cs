@@ -18,6 +18,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     public JsonSerializerOptions JsonSerializerOptions { get; set; }
     public SerializationFixture() {
       JsonSerializerOptions = new JsonSerializerOptions();
+      // Add Converters
       JsonSerializerOptions.Converters.Add(new ATAP.Utilities.StronglyTypedIDs.JsonConverter.SystemTextJson.StronglyTypedIdJsonConverterFactory());
 
     }
@@ -31,10 +32,6 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     public StronglyTypedIDSerializationUnitTests001(ITestOutputHelper testOutput, SerializationFixture serializationFixture) {
       SerializationFixture = serializationFixture;
       TestOutput = testOutput;
-      // Add Converters
-      //SerializationFixture.JsonSerializerOptions.Converters.Add(new ATAP.Utilities.StronglyTypedIDs.JsonConverter.SystemTextJson.StronglyTypedIdJsonConverterFactory());
-      TestOutput.WriteLine("StronglyTypedIDSerializationUnitTests001 .ctor");
-      // SerializationFixture.JsonSerializerOptions.Converters.Add(new ATAP.Utilities.StronglyTypedIDs.JsonConverter.SystemTextJson.StronglyTypedIdJsonConverterFactory());
       // ToDo: Ensure the System.StringComparison.CurrentCulture is configured properly to match the test data, for String.StartsWith used in the tests
     }
 
