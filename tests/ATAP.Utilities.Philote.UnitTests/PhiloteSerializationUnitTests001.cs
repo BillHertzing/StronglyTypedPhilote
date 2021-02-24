@@ -14,15 +14,15 @@ using System.Text.Json;
 // For the tests that use the old Newtonsoft Serializer/Deserializer
 //using Newtonsoft.Json;
 
-namespace ATAP.Utilities.StronglyTypedId.UnitTests {
+namespace ATAP.Utilities.Philote.UnitTests {
   // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commentedout below
-  //  [CollectionDefinition(nameof(StronglyTypedIDSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
-  //  [Collection(nameof(StronglyTypedIDSerializationSystemTextJsonUnitTests001))]
-  public partial class StronglyTypedIDSerializationSystemTextJsonUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson> {
+  //  [CollectionDefinition(nameof(PhiloteSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
+  //  [Collection(nameof(PhiloteSerializationSystemTextJsonUnitTests001))]
+  public partial class PhiloteSerializationSystemTextJsonUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson> {
 
     [Theory]
-    [MemberData(nameof(GuidStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(GuidStronglyTypedIdSerializationTestDataGenerator))]
-    public void GuidIdSerializeToJSON(GuidStronglyTypedIdSerializationTestData inStronglyTypedIdTestData) {
+    [MemberData(nameof(GuidPhiloteSerializationTestDataGenerator.PhiloteSerializationTestData), MemberType = typeof(GuidPhiloteSerializationTestDataGenerator))]
+    public void GuidIdSerializeToJSON(GuidPhiloteSerializationTestData inPhiloteTestData) {
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
       if (inStronglyTypedIdTestData.SerializedStronglyTypedId.StartsWith("\"0000", System.StringComparison.InvariantCulture) || inStronglyTypedIdTestData.SerializedStronglyTypedId.StartsWith("\"01234", System.StringComparison.InvariantCulture)) {
         // SerializationFixtureSystemTextJson.Serializer.Serialize(inStronglyTypedIdTestData.StronglyTypedId).Should().Be(inStronglyTypedIdTestData.SerializedStronglyTypedId);

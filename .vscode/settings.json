@@ -38,7 +38,13 @@
       "whertzing"
   ],
   "cSpell.words": [
-      "globbing",
-      "serializers"
-  ]
+    "Mssr",
+    "Parallelization",
+    "STIDs",
+    "deserializers",
+    "globbing",
+    "serializers",
+    "stid",
+    "struct"
+]
 }
