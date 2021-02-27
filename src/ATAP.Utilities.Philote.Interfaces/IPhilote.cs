@@ -6,13 +6,13 @@ using System.Collections.Concurrent;
 
 namespace ATAP.Utilities.Philote
 {
-    public interface IGuidPhilote<T> : IPhilote<T, Guid> where T : class{}
-    public interface IIntPhilote<T> : IPhilote<T, int> where T : class{}
+    public interface IGuidPhilote<T> : IAbstractPhilote<T, Guid> where T : class{}
+    public interface IIntPhilote<T> : IAbstractPhilote<T, int> where T : class{}
 
-  public interface IPhilote<T, TValue> where T : class where TValue : notnull
+  public interface IAbstractPhilote<T, TValue> where T : class where TValue : notnull
   {
     IStronglyTypedId<TValue> ID { get; }
-    ConcurrentDictionary<string, IStronglyTypedId<TValue>> AdditionalIDs { get; }
-    IEnumerable<ITimeBlock> TimeBlocks { get; }
+    ConcurrentDictionary<string, IStronglyTypedId<TValue>>? AdditionalIDs { get; }
+    IEnumerable<ITimeBlock>? TimeBlocks { get; }
   }
 }

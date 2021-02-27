@@ -11,7 +11,7 @@ namespace ATAP.Utilities.Philote.UnitTests {
     public SerializationFixtureNewtonsoft() {
       JsonSerializerSettings = new JsonSerializerSettings();
       // Add Converters
-      JsonSerializerSettings.Converters.Add(new ATAP.Utilities.Philote.JsonConverterNewtonsoft.PhiloteNewtonsoftJsonConverter());
+      // JsonSerializerSettings.Converters.Add(new ATAP.Utilities.Philote.JsonConverterNewtonsoft.PhiloteNewtonsoftJsonConverter());
     }
   }
 
