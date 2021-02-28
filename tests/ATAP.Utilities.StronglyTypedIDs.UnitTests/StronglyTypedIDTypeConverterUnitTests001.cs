@@ -46,7 +46,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
       var converterGuid = TypeDescriptor.GetConverter(typeof(GuidStronglyTypedId));
       if (inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("0000", System.StringComparison.CurrentCulture) || inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
-        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedTestData);
         var stronglyTypedId =  converterGuid.ConvertFrom(inStronglyTypedIdTestData.StronglyTypedIdConvertedToString);
         stronglyTypedId.Should().BeOfType(typeof(GuidStronglyTypedId));
         // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
@@ -86,7 +86,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
       var converterInt = TypeDescriptor.GetConverter(typeof(IntStronglyTypedId));
       if (inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("0000", System.StringComparison.CurrentCulture) || inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
-        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<IntStronglyTypedId>(inStronglyTypedIdTestData.SerializedStronglyTypedId);
+        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<IntStronglyTypedId>(inStronglyTypedIdTestData.SerializedTestData);
         var stronglyTypedId =  converterInt.ConvertFrom(inStronglyTypedIdTestData.StronglyTypedIdConvertedToString);
         stronglyTypedId.Should().BeOfType(typeof(IntStronglyTypedId));
         // two sets of test data have fixed, non-random Integers, the rest are random

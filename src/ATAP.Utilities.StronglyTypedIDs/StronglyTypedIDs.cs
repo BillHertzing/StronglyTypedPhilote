@@ -35,7 +35,7 @@ namespace ATAP.Utilities.StronglyTypedID {
       Value = (typeof(TValue)) switch {
         Type inttype when typeof(TValue) == typeof(int) => (TValue)(object)new Random().Next(),
         Type guidtype when typeof(TValue) == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
-        _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}" ))
+        _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}"))
       };
     }
     public StronglyTypedId(TValue value) {
@@ -185,73 +185,25 @@ namespace ATAP.Utilities.StronglyTypedID {
       if (type is null) {
         throw new ArgumentNullException(nameof(type));
       }
-      if(type.IsInterface) {
+      if (type.BaseType is Type baseType &&
+            baseType.IsGenericType &&
+            baseType.GetGenericTypeDefinition() == typeof(StronglyTypedId<>)) {
+        idType = baseType.GetGenericArguments()[0];
+        return true;
+      }
+      else if (type.IsInterface) {
+        // This starts the extensions to Mssr. Lavesque's code to handle serialization of IStronglyTypedId
         if (type.IsGenericType &&
           type.GetGenericTypeDefinition() == typeof(IStronglyTypedId<>)
         ) {
           idType = type.GetGenericArguments()[0];
-           return true;
-        }
-      } else {
-        if (type.BaseType is Type baseType &&
-              baseType.IsGenericType &&
-              baseType.GetGenericTypeDefinition() == typeof(StronglyTypedId<>)) {
-          idType = baseType.GetGenericArguments()[0];
           return true;
         }
+        // This ends the extensions to Mssr. Lavesque's code to handle serialization of IStronglyTypedId
       }
       idType = null;
       return false;
     }
 
   }
-
-
-  /*
-    public struct IdAsStruct<T> : IEquatable<IdAsStruct<T>>, IIdAsStruct<T> {
-      private readonly Guid _value;
-
-      public IdAsStruct(string value) {
-        bool success;
-        string iValue;
-        if (string.IsNullOrEmpty(value)) {
-          _value = Guid.NewGuid();
-        }
-        else {
-          // Hack, used because only ServiceStack Json serializers add extra enclosing ".
-          //  but, neither simpleJson nor Newtonsoft will serialize this at all
-          iValue = value.Trim('"');
-          success = Guid.TryParse(iValue, out Guid newValue);
-          if (!success) { throw new NotSupportedException($"Guid.TryParse failed, value {value} cannot be parsed as a GUID"); }
-          _value = newValue;
-        }
-      }
-
-      public IdAsStruct(Guid value) {
-        _value = value;
-      }
-
-      public override bool Equals(object obj) {
-        return obj is IdAsStruct<T> id && Equals(id);
-      }
-
-      public bool Equals(IdAsStruct<T> other) {
-        return _value.Equals(other._value);
-      }
-
-      public override int GetHashCode() => _value.GetHashCode();
-
-      public override string ToString() {
-        return _value.ToString();
-      }
-
-      public static bool operator ==(IdAsStruct<T> left, IdAsStruct<T> right) {
-        return left.Equals(right);
-      }
-
-      public static bool operator !=(IdAsStruct<T> left, IdAsStruct<T> right) {
-        return !(left == right);
-      }
-    }
-    */
 }

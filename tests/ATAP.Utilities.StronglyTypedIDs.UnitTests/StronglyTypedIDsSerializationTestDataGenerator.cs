@@ -8,15 +8,15 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
 
   //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes
   public class StronglyTypedIdInterfaceSerializationTestData<TValue> {
-    public IStronglyTypedId<TValue> StronglyTypedId { get; set; }
-    public string SerializedStronglyTypedId { get; set; }
+    public IStronglyTypedId<TValue> InstanceTestData { get; set; }
+    public string SerializedTestData { get; set; }
 
     public StronglyTypedIdInterfaceSerializationTestData() {
     }
 
-    public StronglyTypedIdInterfaceSerializationTestData(IStronglyTypedId<TValue> stronglyTypedId, string serializedStronglyTypedId) {
-      StronglyTypedId = stronglyTypedId;
-      SerializedStronglyTypedId = serializedStronglyTypedId ?? throw new ArgumentNullException(nameof(serializedStronglyTypedId));
+    public StronglyTypedIdInterfaceSerializationTestData(IStronglyTypedId<TValue> instanceTestData, string serializedTestData) {
+      InstanceTestData = instanceTestData;
+      SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
 
@@ -24,15 +24,15 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     public static IEnumerable<object[]> StronglyTypedIdSerializationTestData() {
       switch (typeof(TValue)) {
         case Type guidType when typeof(TValue) == typeof(Guid): {
-            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { StronglyTypedId = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.Empty), SerializedStronglyTypedId = "\"00000000-0000-0000-0000-000000000000\"" } };
-            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { StronglyTypedId = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), SerializedStronglyTypedId = "\"01234567-abcd-9876-cdef-456789abcdef\"" } };
-            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { StronglyTypedId = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.NewGuid()), SerializedStronglyTypedId = "" } };
+            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { InstanceTestData = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.Empty), SerializedTestData = "\"00000000-0000-0000-0000-000000000000\"" } };
+            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { InstanceTestData = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), SerializedTestData = "\"01234567-abcd-9876-cdef-456789abcdef\"" } };
+            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { InstanceTestData = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.NewGuid()), SerializedTestData = "" } };
           }
           break;
         case Type intType when typeof(TValue) == typeof(int): {
-            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { StronglyTypedId = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new IntStronglyTypedId(0), SerializedStronglyTypedId = "0" } };
-            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { StronglyTypedId = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new IntStronglyTypedId(1234567), SerializedStronglyTypedId = "1234567" } };
-            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { StronglyTypedId = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new IntStronglyTypedId(new Random().Next()), SerializedStronglyTypedId = "" } };
+            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { InstanceTestData = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new IntStronglyTypedId(0), SerializedTestData = "0" } };
+            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { InstanceTestData = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new IntStronglyTypedId(1234567), SerializedTestData = "1234567" } };
+            yield return new StronglyTypedIdInterfaceSerializationTestData<TValue>[] { new StronglyTypedIdInterfaceSerializationTestData<TValue> { InstanceTestData = (ATAP.Utilities.StronglyTypedID.IStronglyTypedId<TValue>)new IntStronglyTypedId(new Random().Next()), SerializedTestData = "" } };
           }
           break;
         // ToDo: replace with new custom exception and localization of exception message
@@ -46,24 +46,24 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
   }
 
   public class GuidStronglyTypedIdSerializationTestData {
-    public GuidStronglyTypedId StronglyTypedId { get; set; }
-    public string SerializedStronglyTypedId { get; set; }
+    public GuidStronglyTypedId InstanceTestData { get; set; }
+    public string SerializedTestData { get; set; }
 
     public GuidStronglyTypedIdSerializationTestData() {
     }
 
-    public GuidStronglyTypedIdSerializationTestData(GuidStronglyTypedId stronglyTypedId, string serializedStronglyTypedId) {
-      StronglyTypedId = stronglyTypedId;
-      SerializedStronglyTypedId = serializedStronglyTypedId ?? throw new ArgumentNullException(nameof(serializedStronglyTypedId));
+    public GuidStronglyTypedIdSerializationTestData(GuidStronglyTypedId instanceTestData, string serializedTestData) {
+      InstanceTestData = instanceTestData;
+      SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
 
   public class GuidStronglyTypedIdSerializationTestDataGenerator : IEnumerable<object[]> {
     public static IEnumerable<object[]> StronglyTypedIdSerializationTestData() {
-      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { StronglyTypedId = new GuidStronglyTypedId(Guid.Empty), SerializedStronglyTypedId = "\"00000000-0000-0000-0000-000000000000\"" } };
-      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { StronglyTypedId = new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), SerializedStronglyTypedId = "\"01234567-abcd-9876-cdef-456789abcdef\"" } };
-      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { StronglyTypedId = new GuidStronglyTypedId(new Guid("A1234567-abcd-9876-cdef-456789abcdef")), SerializedStronglyTypedId = "\"A1234567-abcd-9876-cdef-456789abcdef\"" } };
-      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { StronglyTypedId = new GuidStronglyTypedId(Guid.NewGuid()), SerializedStronglyTypedId = "" } };
+      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { InstanceTestData = new GuidStronglyTypedId(Guid.Empty), SerializedTestData = "\"00000000-0000-0000-0000-000000000000\"" } };
+      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { InstanceTestData = new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), SerializedTestData = "\"01234567-abcd-9876-cdef-456789abcdef\"" } };
+      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { InstanceTestData = new GuidStronglyTypedId(new Guid("A1234567-abcd-9876-cdef-456789abcdef")), SerializedTestData = "\"A1234567-abcd-9876-cdef-456789abcdef\"" } };
+      yield return new GuidStronglyTypedIdSerializationTestData[] { new GuidStronglyTypedIdSerializationTestData { InstanceTestData = new GuidStronglyTypedId(Guid.NewGuid()), SerializedTestData = "" } };
     }
 
     public IEnumerator<object[]> GetEnumerator() { return StronglyTypedIdSerializationTestData().GetEnumerator(); }
@@ -71,23 +71,23 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
   }
 
   public class IntStronglyTypedIdSerializationTestData {
-    public IntStronglyTypedId StronglyTypedId { get; set; }
-    public string SerializedStronglyTypedId { get; set; }
+    public IntStronglyTypedId InstanceTestData { get; set; }
+    public string SerializedTestData { get; set; }
 
     public IntStronglyTypedIdSerializationTestData() {
     }
 
-    public IntStronglyTypedIdSerializationTestData(IntStronglyTypedId stronglyTypedId, string serializedStronglyTypedId) {
-      StronglyTypedId = stronglyTypedId;
-      SerializedStronglyTypedId = serializedStronglyTypedId ?? throw new ArgumentNullException(nameof(serializedStronglyTypedId));
+    public IntStronglyTypedIdSerializationTestData(IntStronglyTypedId instanceTestData, string serializedTestData) {
+      InstanceTestData = instanceTestData;
+      SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
 
   public class IntStronglyTypedIdSerializationTestDataGenerator : IEnumerable<object[]> {
     public static IEnumerable<object[]> StronglyTypedIdSerializationTestData() {
-      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { StronglyTypedId = new IntStronglyTypedId(0), SerializedStronglyTypedId = "0" } };
-      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { StronglyTypedId = new IntStronglyTypedId(1234567), SerializedStronglyTypedId = "1234567" } };
-      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { StronglyTypedId = new IntStronglyTypedId(new Random().Next()), SerializedStronglyTypedId = "" } };
+      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(0), SerializedTestData = "0" } };
+      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(1234567), SerializedTestData = "1234567" } };
+      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(new Random().Next()), SerializedTestData = "" } };
     }
 
     public IEnumerator<object[]> GetEnumerator() { return StronglyTypedIdSerializationTestData().GetEnumerator(); }
