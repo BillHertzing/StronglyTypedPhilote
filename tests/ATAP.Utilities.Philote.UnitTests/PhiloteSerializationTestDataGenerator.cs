@@ -21,6 +21,7 @@ namespace ATAP.Utilities.Philote.UnitTests {
       SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
+  
   public class TestClass { }
   public record TestClassGuidPhilote : AbstractPhilote<TestClass, Guid> {
     // public TestClassGuidPhilote(AbstractPhilote<TestClass, Guid> original) : base(original) {

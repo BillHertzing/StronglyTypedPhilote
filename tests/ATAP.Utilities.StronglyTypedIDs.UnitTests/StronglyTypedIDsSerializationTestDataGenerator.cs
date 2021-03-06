@@ -86,6 +86,9 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
   public class IntStronglyTypedIdSerializationTestDataGenerator : IEnumerable<object[]> {
     public static IEnumerable<object[]> StronglyTypedIdSerializationTestData() {
       yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(0), SerializedTestData = "0" } };
+      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(-1), SerializedTestData = "-1" } };
+      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(Int32.MinValue), SerializedTestData = "-2147483648" } };
+      yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(Int32.MaxValue), SerializedTestData = "2147483647" } };
       yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(1234567), SerializedTestData = "1234567" } };
       yield return new IntStronglyTypedIdSerializationTestData[] { new IntStronglyTypedIdSerializationTestData { InstanceTestData = new IntStronglyTypedId(new Random().Next()), SerializedTestData = "" } };
     }

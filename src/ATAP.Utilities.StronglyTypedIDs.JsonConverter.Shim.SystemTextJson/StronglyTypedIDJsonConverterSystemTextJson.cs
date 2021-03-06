@@ -50,33 +50,4 @@ namespace ATAP.Utilities.StronglyTypedIDs.JsonConverterSystemTextJson {
       return (System.Text.Json.Serialization.JsonConverter)Activator.CreateInstance(type);
     }
   }
-
-
-  /*
-      public class ResultConverter<T> : JsonConverter {
-      public override bool CanWrite => false;
-      public override bool CanRead => true;
-      public override bool CanConvert(Type objectType) {
-          return objectType==typeof(IdAsStruct<T>);
-      }
-
-      public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) {
-          var jsonObject = JObject.Load(reader);
-
-if(System.Diagnostics.Debugger.IsAttached)
-System.Diagnostics.Debugger.Break();
-          IdAsStruct<T> result = new IdAsStruct<T> {
-              //_value=jsonObject["_value"].Value();
-
-          };
-          return result;
-      }
-
-
-      public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) {
-          throw new InvalidOperationException("Use default serialization.");
-      }
-  }
-  */
-
 }

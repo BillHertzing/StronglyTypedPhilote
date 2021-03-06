@@ -48,7 +48,6 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
         stronglyTypedId.Should().BeEquivalentTo(inTestData.InstanceTestData);
       }
       else {
-        // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
         // ToDo: validate that strings that don't match a Guid throw an exception
       }
     }
@@ -89,13 +88,14 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [MemberData(nameof(IntStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(IntStronglyTypedIdSerializationTestDataGenerator))]
     public void IntIdSerializeToJSON(IntStronglyTypedIdSerializationTestData inTestData) {
       // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
-      if (inTestData.SerializedTestData.StartsWith("1234", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.Equals("0")) {
+      if (inTestData.SerializedTestData.Equals("-2147483648") || inTestData.SerializedTestData.Equals("-1") || inTestData.SerializedTestData.Equals("0") || inTestData.SerializedTestData.Equals("2147483647") || inTestData.SerializedTestData.Equals("1234567")) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
       }
       else {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string), "the serializer should have returned a string representation of the InstanceTestData ");
+        JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().MatchRegex("^-{0,1}\\d+$");
       }
     }
 
@@ -117,13 +117,14 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>))]
     public void IntStronglyTypedIdInterfaceSerializeToJSON(StronglyTypedIdInterfaceSerializationTestData<int> inTestData) {
-      if (inTestData.SerializedTestData.StartsWith("1234", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.Equals("0")) {
+      if (inTestData.SerializedTestData.Equals("-2147483648") || inTestData.SerializedTestData.Equals("-1") || inTestData.SerializedTestData.Equals("0") || inTestData.SerializedTestData.Equals("2147483647") || inTestData.SerializedTestData.Equals("1234567")) {
         // SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
       }
       else {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string), "the serializer should have returned a string representation of the InstanceTestData ");
+        JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().MatchRegex("^-{0,1}\\d+$");
       }
     }
 
@@ -131,9 +132,9 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [MemberData(nameof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>))]
     public void IntStronglyTypedIdInterfaceDeserializeFromJSON(StronglyTypedIdInterfaceSerializationTestData<int> inTestData) {
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
-        // ToDo: Verify that deserialization of empty null or whitespace raises an exception?
-        var t = true;
-        t.Should().BeTrue();
+        Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+        act.Should().Throw<System.Text.Json.JsonException>()
+          .WithMessage("The input does not contain any JSON tokens.*");
       }
       else {
         //SerializationFixtureSystemTextJson.Serializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData).Should().BeEquivalentTo(inTestData.InstanceTestData);
