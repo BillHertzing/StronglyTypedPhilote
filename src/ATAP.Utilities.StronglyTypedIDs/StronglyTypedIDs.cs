@@ -17,13 +17,13 @@ namespace ATAP.Utilities.StronglyTypedID {
   // Attribution 1/8/2021:[Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/)
 
 
-  public record GuidStronglyTypedId : StronglyTypedId<Guid>, IGuidStronglyTypedId {
+  public record GuidStronglyTypedId : StronglyTypedId<Guid>{
     public GuidStronglyTypedId(Guid value) : base(value) { }
     public GuidStronglyTypedId() : base() { }
     public override string ToString() => base.ToString();
 
   }
-  public record IntStronglyTypedId : StronglyTypedId<int>, IIntStronglyTypedId {
+  public record IntStronglyTypedId : StronglyTypedId<int>{
     public IntStronglyTypedId(int value) : base(value) { }
     public IntStronglyTypedId() : base() { }
     public override string ToString() => base.ToString();
@@ -180,6 +180,20 @@ namespace ATAP.Utilities.StronglyTypedID {
         return e.Types.Where(t => t != null);
       }
     }
+// Attribution: [Get all types implementing specific open generic type](https://stackoverflow.com/questions/8645430/get-all-types-implementing-specific-open-generic-type)
+    public static IEnumerable<Type> GetAllTypesImplementingOpenGenericType(this Assembly assembly, Type openGenericType)
+    {
+      return from x in assembly.GetTypes()
+        from z in x.GetInterfaces()
+        let y = x.BaseType
+        where
+          (y != null && y.IsGenericType &&
+           openGenericType.IsAssignableFrom(y.GetGenericTypeDefinition())) ||
+          (z.IsGenericType &&
+           openGenericType.IsAssignableFrom(z.GetGenericTypeDefinition()))
+        select x;
+    }
+
     private static Func<TValue, object> CreateFactory<TValue>(Type stronglyTypedIdType)
         where TValue : notnull {
       if (!IsStronglyTypedId(stronglyTypedIdType)) {
@@ -196,11 +210,13 @@ namespace ATAP.Utilities.StronglyTypedID {
         var idType = stronglyTypedIdType.GetGenericArguments()[0];
         var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
         var allTypes = loadedAssemblies.SelectMany(assembly => assembly.GetTypes());
+        var typesImplementing =
+          loadedAssemblies.SelectMany(assembly => assembly.GetAllTypesImplementingOpenGenericType(typeof (StronglyTypedId<TValue>)));
         // var GuidSTIDTypex = allTypes
-        //   .FirstOrDefault(t => t.IsAssignableFrom((typeof (StronglyTypedId<TValue>))) &&
+        //   .FirstOrDefault(t => t.IsAssignableFrom((typeof (AbstractStronglyTypedId<TValue>))) &&
         //                        t.GetInterfaces().Any(x =>
         //                          x.IsGenericType &&
-        //                          x.GetGenericTypeDefinition() == typeof(StronglyTypedId<TValue>) &&
+        //                          x.GetGenericTypeDefinition() == typeof(AbstractStronglyTypedId<TValue>) &&
         //                          x.GetGenericArguments()[0] ==  typeof(Guid)));
 
         // ToDo: wrap in a try/catch block

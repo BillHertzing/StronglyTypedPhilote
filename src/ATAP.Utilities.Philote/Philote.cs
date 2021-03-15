@@ -23,7 +23,7 @@ namespace ATAP.Utilities.Philote {
 
   public abstract record AbstractPhilote<T, TValue> : IAbstractPhilote<T, TValue> where T : class where TValue : notnull {
 
-    public AbstractPhilote(IStronglyTypedId<TValue> iD = default, ConcurrentDictionary<string, IStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
+    public  AbstractPhilote(IStronglyTypedId<TValue> iD = default, ConcurrentDictionary<string, IStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
       if (iD != default) { ID = iD; }
       else {
         ID = (typeof(TValue)) switch {
