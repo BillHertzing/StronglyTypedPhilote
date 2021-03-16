@@ -23,6 +23,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(GuidStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(GuidStronglyTypedIdSerializationTestDataGenerator))]
     public void GuidIdSerializeToJSON(GuidStronglyTypedIdSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
       if (inTestData.SerializedTestData.StartsWith("\"0000", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.StartsWith("\"01234", System.StringComparison.InvariantCulture)) {
         // SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -37,6 +39,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(GuidStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(GuidStronglyTypedIdSerializationTestDataGenerator))]
     public void GuidIdDeserializeFromJSON(GuidStronglyTypedIdSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
         Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()
@@ -55,6 +59,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(StronglyTypedIdInterfaceSerializationTestDataGenerator<Guid>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdInterfaceSerializationTestDataGenerator<Guid>))]
     public void GuidStronglyTypedIdInterfaceSerializeToJSON(StronglyTypedIdInterfaceSerializationTestData<Guid> inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
       if (inTestData.SerializedTestData.StartsWith("\"0000", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.StartsWith("\"01234", System.StringComparison.InvariantCulture)) {
         // SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -69,6 +75,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(StronglyTypedIdInterfaceSerializationTestDataGenerator<Guid>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdInterfaceSerializationTestDataGenerator<Guid>))]
     public void GuidStronglyTypedIdInterfaceDeserializeFromJSON(StronglyTypedIdInterfaceSerializationTestData<Guid> inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
         Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()
@@ -87,6 +95,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(IntStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(IntStronglyTypedIdSerializationTestDataGenerator))]
     public void IntIdSerializeToJSON(IntStronglyTypedIdSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
       if (inTestData.SerializedTestData.Equals("-2147483648") || inTestData.SerializedTestData.Equals("-1") || inTestData.SerializedTestData.Equals("0") || inTestData.SerializedTestData.Equals("2147483647") || inTestData.SerializedTestData.Equals("1234567")) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -102,6 +112,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(IntStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(IntStronglyTypedIdSerializationTestDataGenerator))]
     public void IntIdDeserializeFromJSON(IntStronglyTypedIdSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
         Action act = () => JsonSerializer.Deserialize<IntStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()
@@ -117,6 +129,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>))]
     public void IntStronglyTypedIdInterfaceSerializeToJSON(StronglyTypedIdInterfaceSerializationTestData<int> inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (inTestData.SerializedTestData.Equals("-2147483648") || inTestData.SerializedTestData.Equals("-1") || inTestData.SerializedTestData.Equals("0") || inTestData.SerializedTestData.Equals("2147483647") || inTestData.SerializedTestData.Equals("1234567")) {
         // SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -131,6 +145,8 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     [Theory]
     [MemberData(nameof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>.StronglyTypedIdSerializationTestData), MemberType = typeof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>))]
     public void IntStronglyTypedIdInterfaceDeserializeFromJSON(StronglyTypedIdInterfaceSerializationTestData<int> inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
         Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()

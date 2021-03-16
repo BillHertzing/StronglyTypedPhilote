@@ -11,7 +11,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     public SerializationFixtureSystemTextJson() {
       JsonSerializerOptions = new JsonSerializerOptions();
       // Add Converters
-      JsonSerializerOptions.Converters.Add(new ATAP.Utilities.StronglyTypedIDs.JsonConverterSystemTextJson.StronglyTypedIdJsonConverterFactory());
+      JsonSerializerOptions.Converters.Add(new ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory());
     }
   }
 

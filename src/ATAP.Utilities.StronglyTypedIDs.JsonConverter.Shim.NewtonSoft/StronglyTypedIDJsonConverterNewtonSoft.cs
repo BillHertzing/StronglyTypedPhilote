@@ -1,12 +1,14 @@
 using System;
-using Newtonsoft.Json;
 using System.Collections.Concurrent;
+
 using ATAP.Utilities.StronglyTypedID;
 
-namespace ATAP.Utilities.StronglyTypedIDs.JsonConverterNewtonsoft {
+using Newtonsoft.Json;
+
+namespace ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft {
   // Attribution https://thomaslevesque.com/2020/12/07/csharp-9-records-as-strongly-typed-ids-part-3-json-serialization/
 
-  public class StronglyTypedIdNewtonsoftJsonConverter : Newtonsoft.Json.JsonConverter {
+  public class StronglyTypedIdJsonConverter : Newtonsoft.Json.JsonConverter {
     private static readonly ConcurrentDictionary<Type, Newtonsoft.Json.JsonConverter> Cache = new();
 
     public override bool CanConvert(Type objectType) {
@@ -37,12 +39,12 @@ namespace ATAP.Utilities.StronglyTypedIDs.JsonConverterNewtonsoft {
         throw new InvalidOperationException($"Cannot create converter for '{objectType}'");
       }
 
-      var type = typeof(StronglyTypedIdNewtonsoftJsonConverter<,>).MakeGenericType(objectType, valueType);
+      var type = typeof(StronglyTypedIdJsonConverter<,>).MakeGenericType(objectType, valueType);
       return (Newtonsoft.Json.JsonConverter)Activator.CreateInstance(type);
     }
   }
 
-  public class StronglyTypedIdNewtonsoftJsonConverter<TStronglyTypedId, TValue> : JsonConverter<TStronglyTypedId>
+  public class StronglyTypedIdJsonConverter<TStronglyTypedId, TValue> : JsonConverter<TStronglyTypedId>
       where TStronglyTypedId : StronglyTypedId<TValue>
       where TValue : notnull {
     public override TStronglyTypedId ReadJson(JsonReader reader, Type objectType, TStronglyTypedId existingValue, bool hasExistingValue, JsonSerializer serializer) {

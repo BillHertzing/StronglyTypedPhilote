@@ -1,12 +1,9 @@
 
 using System;
-
-using ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft;
-
 using Newtonsoft.Json;
 using Xunit.Abstractions;
 
-namespace ATAP.Utilities.StronglyTypedId.UnitTests {
+namespace ATAP.Utilities.Collection.UnitTests {
   // The SerializationFixtureSystemTextJson can only be setup one time, before all tests are run
   //  because JsonSerializerSettings cannot be modified after any Serialization/Deserialization operations have been performed
   public class SerializationFixtureNewtonsoft {
@@ -14,15 +11,17 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     public SerializationFixtureNewtonsoft() {
       JsonSerializerSettings = new JsonSerializerSettings();
       // Add Converters
-      JsonSerializerSettings.Converters.Add(new ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft.StronglyTypedIdJsonConverter());
+      JsonSerializerSettings.Converters.Add(new ATAP.Utilities.JsonConverterNewtonsoft.StronglyTypedIdJsonConverter());
+      JsonSerializerSettings.Converters.Add(new ATAP.Utilities.JsonConverterNewtonsoft.PhiloteJsonConverter());
+
     }
   }
 
-  public partial class StronglyTypedIDSerializationNewtonsoftUnitTests001 {
+  public partial class CollectionExtensionSerializationNewtonsoftUnitTests001 {
     protected SerializationFixtureNewtonsoft SerializationFixture { get; }
     protected ITestOutputHelper TestOutput { get; }
 
-    public StronglyTypedIDSerializationNewtonsoftUnitTests001(ITestOutputHelper testOutput, SerializationFixtureNewtonsoft serializationFixture) {
+    public CollectionExtensionSerializationNewtonsoftUnitTests001(ITestOutputHelper testOutput, SerializationFixtureNewtonsoft serializationFixture) {
       SerializationFixture = serializationFixture;
       TestOutput = testOutput;
       // ToDo: Ensure the System.StringComparison.CurrentCulture is configured properly to match the test data, for String.StartsWith used in the tests

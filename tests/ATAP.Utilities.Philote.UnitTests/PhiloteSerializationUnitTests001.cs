@@ -24,6 +24,8 @@ namespace ATAP.Utilities.Philote.UnitTests {
     [Theory]
     [MemberData(nameof(TestClassWithIntPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassWithIntPhiloteSerializationTestDataGenerator))]
     public void TestClassWithIntPhiloteSerializeToJson(TestClassWithIntPhiloteSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647),").Success ) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -37,6 +39,8 @@ namespace ATAP.Utilities.Philote.UnitTests {
     [Theory]
     [MemberData(nameof(TestClassWithGuidPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassWithGuidPhiloteSerializationTestDataGenerator))]
     public void TestClassWithGuidPhiloteSerializeToJson(TestClassWithGuidPhiloteSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success ) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -50,6 +54,8 @@ namespace ATAP.Utilities.Philote.UnitTests {
     [Theory]
     [MemberData(nameof(TestClassWithIntIPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassWithIntIPhiloteSerializationTestDataGenerator))]
     public void TestClassWithIntIPhiloteSerializeToJson(TestClassWithIntIPhiloteSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647),").Success ) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -147,6 +153,8 @@ namespace ATAP.Utilities.Philote.UnitTests {
     [Theory]
     [MemberData(nameof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator))]
     public void GuidPhiloteInterfaceSerializeToJson(TestClassGuidPhiloteInterfaceSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
       if (inTestData.SerializedTestData.StartsWith("{\"ID\":\"0000", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.StartsWith("{\"ID\":\"01234", System.StringComparison.InvariantCulture)) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -159,9 +167,12 @@ namespace ATAP.Utilities.Philote.UnitTests {
     }
 
     [Theory]
-    [MemberData(nameof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator))]
+    [MemberData(nameof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator.TestData),
+      MemberType = typeof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator))]
     public void GuidPhiloteInterfaceDeserializeFromJson(TestClassGuidPhiloteInterfaceSerializationTestData inTestData) {
-      if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+    if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
         Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()
           .WithMessage("The input does not contain any JSON tokens.*");
@@ -179,6 +190,8 @@ namespace ATAP.Utilities.Philote.UnitTests {
     [Theory]
     [MemberData(nameof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator))]
     public void IntPhiloteInterfaceSerializeToJson(TestClassIntPhiloteInterfaceSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
       if (inTestData.SerializedTestData.StartsWith("1234", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.Equals("0")) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -194,6 +207,8 @@ namespace ATAP.Utilities.Philote.UnitTests {
     [Theory]
     [MemberData(nameof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator))]
     public void IntPhiloteInterfaceDeserializeFromJson(TestClassIntPhiloteInterfaceSerializationTestData inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
         Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()

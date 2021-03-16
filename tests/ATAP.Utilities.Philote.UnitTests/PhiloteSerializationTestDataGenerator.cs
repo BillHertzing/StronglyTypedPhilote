@@ -216,7 +216,7 @@ public class TestClassWithIntIPhiloteSerializationTestDataGenerator : IEnumerabl
     IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
   }
 
-  public class TestClassWithPhilote<TValue>  {
+  public class TestClassWithPhilote<TValue> where TValue:notnull  {
     public TestClassWithPhilote(AbstractPhilote<TestClassWithPhilote<TValue>, TValue> philote = default) {
       Philote = philote ?? throw new ArgumentNullException(nameof(philote));
     }
@@ -224,7 +224,7 @@ public class TestClassWithIntIPhiloteSerializationTestDataGenerator : IEnumerabl
     public string Name { get; set; }
     public AbstractPhilote<TestClassWithPhilote<TValue>, TValue> Philote { get; init; }
   }
-  public class TestClassWithPhiloteSerializationTestData<TValue>  {
+  public class TestClassWithPhiloteSerializationTestData<TValue> where TValue : notnull {
     public TestClassWithPhiloteSerializationTestData(TestClassWithPhilote<TValue> instanceTestData = null,
       string serializedTestData = null) {
       InstanceTestData = instanceTestData ?? throw new ArgumentNullException(nameof(instanceTestData));

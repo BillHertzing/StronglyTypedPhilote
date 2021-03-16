@@ -42,15 +42,15 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
 
     [Theory]
     [MemberData(nameof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>.StronglyTypedIdTypeConverterTestData), MemberType = typeof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>))]
-    public void GuidIdConvertFromString(StronglyTypedIdTypeConverterTestData<Guid> inStronglyTypedIdTestData) {
+    public void GuidIdConvertFromString(StronglyTypedIdTypeConverterTestData<Guid> inTestData) {
       var converterGuid = TypeDescriptor.GetConverter(typeof(GuidStronglyTypedId));
-      if (inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("0000", System.StringComparison.CurrentCulture) || inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("01234", System.StringComparison.CurrentCulture))
+      if (inTestData.SerializedTestData.StartsWith("0000", System.StringComparison.CurrentCulture) || inTestData.SerializedTestData.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
-        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<GuidStronglyTypedId>(inStronglyTypedIdTestData.SerializedTestData);
-        var stronglyTypedId =  converterGuid.ConvertFrom(inStronglyTypedIdTestData.StronglyTypedIdConvertedToString);
+        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData);
+        var stronglyTypedId =  converterGuid.ConvertFrom(inTestData.SerializedTestData);
         stronglyTypedId.Should().BeOfType(typeof(GuidStronglyTypedId));
         // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
-         stronglyTypedId.Should().Be(inStronglyTypedIdTestData.StronglyTypedId);
+         stronglyTypedId.Should().Be(inTestData.InstanceTestData);
       }
       else
       {
@@ -60,17 +60,19 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
 
     [Theory]
     [MemberData(nameof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>.StronglyTypedIdTypeConverterTestData), MemberType = typeof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>))]
-    public void GuidIdConvertToString(StronglyTypedIdTypeConverterTestData<Guid> inStronglyTypedIdTestData)
+    public void GuidIdConvertToString(StronglyTypedIdTypeConverterTestData<Guid> inTestData)
     {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       var converterGuid = TypeDescriptor.GetConverter(typeof(GuidStronglyTypedId));
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
-      if (inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("0000", System.StringComparison.CurrentCulture) || inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("01234", System.StringComparison.CurrentCulture))
+      if (inTestData.SerializedTestData.StartsWith("0000", System.StringComparison.CurrentCulture) || inTestData.SerializedTestData.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
-         converterGuid.ConvertTo(inStronglyTypedIdTestData.StronglyTypedId,typeof(string)).Should().Be(inStronglyTypedIdTestData.StronglyTypedIdConvertedToString);
+         converterGuid.ConvertTo(inTestData.InstanceTestData,typeof(string)).Should().Be(inTestData.SerializedTestData);
       }
       else
       {
-         ((string)converterGuid.ConvertTo(inStronglyTypedIdTestData.StronglyTypedId,typeof(string))).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+         ((string)converterGuid.ConvertTo(inTestData.InstanceTestData,typeof(string))).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
       }
     }
 
@@ -82,15 +84,17 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
 
     [Theory]
     [MemberData(nameof(StronglyTypedIdTypeConverterTestDataGenerator<int>.StronglyTypedIdTypeConverterTestData), MemberType = typeof(StronglyTypedIdTypeConverterTestDataGenerator<int>))]
-    public void IntIdConvertFromString(StronglyTypedIdTypeConverterTestData<int> inStronglyTypedIdTestData) {
+    public void IntIdConvertFromString(StronglyTypedIdTypeConverterTestData<int> inTestData) {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       var converterInt = TypeDescriptor.GetConverter(typeof(IntStronglyTypedId));
-      if (inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("0000", System.StringComparison.CurrentCulture) || inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.StartsWith("01234", System.StringComparison.CurrentCulture))
+      if (inTestData.SerializedTestData.StartsWith("0000", System.StringComparison.CurrentCulture) || inTestData.SerializedTestData.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
-        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<IntStronglyTypedId>(inStronglyTypedIdTestData.SerializedTestData);
-        var stronglyTypedId =  converterInt.ConvertFrom(inStronglyTypedIdTestData.StronglyTypedIdConvertedToString);
+        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<IntStronglyTypedId>(inTestData.SerializedTestData);
+        var stronglyTypedId =  converterInt.ConvertFrom(inTestData.SerializedTestData);
         stronglyTypedId.Should().BeOfType(typeof(IntStronglyTypedId));
         // two sets of test data have fixed, non-random Integers, the rest are random
-         stronglyTypedId.Should().Be(inStronglyTypedIdTestData.StronglyTypedId);
+         stronglyTypedId.Should().Be(inTestData.InstanceTestData);
       }
       else
       {
@@ -100,13 +104,15 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
 
     [Theory]
     [MemberData(nameof(StronglyTypedIdTypeConverterTestDataGenerator<int>.StronglyTypedIdTypeConverterTestData), MemberType = typeof(StronglyTypedIdTypeConverterTestDataGenerator<int>))]
-    public void IntIdConvertToString(StronglyTypedIdTypeConverterTestData<int> inStronglyTypedIdTestData)
+    public void IntIdConvertToString(StronglyTypedIdTypeConverterTestData<int> inTestData)
     {
+      // ToDo low priority localize the unit test's exception's message
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       var converterInt = TypeDescriptor.GetConverter(typeof(IntStronglyTypedId));
       // two sets of test data have fixed, non-random Integers, the rest are random
-      if (inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.Equals("0") || inStronglyTypedIdTestData.StronglyTypedIdConvertedToString.Equals("1234567"))
+      if (inTestData.SerializedTestData.Equals("0") || inTestData.SerializedTestData.Equals("1234567"))
       {
-         converterInt.ConvertTo(inStronglyTypedIdTestData.StronglyTypedId,typeof(string)).Should().Be(inStronglyTypedIdTestData.StronglyTypedIdConvertedToString);
+         converterInt.ConvertTo(inTestData.InstanceTestData,typeof(string)).Should().Be(inTestData.SerializedTestData);
       }
       else
       {
