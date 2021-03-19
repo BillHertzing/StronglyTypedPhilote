@@ -16,15 +16,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2823B9F0-63E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{302E7130-63E6-11EB-9BA9-63DCC0897BD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIDs.Interfaces", "src\ATAP.Utilities.StronglyTypedIDs.Interfaces\ATAP.Utilities.StronglyTypedIDs.Interfaces.csproj", "{A2D52831-6F3B-4182-8ECD-98961644815C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIds.Interfaces", "src\ATAP.Utilities.StronglyTypedIds.Interfaces\ATAP.Utilities.StronglyTypedIds.Interfaces.csproj", "{A2D52831-6F3B-4182-8ECD-98961644815C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIDs", "src\ATAP.Utilities.StronglyTypedIDs\ATAP.Utilities.StronglyTypedIDs.csproj", "{7499DE6B-67FE-495A-8EF9-82A0C16DD794}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIds", "src\ATAP.Utilities.StronglyTypedIds\ATAP.Utilities.StronglyTypedIds.csproj", "{7499DE6B-67FE-495A-8EF9-82A0C16DD794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson", "src\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson.csproj", "{37234B89-F841-46BB-A776-BA19313DA86E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson", "src\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.csproj", "{37234B89-F841-46BB-A776-BA19313DA86E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIDs.UnitTests", "tests\ATAP.Utilities.StronglyTypedIDs.UnitTests\ATAP.Utilities.StronglyTypedIDs.UnitTests.csproj", "{F727EE86-DA2D-4017-B861-DED703F2FC26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIds.UnitTests", "tests\ATAP.Utilities.StronglyTypedIDs.UnitTests\ATAP.Utilities.StronglyTypedIds.UnitTests.csproj", "{F727EE86-DA2D-4017-B861-DED703F2FC26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft", "src\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft.csproj", "{DB5C8AAE-697D-49BF-8C17-1E0F07302167}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft", "src\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft.csproj", "{DB5C8AAE-697D-49BF-8C17-1E0F07302167}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATAP.Utilities.Philote.Interfaces", "src\ATAP.Utilities.Philote.Interfaces\ATAP.Utilities.Philote.Interfaces.csproj", "{803BB93D-6152-40D1-968C-CD44CEF88379}"
 EndProject

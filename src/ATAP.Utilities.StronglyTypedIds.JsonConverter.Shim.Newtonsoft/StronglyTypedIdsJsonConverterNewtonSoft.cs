@@ -5,7 +5,7 @@ using ATAP.Utilities.StronglyTypedID;
 
 using Newtonsoft.Json;
 
-namespace ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft {
+namespace ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft {
   // Attribution https://thomaslevesque.com/2020/12/07/csharp-9-records-as-strongly-typed-ids-part-3-json-serialization/
 
   public class StronglyTypedIdJsonConverter : Newtonsoft.Json.JsonConverter {

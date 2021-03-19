@@ -60,10 +60,10 @@
 
 
     <ItemGroup>
-    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs\ATAP.Utilities.StronglyTypedIDs.csproj" />
-    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs.Interfaces\ATAP.Utilities.StronglyTypedIDs.Interfaces.csproj" />
-    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.SystemTextJson.csproj" />
-    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft\ATAP.Utilities.StronglyTypedIDs.JsonConverter.Shim.Newtonsoft.csproj" />
+    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds\ATAP.Utilities.StronglyTypedIds.csproj" />
+    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.Interfaces\ATAP.Utilities.StronglyTypedIds.Interfaces.csproj" />
+    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.csproj" />
+    <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.Philote\ATAP.Utilities.Philote.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.Philote.Interfaces\ATAP.Utilities.Philote.Interfaces.csproj" />
     <!-- <ProjectReference Include="..\..\src\ATAP.Utilities.Philote.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.Philote.JsonConverter.Shim.SystemTextJson.csproj" /> -->

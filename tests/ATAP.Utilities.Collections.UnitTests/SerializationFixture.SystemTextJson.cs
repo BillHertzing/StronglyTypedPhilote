@@ -11,8 +11,8 @@ namespace ATAP.Utilities.Collection.UnitTests {
     public SerializationFixtureSystemTextJson() {
       JsonSerializerOptions = new JsonSerializerOptions();
       // Add Converters
-      JsonSerializerOptions.Converters.Add(new ATAP.Utilities.Serializer.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory());
-      JsonSerializerOptions.Converters.Add(new ATAP.Utilities.Serializer.Shim.SystemTextJson.PhiloteJsonConverterFactory());
+      JsonSerializerOptions.Converters.Add(new ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory());
+      //JsonSerializerOptions.Converters.Add(new ATAP.Utilities.Philote.JsonConverter.Shim.SystemTextJson.PhiloteJsonConverterFactory());
     }
   }
 

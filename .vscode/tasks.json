@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/tests/ATAP.Utilities.StronglyTypedIDs.UnitTests/ATAP.Utilities.StronglyTypedIDs.UnitTests.csproj",
+                "${workspaceFolder}/tests/ATAP.Utilities.StronglyTypedIds.UnitTests/ATAP.Utilities.StronglyTypedIds.UnitTests.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/tests/ATAP.Utilities.StronglyTypedIDs.UnitTests/ATAP.Utilities.StronglyTypedIDs.UnitTests.csproj",
+                "${workspaceFolder}/tests/ATAP.Utilities.StronglyTypedIds.UnitTests/ATAP.Utilities.StronglyTypedIds.UnitTests.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/tests/ATAP.Utilities.StronglyTypedIDs.UnitTests/ATAP.Utilities.StronglyTypedIDs.UnitTests.csproj",
+                "${workspaceFolder}/tests/ATAP.Utilities.StronglyTypedIds.UnitTests/ATAP.Utilities.StronglyTypedIds.UnitTests.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
