@@ -21,6 +21,7 @@ namespace ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson {
       return (TStronglyTypedId)factory(value);
     }
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA1062:Seems like it could not happen", Justification = "No Internet examples show this test being done. performance.")]
     public override void Write(Utf8JsonWriter writer, TStronglyTypedId value, JsonSerializerOptions options) {
       if (value is null) {
         writer.WriteNullValue();
