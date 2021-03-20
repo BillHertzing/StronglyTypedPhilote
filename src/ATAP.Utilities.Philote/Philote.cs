@@ -21,7 +21,7 @@ namespace ATAP.Utilities.Philote {
   //   public override string ToString() => base.ToString();
   // }
 
-  public abstract record AbstractPhilote<T, TValue> : IAbstractPhilote<T, TValue> where T : class where TValue : notnull {
+  public abstract record AbstractPhilote<T, TValue> : IAbstractPhilote<T, TValue> where T : StronglyTypedId<TValue> where TValue : notnull {
 
     public  AbstractPhilote(IStronglyTypedId<TValue> iD = default, ConcurrentDictionary<string, IStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
       if (iD != default) { ID = iD; }
