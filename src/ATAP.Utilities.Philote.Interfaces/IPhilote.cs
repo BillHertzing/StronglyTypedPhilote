@@ -1,5 +1,5 @@
 using System;
-using ATAP.Utilities.StronglyTypedID;
+using ATAP.Utilities.StronglyTypedIds;
 using Itenso.TimePeriod;
 using System.Collections.Generic;
 using System.Collections.Concurrent;

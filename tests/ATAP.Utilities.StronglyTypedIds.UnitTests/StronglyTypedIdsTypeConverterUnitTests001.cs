@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ATAP.Utilities.StronglyTypedID;
+using ATAP.Utilities.StronglyTypedIds;
 using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
@@ -14,10 +14,10 @@ using System.Text.Json;
 // For the tests that use the old Newtonsoft Serializer/Deserializer
 //using Newtonsoft.Json;
 
-namespace ATAP.Utilities.StronglyTypedId.UnitTests
+namespace ATAP.Utilities.StronglyTypedIds.UnitTests
 {
 
-  public partial class StronglyTypedIDTypeConverterUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson>
+  public partial class StronglyTypedIdTypeConverterUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson>
   {
 
     [Fact]
@@ -35,14 +35,15 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
       converterInt.CanConvertFrom(typeof(int)).Should().Be(true);
     }
     [Fact]
-    public void GuidIDToStringTest() {
-      var guidStronglyTypedID = new GuidStronglyTypedId();
-      guidStronglyTypedID.ToString().Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+    public void GuidIdToStringTest() {
+      var guidStronglyTypedId = new GuidStronglyTypedId();
+      guidStronglyTypedId.ToString().Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
     }
 
     [Theory]
     [MemberData(nameof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>.StronglyTypedIdTypeConverterTestData), MemberType = typeof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>))]
     public void GuidIdConvertFromString(StronglyTypedIdTypeConverterTestData<Guid> inTestData) {
+      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       var converterGuid = TypeDescriptor.GetConverter(typeof(GuidStronglyTypedId));
       if (inTestData.SerializedTestData.StartsWith("0000", System.StringComparison.CurrentCulture) || inTestData.SerializedTestData.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
@@ -77,9 +78,9 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests
     }
 
     [Fact]
-    public void IntIDToStringTest() {
-      var intStronglyTypedID = new IntStronglyTypedId();
-      intStronglyTypedID.ToString().Should().MatchRegex("^\\d+$");
+    public void IntIdToStringTest() {
+      var intStronglyTypedId = new IntStronglyTypedId();
+      intStronglyTypedId.ToString().Should().MatchRegex("^\\d+$");
     }
 
     [Theory]

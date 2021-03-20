@@ -16,8 +16,8 @@ using System.Text.Json;
 
 namespace ATAP.Utilities.Collection.UnitTests {
   // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commentedout below
-  //  [CollectionDefinition(nameof(StronglyTypedIDSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
-  //  [Collection(nameof(StronglyTypedIDSerializationSystemTextJsonUnitTests001))]
+  //  [CollectionDefinition(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
+  //  [Collection(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001))]
   public partial class CollectionExtensionSerializationSystemTextJsonUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson> {
 
     [Theory]

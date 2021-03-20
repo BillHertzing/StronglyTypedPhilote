@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using ATAP.Utilities.Philote;
-using ATAP.Utilities.StronglyTypedID;
+using ATAP.Utilities.StronglyTypedIds;
 using System.Collections.Concurrent;
 using Itenso.TimePeriod;
 

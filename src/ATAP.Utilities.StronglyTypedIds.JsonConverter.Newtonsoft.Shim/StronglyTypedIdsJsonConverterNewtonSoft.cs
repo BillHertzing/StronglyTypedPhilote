@@ -9,7 +9,7 @@ namespace ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim {
   // Attribution https://thomaslevesque.com/2020/12/07/csharp-9-records-as-strongly-typed-ids-part-3-json-serialization/
 
   public class StronglyTypedIdJsonConverter : JsonConverter {
-    private static readonly ConcurrentDictionary<Type, Newtonsoft.Json.JsonConverter> Cache = new();
+    private static readonly ConcurrentDictionary<Type, global::Newtonsoft.Json.JsonConverter> Cache = new();
 
     public override bool CanConvert(Type objectType) {
       return StronglyTypedIdHelper.IsStronglyTypedId(objectType);

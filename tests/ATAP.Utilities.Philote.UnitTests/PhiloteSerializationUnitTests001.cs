@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ATAP.Utilities.StronglyTypedID;
+using ATAP.Utilities.StronglyTypedIds;
 using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
@@ -72,7 +72,7 @@ namespace ATAP.Utilities.Philote.UnitTests {
     public void GuidPhiloteInterfaceSerializeToJson(TestClassGuidPhiloteInterfaceSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
-      // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
+      // new StronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
       if (inTestData.SerializedTestData.StartsWith("{\"ID\":\"0000", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.StartsWith("{\"ID\":\"01234", System.StringComparison.InvariantCulture)) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -109,7 +109,7 @@ namespace ATAP.Utilities.Philote.UnitTests {
     public void IntPhiloteInterfaceSerializeToJson(TestClassIntPhiloteInterfaceSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
-      // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
+      // new StronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
       if (inTestData.SerializedTestData.StartsWith("1234", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.Equals("0")) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -189,7 +189,7 @@ namespace ATAP.Utilities.Philote.UnitTests {
     // [Theory]
     // [MemberData(nameof(IntTestDataGenerator.TestData), MemberType = typeof(IntTestDataGenerator))]
     // public void IntIdSerializeToJSON(IntTestData inTestData) {
-    //   // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
+    //   // new StronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
     //   if (inTestData.SerializedStronglyTypedId.StartsWith("1234", System.StringComparison.InvariantCulture) || inTestData.SerializedStronglyTypedId.Equals("0")) {
     //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
     //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <DefaultItemExcludes>StronglyTypedIDJsonConverterNewtonSoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
+    <DefaultItemExcludes>StronglyTypedIdsJsonConverterNewtonSoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
 
   </PropertyGroup>
   <PropertyGroup>

@@ -1,7 +1,7 @@
 
 using System;
 
-using ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft;
+using ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim;
 
 using Newtonsoft.Json;
 using Xunit.Abstractions;
@@ -14,7 +14,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     public SerializationFixtureNewtonsoft() {
       JsonSerializerSettings = new JsonSerializerSettings();
       // Add Converters
-      JsonSerializerSettings.Converters.Add(new ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.Newtonsoft.StronglyTypedIdJsonConverter());
+      JsonSerializerSettings.Converters.Add(new ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.StronglyTypedIdJsonConverter());
     }
   }
 

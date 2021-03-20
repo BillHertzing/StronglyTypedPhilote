@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ATAP.Utilities.StronglyTypedID;
+using ATAP.Utilities.StronglyTypedIds;
 using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
@@ -14,11 +14,11 @@ using System.Text.Json;
 // For the tests that use the old Newtonsoft Serializer/Deserializer
 //using Newtonsoft.Json;
 
-namespace ATAP.Utilities.StronglyTypedId.UnitTests {
+namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
   // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commentedout below
-  //  [CollectionDefinition(nameof(StronglyTypedIDSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
-  //  [Collection(nameof(StronglyTypedIDSerializationSystemTextJsonUnitTests001))]
-  public partial class StronglyTypedIDSerializationSystemTextJsonUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson> {
+  //  [CollectionDefinition(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
+  //  [Collection(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001))]
+  public partial class StronglyTypedIdSerializationSystemTextJsonUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson> {
 
     [Theory]
     [MemberData(nameof(GuidStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(GuidStronglyTypedIdSerializationTestDataGenerator))]
@@ -97,7 +97,7 @@ namespace ATAP.Utilities.StronglyTypedId.UnitTests {
     public void IntIdSerializeToJSON(IntStronglyTypedIdSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
-      // new StronglyTypedID<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
+      // new StronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
       if (inTestData.SerializedTestData.Equals("-2147483648") || inTestData.SerializedTestData.Equals("-1") || inTestData.SerializedTestData.Equals("0") || inTestData.SerializedTestData.Equals("2147483647") || inTestData.SerializedTestData.Equals("1234567")) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
