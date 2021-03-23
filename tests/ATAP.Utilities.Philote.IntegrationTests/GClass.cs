@@ -6,9 +6,11 @@ using ATAP.Utilities.StronglyTypedIds;
 using Itenso.TimePeriod;
 namespace ATAP.Utilities.Philote.IntegrationTests {
 
+  public record GCommentId<TValue> : AbstractStronglyTypedId<TValue>, IStronglyTypedId<TValue> where TValue : notnull {
+    public GCommentId(TValue value ) :base (value) {}
+}
   public interface IGCommentPhilote<TValue> : IAbstractPhilote<GComment<TValue>, TValue> where TValue : notnull  {}
-
-  public record GCommentPhilote<TValue> : AbstractPhilote<GComment<TValue>, TValue>, IGCommentPhilote<TValue>
+  public record GCommentPhilote<TValue> : AbstractPhilote<GCommentId<TValue>, TValue>, IAbstractPhilote<GComment<TValue>, TValue>, IGCommentPhilote<TValue>
     where TValue : notnull {
     public GCommentPhilote(IStronglyTypedId<TValue> iD = default, ConcurrentDictionary<string, IStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
       if (iD != default) { ID = iD; }

@@ -17,31 +17,31 @@ namespace ATAP.Utilities.StronglyTypedIds{
   // Attribution 1/8/2021:[Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/)
 
 
-  public record GuidStronglyTypedId : StronglyTypedId<Guid>{
+  public record GuidStronglyTypedId : AbstractStronglyTypedId<Guid>{
     public GuidStronglyTypedId(Guid value) : base(value) { }
     public GuidStronglyTypedId() : base() { }
     public override string ToString() => base.ToString();
 
   }
-  public record IntStronglyTypedId : StronglyTypedId<int>{
+  public record IntStronglyTypedId : AbstractStronglyTypedId<int>{
     public IntStronglyTypedId(int value) : base(value) { }
     public IntStronglyTypedId() : base() { }
     public override string ToString() => base.ToString();
   }
 
   [TypeConverter(typeof(StronglyTypedIdConverter))]
-  public abstract record StronglyTypedId<TValue> : IStronglyTypedId<TValue> where TValue : notnull {
+  public abstract record AbstractStronglyTypedId<TValue> : IStronglyTypedId<TValue> where TValue : notnull {
     public TValue Value { get; init; }
     public override string ToString() { var str = Value.ToString(); return str; }
 
-    public StronglyTypedId() {
+    public AbstractStronglyTypedId() {
       Value = (typeof(TValue)) switch {
         Type inttype when typeof(TValue) == typeof(int) => (TValue)(object)new Random().Next(),
         Type guidtype when typeof(TValue) == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
         _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}"))
       };
     }
-    public StronglyTypedId(TValue value) {
+    public AbstractStronglyTypedId(TValue value) {
       Value = value;
     }
 
@@ -115,7 +115,7 @@ namespace ATAP.Utilities.StronglyTypedIds{
         throw new ArgumentNullException(nameof(value));
       }
 
-      var stronglyTypedId = (StronglyTypedId<TValue>)value;
+      var stronglyTypedId = (AbstractStronglyTypedId<TValue>)value;
       TValue idValue = stronglyTypedId.Value;
       if (destinationType == typeof(string)) {
         return idValue.ToString()!;
@@ -211,7 +211,7 @@ namespace ATAP.Utilities.StronglyTypedIds{
         var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
         var allTypes = loadedAssemblies.SelectMany(assembly => assembly.GetTypes());
         var typesImplementing =
-          loadedAssemblies.SelectMany(assembly => assembly.GetAllTypesImplementingOpenGenericType(typeof (StronglyTypedId<TValue>)));
+          loadedAssemblies.SelectMany(assembly => assembly.GetAllTypesImplementingOpenGenericType(typeof (AbstractStronglyTypedId<TValue>)));
         // var GuidSTIDTypex = allTypes
         //   .FirstOrDefault(t => t.IsAssignableFrom((typeof (AbstractStronglyTypedId<TValue>))) &&
         //                        t.GetInterfaces().Any(x =>
@@ -261,7 +261,7 @@ namespace ATAP.Utilities.StronglyTypedIds{
       }
       if (type.BaseType is Type baseType &&
             baseType.IsGenericType &&
-            baseType.GetGenericTypeDefinition() == typeof(StronglyTypedId<>)) {
+            baseType.GetGenericTypeDefinition() == typeof(AbstractStronglyTypedId<>)) {
         idType = baseType.GetGenericArguments()[0];
         return true;
       }

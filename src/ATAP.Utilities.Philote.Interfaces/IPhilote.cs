@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 
 namespace ATAP.Utilities.Philote {
-  public interface IGuidPhilote<T> : IAbstractPhilote<T, Guid> where T : IStronglyTypedId<Guid> { }
-  public interface IIntPhilote<T> : IAbstractPhilote<T, int> where T : IStronglyTypedId<int> { }
+  public interface IGuidPhilote<TId> : IAbstractPhilote<TId, Guid> where TId : IStronglyTypedId<Guid> { }
+  public interface IIntPhilote<TId> : IAbstractPhilote<TId, int> where TId : IStronglyTypedId<int> { }
 
-  public interface IAbstractPhilote<T, TValue> where T : IStronglyTypedId<TValue> where TValue : notnull {
-    IStronglyTypedId<TValue> ID { get; }
+  public interface IAbstractPhilote<TId, TValue> where TId: IStronglyTypedId<TValue> where TValue : notnull {
+    TId ID { get; }
     ConcurrentDictionary<string, IStronglyTypedId<TValue>>? AdditionalIDs { get; }
     IEnumerable<ITimeBlock>? TimeBlocks { get; }
   }

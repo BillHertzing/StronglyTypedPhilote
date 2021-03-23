@@ -57,7 +57,7 @@ public class GCommentWithIntSerializationTestDataGenerator : IEnumerable<object[
 }
 
 //   public record PhiloteTestClassGuid : AbstractPhilote<TestClassWithGuidPhilote, Guid> {
-//     public PhiloteTestClassGuid(StronglyTypedId<Guid> iD = default, ConcurrentDictionary<string, IStronglyTypedId<Guid>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
+//     public PhiloteTestClassGuid(AbstractStronglyTypedId<Guid> iD = default, ConcurrentDictionary<string, IStronglyTypedId<Guid>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
 //   }
 //
 //   public class TestClassWithGuidPhilote {
