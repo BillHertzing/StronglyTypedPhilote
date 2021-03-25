@@ -235,7 +235,7 @@ namespace ATAP.Utilities.StronglyTypedIds{
 
          };
          //ctor = sTIDType.GetTypeInfo().DeclaredConstructors.ToList()[1];
-         if (ctor! is null) {
+         if (ctor is null) {
            throw new ArgumentException($"Type '{stronglyTypedIdType}' converted to `{sTIDType}` doesn't have a constructor with one parameter of type '{typeof(TValue)}'");
          }
         // This ends the extensions to Mssr. Levesque's code to handle Deserialization of IStronglyTypedId

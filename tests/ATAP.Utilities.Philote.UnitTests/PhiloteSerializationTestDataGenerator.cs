@@ -11,7 +11,7 @@ using Itenso.TimePeriod;
 //   TestClassWithGuidPhilote
 //   TestClassWithIntIPhilote
 //   TestClassWithGuidIPhilote
-//   TestClassWithIntPhilote
+//   TestRecordWithIntPhilote
 //   TestRecordWithGuidPhilote
 //   TestRecordWithIntIPhilote
 //   TestRecordWithGuidIPhilote
@@ -28,25 +28,21 @@ using Itenso.TimePeriod;
 
 namespace ATAP.Utilities.Philote.UnitTests {
 
-  //public interface ITestClassWithIntPhiloteId : IAbstractStronglyTypedId<int> { }
-
   public record TestClassIntPhiloteId : AbstractStronglyTypedId<int> {
-    public TestClassIntPhiloteId() :base() { }
-    public TestClassIntPhiloteId(int value) :base(value) { }
+    public TestClassIntPhiloteId() : base() { }
+    public TestClassIntPhiloteId(int value) : base(value) { }
   }
 
   public record TestClassIntPhilote : AbstractIntPhilote<TestClassIntPhiloteId> {
     public TestClassIntPhilote() : base() { }
     public TestClassIntPhilote(int value) : base(value) { }
-  };
+  }
 
   public class TestClassWithIntPhilote {
     public TestClassWithIntPhilote(string name = null, TestClassIntPhilote philote = null) {
       Name = name ?? throw new ArgumentNullException(nameof(name));
       Philote = philote ?? new TestClassIntPhilote();
     }
-
-
     public string Name { get; set; }
     public TestClassIntPhilote Philote { get; set; }
   }
@@ -54,10 +50,8 @@ namespace ATAP.Utilities.Philote.UnitTests {
   public class TestClassWithIntPhiloteSerializationTestData {
     public TestClassWithIntPhilote InstanceTestData { get; set; }
     public string SerializedTestData { get; set; }
-
     public TestClassWithIntPhiloteSerializationTestData() {
     }
-
     public TestClassWithIntPhiloteSerializationTestData(TestClassWithIntPhilote instanceTestData, string serializedTestData) {
       InstanceTestData = instanceTestData;
       SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
@@ -72,54 +66,119 @@ namespace ATAP.Utilities.Philote.UnitTests {
       yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataPositiveOne", philote: new TestClassIntPhilote(1)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataPositiveOne\",\"Philote\":{\"ID\":1,\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
       yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataInt32Max", philote: new TestClassIntPhilote(Int32.MaxValue)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataInt32Max\",\"Philote\":{\"ID\":2147483647,\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
     }
-
     public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
     IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
   }
 
-  // public interface IPhiloteTestRecordInt : IAbstractPhilote<TestClassWithIntPhilote, int> {
-  // }
+  public record TestClassGuidPhiloteId : AbstractStronglyTypedId<Guid> {
+    public TestClassGuidPhiloteId() : base() { }
+    public TestClassGuidPhiloteId(Guid value) : base(value) { }
+  }
 
-  // public record PhiloteTestRecordInt : AbstractPhilote<TestClassIntPhiloteId, int>{
-  //   public PhiloteTestRecordInt(AbstractStronglyTypedId<int> iD = default, ConcurrentDictionary<string, IStronglyTypedId<int>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
-  // }
+  public record TestClassGuidPhilote : AbstractGuidPhilote<TestClassGuidPhiloteId> {
+    public TestClassGuidPhilote() : base() { }
+    public TestClassGuidPhilote(Guid value) : base(value) { }
+  }
 
-  // public record PhiloteTestClassGuid : AbstractPhilote<TestClassWithGuidPhilote, Guid> {
-  //   public PhiloteTestClassGuid(AbstractStronglyTypedId<Guid> iD = default, ConcurrentDictionary<string, IStronglyTypedId<Guid>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
-  // }
+  public class TestClassWithGuidPhilote {
+    public TestClassWithGuidPhilote(string name = null, TestClassGuidPhilote philote = null) {
+      Name = name ?? throw new ArgumentNullException(nameof(name));
+      Philote = philote ?? new TestClassGuidPhilote();
+    }
+    public string Name { get; set; }
+    public TestClassGuidPhilote Philote { get; set; }
+  }
 
-  // public class TestClassWithGuidPhilote {
-  //   public TestClassWithGuidPhilote(string name = null, PhiloteTestClassGuid philote = null) {
-  //     Name = name ?? throw new ArgumentNullException(nameof(name));
-  //     Philote = philote ?? new PhiloteTestClassGuid();
-  //   }
+  public class TestClassWithGuidPhiloteSerializationTestData {
+    public TestClassWithGuidPhilote InstanceTestData { get; set; }
+    public string SerializedTestData { get; set; }
+    public TestClassWithGuidPhiloteSerializationTestData() {
+    }
+  }
+  public class TestClassWithGuidPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+    public static IEnumerable<object[]> TestData() {
+      yield return new TestClassWithGuidPhiloteSerializationTestData[] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithGuidPhilote(name: "TestClassWithGuidPhiloteTestDataGuidEmpty", philote: new TestClassGuidPhilote(Guid.Empty)), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"ID\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+      yield return new TestClassWithGuidPhiloteSerializationTestData[] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithGuidPhilote(name: "TestClassWithGuidPhiloteTestDataGuid01234", philote: new TestClassGuidPhilote(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuid01234\",\"Philote\":{\"ID\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+    }
+    public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
+    IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
+  }
 
-  //   public string Name { get; set; }
-  //   public PhiloteTestClassGuid Philote { get; set; }
-  // }
+  public record TestRecordIntPhiloteId : AbstractStronglyTypedId<int> {
+    public TestRecordIntPhiloteId() : base() { }
+    public TestRecordIntPhiloteId(int value) : base(value) { }
+  }
 
-  // public class TestClassWithGuidPhiloteSerializationTestData {
-  //   public TestClassWithGuidPhilote InstanceTestData { get; set; }
-  //   public string SerializedTestData { get; set; }
+  public record TestRecordIntPhilote : AbstractIntPhilote<TestRecordIntPhiloteId> {
+    public TestRecordIntPhilote() : base() { }
+    public TestRecordIntPhilote(int value) : base(value) { }
+  }
 
-  //   public TestClassWithGuidPhiloteSerializationTestData() {
-  //   }
+  public record TestRecordWithIntPhilote {
+    public TestRecordWithIntPhilote(string name = null, TestRecordIntPhilote philote = null) {
+      Name = name ?? throw new ArgumentNullException(nameof(name));
+      Philote = philote ?? new TestRecordIntPhilote();
+    }
+    public string Name { get; set; }
+    public TestRecordIntPhilote Philote { get; set; }
+  }
 
-  //   public TestClassWithGuidPhiloteSerializationTestData(TestClassWithGuidPhilote instanceTestData, string serializedTestData) {
-  //     InstanceTestData = instanceTestData;
-  //     SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
-  //   }
-  // }
+  public class TestRecordWithIntPhiloteSerializationTestData {
+    public TestRecordWithIntPhilote InstanceTestData { get; set; }
+    public string SerializedTestData { get; set; }
+    public TestRecordWithIntPhiloteSerializationTestData() {
+    }
+    public TestRecordWithIntPhiloteSerializationTestData(TestRecordWithIntPhilote instanceTestData, string serializedTestData) {
+      InstanceTestData = instanceTestData;
+      SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
+    }
+  }
 
-  // public class TestClassWithGuidPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
-  //   public static IEnumerable<object[]> TestData() {
-  //     yield return new TestClassWithGuidPhiloteSerializationTestData[] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithGuidPhilote(name: "TestClassWithGuidPhiloteTestDataGuidEmpty", philote: new PhiloteTestClassGuid(new GuidStronglyTypedId(Guid.Empty))), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"ID\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new TestClassWithGuidPhiloteSerializationTestData[] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithGuidPhilote(name: "TestClassWithGuidPhiloteTestDataGuidEmpty", philote: new PhiloteTestClassGuid(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")))), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"ID\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
-  //   }
+  public class TestRecordWithIntPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+    public static IEnumerable<object[]> TestData() {
+      yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataInt32Min", philote: new TestRecordIntPhilote(Int32.MinValue)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataInt32Min\",\"Philote\":{\"ID\":-2147483648,\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+      yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataNegativeOne", philote: new TestRecordIntPhilote(-1)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataNegativeOne\",\"Philote\":{\"ID\":-1,\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+      yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataZero", philote: new TestRecordIntPhilote(0)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataZero\",\"Philote\":{\"ID\":0,\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+      yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataPositiveOne", philote: new TestRecordIntPhilote(1)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataPositiveOne\",\"Philote\":{\"ID\":1,\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+      yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataInt32Max", philote: new TestRecordIntPhilote(Int32.MaxValue)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataInt32Max\",\"Philote\":{\"ID\":2147483647,\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+    }
+    public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
+    IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
+  }
 
-  //   public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
-  //   IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
-  // }
+  public record TestRecordGuidPhiloteId : AbstractStronglyTypedId<Guid> {
+    public TestRecordGuidPhiloteId() : base() { }
+    public TestRecordGuidPhiloteId(Guid value) : base(value) { }
+  }
+
+  public record TestRecordGuidPhilote : AbstractGuidPhilote<TestRecordGuidPhiloteId> {
+    public TestRecordGuidPhilote() : base() { }
+    public TestRecordGuidPhilote(Guid value) : base(value) { }
+  }
+
+  public record TestRecordWithGuidPhilote {
+    public TestRecordWithGuidPhilote(string name = null, TestRecordGuidPhilote philote = null) {
+      Name = name ?? throw new ArgumentNullException(nameof(name));
+      Philote = philote ?? new TestRecordGuidPhilote();
+    }
+    public string Name { get; set; }
+    public TestRecordGuidPhilote Philote { get; set; }
+  }
+
+  public class TestRecordWithGuidPhiloteSerializationTestData {
+    public TestRecordWithGuidPhilote InstanceTestData { get; set; }
+    public string SerializedTestData { get; set; }
+    public TestRecordWithGuidPhiloteSerializationTestData() {
+    }
+  }
+  public class TestRecordWithGuidPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+    public static IEnumerable<object[]> TestData() {
+      yield return new TestRecordWithGuidPhiloteSerializationTestData[] { new TestRecordWithGuidPhiloteSerializationTestData { InstanceTestData = new TestRecordWithGuidPhilote(name: "TestRecordWithGuidPhiloteTestDataGuidEmpty", philote: new TestRecordGuidPhilote(Guid.Empty)), SerializedTestData = "{\"Name\":\"TestRecordWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"ID\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+      yield return new TestRecordWithGuidPhiloteSerializationTestData[] { new TestRecordWithGuidPhiloteSerializationTestData { InstanceTestData = new TestRecordWithGuidPhilote(name: "TestRecordWithGuidPhiloteTestDataGuid01234", philote: new TestRecordGuidPhilote(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Name\":\"TestRecordWithGuidPhiloteTestDataGuid01234\",\"Philote\":{\"ID\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIDs\":{},\"TimeBlocks\":[]}}" } };
+    }
+    public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
+    IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
+  }
 
   // public class TestClassWithIntIPhilote {
   //   public TestClassWithIntIPhilote(string name = null, IPhiloteTestRecordInt philote = null) {

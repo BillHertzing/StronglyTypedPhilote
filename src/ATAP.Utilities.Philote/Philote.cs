@@ -9,14 +9,13 @@ namespace ATAP.Utilities.Philote {
 
   public abstract record AbstractGuidPhilote<TId> : AbstractPhilote<TId, Guid> where TId : AbstractStronglyTypedId<Guid>, new() {
     public AbstractGuidPhilote(Guid value) : base(value) { }
-    //public AbstractGuidPhilote() {ID = (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId() { Value = Guid.NewGuid() }; }
+    public AbstractGuidPhilote(TId iD = default, ConcurrentDictionary<string, IStronglyTypedId<Guid>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
     public override string ToString() => base.ToString();
   }
 
   public abstract record AbstractIntPhilote<TId> : AbstractPhilote<TId, int> where TId : AbstractStronglyTypedId<int>, new() {
     public AbstractIntPhilote(TId iD = default, ConcurrentDictionary<string, IStronglyTypedId<int>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
     public AbstractIntPhilote(int value) : base(value) { }
-    //public AbstractIntPhilote()  { ID = (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() }; }
     public override string ToString() => base.ToString();
   }
 
@@ -25,7 +24,6 @@ namespace ATAP.Utilities.Philote {
     public AbstractPhilote(int? iD = default, ConcurrentDictionary<string, IStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
       if (iD != null) {
         ID = Activator.CreateInstance(typeof(TId), new object[] { iD }) as TId;
-        // ID = (TId)(object)iD;
       }
       else {
         ID = (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() };
@@ -34,7 +32,9 @@ namespace ATAP.Utilities.Philote {
       TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     }
     public AbstractPhilote(Guid? iD = default, ConcurrentDictionary<string, IStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
-      if (iD != null) { ID = (TId)(object)iD; }
+      if (iD != null) {
+        ID = Activator.CreateInstance(typeof(TId), new object[] { iD }) as TId;
+      }
       else {
         ID = (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId() { Value = Guid.NewGuid() };
       }
@@ -46,8 +46,11 @@ namespace ATAP.Utilities.Philote {
       if (iD != null) { ID = iD; }
       else {
         ID = (typeof(TValue)) switch {
-          Type intType when typeof(TValue) == typeof(int) => (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() },
-          Type GuidType when typeof(TValue) == typeof(Guid) => (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId() { Value = Guid.NewGuid() },
+
+        Type intType when typeof(TValue) == typeof(int) => new IntStronglyTypedId() { Value = new Random().Next() } as TId,
+        Type GuidType when typeof(TValue) == typeof(Guid) => Activator.CreateInstance(typeof(Guid), new object[] { Guid.NewGuid() }) as TId,
+          //Type intType when typeof(TValue) == typeof(int) => (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() },
+          //Type GuidType when typeof(TValue) == typeof(Guid) => (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId() { Value = Guid.NewGuid() },
           // ToDo: replace with new custom exception and localization of exception message
           _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}")),
 
