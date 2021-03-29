@@ -52,17 +52,18 @@ namespace ATAP.Utilities.StronglyTypedIds{
         _ => false,
       };
     }
-    /*
+
     private static TValue RandomTValue() {
       if (!AllowedTValue()) {
         throw new Exception(String.Format("Invalid TValue type {0}", typeof(TValue)));
       }
       return (typeof(TValue)) switch {
-        Type intType when intType == typeof(int) => new Random().Next as TValue; // Compiletime error
-            Type GuidType when GuidType == typeof(Guid) => (TValue)Guid.NewGuid(), // Compiletime error
+        Type intType when intType == typeof(int) => (TValue)(object)new Random().Next(),
+        Type GuidType when GuidType == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
+        // ToDo: replace with custom exception and message
+        _ => throw new ArgumentException("Type of TValue is not suported"),
       };
     }
-    */
   }
 
   [TypeConverter(typeof(StronglyTypedIdConverter))]
@@ -236,6 +237,7 @@ namespace ATAP.Utilities.StronglyTypedIds{
          };
          //ctor = sTIDType.GetTypeInfo().DeclaredConstructors.ToList()[1];
          if (ctor is null) {
+           // ToDo: replace with custom exception and message
            throw new ArgumentException($"Type '{stronglyTypedIdType}' converted to `{sTIDType}` doesn't have a constructor with one parameter of type '{typeof(TValue)}'");
          }
         // This ends the extensions to Mssr. Levesque's code to handle Deserialization of IStronglyTypedId
@@ -243,10 +245,10 @@ namespace ATAP.Utilities.StronglyTypedIds{
       else {
         ctor = stronglyTypedIdType.GetConstructor(new[] {typeof(TValue)});
         if (ctor is null) {
+          // ToDo: replace with custom exception and message
           throw new ArgumentException($"Type '{stronglyTypedIdType}' doesn't have a constructor with one parameter of type '{typeof(TValue)}'");
         }
       }
-
 
       var param = Expression.Parameter(typeof(TValue), "value");
       var body = Expression.New(ctor, param);
@@ -274,6 +276,5 @@ namespace ATAP.Utilities.StronglyTypedIds{
       idType = null;
       return false;
     }
-
   }
 }

@@ -42,13 +42,13 @@ namespace ATAP.Utilities.Philote.UnitTests {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
-        Action act = () => JsonSerializer.Deserialize<TestClassWithIntPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+        Action act = () => JsonSerializer.Deserialize<TestClassWithPhilote<int>>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()
           .WithMessage("The input does not contain any JSON tokens.*");
       }
       else if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647)").Success) {
         //SerializationFixtureSystemTextJson.Serializer.Deserialize<IntStronglyTypedId>(inTestData.SerializedTestData).Should().BeEquivalentTo(inTestData.InstanceTestData);
-        var deserialized = JsonSerializer.Deserialize<TestClassWithIntPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<TestClassWithPhilote<int>>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         deserialized.Should().BeEquivalentTo(inTestData.InstanceTestData);
       }
       else {
@@ -77,13 +77,13 @@ namespace ATAP.Utilities.Philote.UnitTests {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
-        Action act = () => JsonSerializer.Deserialize<TestClassWithGuidPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+        Action act = () => JsonSerializer.Deserialize<TestClassWithPhilote<Guid>>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         act.Should().Throw<System.Text.Json.JsonException>()
           .WithMessage("The input does not contain any JSON tokens.*");
       }
       else if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success) {
         //SerializationFixtureSystemTextJson.Serializer.Deserialize<TestClassWithGuidPhilote>(inTestData.SerializedTestData).Should().BeEquivalentTo(inTestData.InstanceTestData);
-        var deserialized = JsonSerializer.Deserialize<TestClassWithGuidPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<TestClassWithPhilote<Guid>>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
         deserialized.Should().BeEquivalentTo(inTestData.InstanceTestData);
       }
       else {
@@ -91,77 +91,75 @@ namespace ATAP.Utilities.Philote.UnitTests {
       }
     }
 
-    [Theory]
-    [MemberData(nameof(TestRecordWithIntPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithIntPhiloteSerializationTestDataGenerator))]
-    public void TestRecordWithIntPhiloteSerializeToJson(TestRecordWithIntPhiloteSerializationTestData inTestData) {
-      // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
-      if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647),").Success) {
-        //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
-        JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
-      }
-      else {
-        //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
-        JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string), "the serializer should have returned a string representation of the TestRecordWithIntPhilote ");
-      }
-    }
+    // [Theory]
+    // [MemberData(nameof(TestRecordWithIntPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithIntPhiloteSerializationTestDataGenerator))]
+    // public void TestRecordWithIntPhiloteSerializeToJson(TestRecordWithIntPhiloteSerializationTestData inTestData) {
+    //   // ToDo low priority localize the unit test's exception's message
+    //   if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+    //   if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647),").Success) {
+    //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
+    //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
+    //   }
+    //   else {
+    //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+    //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string), "the serializer should have returned a string representation of the TestRecordWithIntPhilote ");
+    //   }
+    // }
 
-    [Theory]
-    [MemberData(nameof(TestRecordWithIntPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithIntPhiloteSerializationTestDataGenerator))]
-    public void TestRecordWithIntPhiloteDeserializeFromJson(TestRecordWithIntPhiloteSerializationTestData inTestData) {
-      // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
-      if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
-        Action act = () => JsonSerializer.Deserialize<TestRecordWithIntPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
-        act.Should().Throw<System.Text.Json.JsonException>()
-          .WithMessage("The input does not contain any JSON tokens.*");
-      }
-      else if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647)").Success) {
-        //SerializationFixtureSystemTextJson.Serializer.Deserialize<TestRecordWithIntPhilote>(inTestData.SerializedTestData).Should().BeEquivalentTo(inTestData.InstanceTestData);
-        var deserialized = JsonSerializer.Deserialize<TestRecordWithIntPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
-        deserialized.Should().BeEquivalentTo(inTestData.InstanceTestData);
-      }
-      else {
-        // ToDo: validate that strings that don't match an int throw an exception
-      }
-    }
+    // [Theory]
+    // [MemberData(nameof(TestRecordWithIntPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithIntPhiloteSerializationTestDataGenerator))]
+    // public void TestRecordWithIntPhiloteDeserializeFromJson(TestRecordWithIntPhiloteSerializationTestData inTestData) {
+    //   // ToDo low priority localize the unit test's exception's message
+    //   if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+    //   if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
+    //     Action act = () => JsonSerializer.Deserialize<TestRecordWithIntPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+    //     act.Should().Throw<System.Text.Json.JsonException>()
+    //       .WithMessage("The input does not contain any JSON tokens.*");
+    //   }
+    //   else if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647)").Success) {
+    //     //SerializationFixtureSystemTextJson.Serializer.Deserialize<TestRecordWithIntPhilote>(inTestData.SerializedTestData).Should().BeEquivalentTo(inTestData.InstanceTestData);
+    //     var deserialized = JsonSerializer.Deserialize<TestRecordWithIntPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+    //     deserialized.Should().BeEquivalentTo(inTestData.InstanceTestData);
+    //   }
+    //   else {
+    //     // ToDo: validate that strings that don't match an int throw an exception
+    //   }
+    // }
 
+    // [Theory]
+    // [MemberData(nameof(TestRecordWithGuidPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithGuidPhiloteSerializationTestDataGenerator))]
+    // public void TestRecordWithGuidPhiloteSerializeToJson(TestRecordWithGuidPhiloteSerializationTestData inTestData) {
+    //   // ToDo low priority localize the unit test's exception's message
+    //   if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+    //   if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success) {
+    //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
+    //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
+    //   }
+    //   else {
+    //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
+    //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string), "the serializer should have returned a string representation of the TestRecordWithGuidPhilote ");
+    //   }
+    // }
 
-    [Theory]
-    [MemberData(nameof(TestRecordWithGuidPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithGuidPhiloteSerializationTestDataGenerator))]
-    public void TestRecordWithGuidPhiloteSerializeToJson(TestRecordWithGuidPhiloteSerializationTestData inTestData) {
-      // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
-      if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success) {
-        //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
-        JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
-      }
-      else {
-        //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().MatchRegex("^[0-9A-Fa-f]{8}-?([0-9A-Fa-f]{4}-?){3}[0-9A-Fa-f]{12}$");
-        JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string), "the serializer should have returned a string representation of the TestRecordWithGuidPhilote ");
-      }
-    }
-
-    [Theory]
-    [MemberData(nameof(TestRecordWithGuidPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithGuidPhiloteSerializationTestDataGenerator))]
-    public void TestRecordWithGuidPhiloteDeserializeFromJson(TestRecordWithGuidPhiloteSerializationTestData inTestData) {
-      // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
-      if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
-        Action act = () => JsonSerializer.Deserialize<TestRecordWithGuidPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
-        act.Should().Throw<System.Text.Json.JsonException>()
-          .WithMessage("The input does not contain any JSON tokens.*");
-      }
-      else if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success) {
-        //SerializationFixtureSystemTextJson.Serializer.Deserialize<TestRecordWithGuidPhilote>(inTestData.SerializedTestData).Should().BeEquivalentTo(inTestData.InstanceTestData);
-        var deserialized = JsonSerializer.Deserialize<TestRecordWithGuidPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
-        deserialized.Should().BeEquivalentTo(inTestData.InstanceTestData);
-      }
-      else {
-        // ToDo: validate that strings that don't match an int throw an exception
-      }
-    }
-
+    // [Theory]
+    // [MemberData(nameof(TestRecordWithGuidPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestRecordWithGuidPhiloteSerializationTestDataGenerator))]
+    // public void TestRecordWithGuidPhiloteDeserializeFromJson(TestRecordWithGuidPhiloteSerializationTestData inTestData) {
+    //   // ToDo low priority localize the unit test's exception's message
+    //   if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+    //   if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
+    //     Action act = () => JsonSerializer.Deserialize<TestRecordWithGuidPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+    //     act.Should().Throw<System.Text.Json.JsonException>()
+    //       .WithMessage("The input does not contain any JSON tokens.*");
+    //   }
+    //   else if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success) {
+    //     //SerializationFixtureSystemTextJson.Serializer.Deserialize<TestRecordWithGuidPhilote>(inTestData.SerializedTestData).Should().BeEquivalentTo(inTestData.InstanceTestData);
+    //     var deserialized = JsonSerializer.Deserialize<TestRecordWithGuidPhilote>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
+    //     deserialized.Should().BeEquivalentTo(inTestData.InstanceTestData);
+    //   }
+    //   else {
+    //     // ToDo: validate that strings that don't match an int throw an exception
+    //   }
+    // }
 
     // [Theory]
     // [MemberData(nameof(TestClassWithIntIPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassWithIntIPhiloteSerializationTestDataGenerator))]
@@ -177,7 +175,6 @@ namespace ATAP.Utilities.Philote.UnitTests {
     //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().BeOfType(typeof(string), "the serializer should have returned a string representation of the TestClassWithIntIPhilote ");
     //   }
     // }
-
 
     // [Theory]
     // [MemberData(nameof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator))]
@@ -269,7 +266,6 @@ namespace ATAP.Utilities.Philote.UnitTests {
     //     // ToDo: validate that strings that don't match a Guid throw an exception
     //   }
     // }
-
 
     // [Theory]
     // [MemberData(nameof(IntTestDataGenerator.TestData), MemberType = typeof(IntTestDataGenerator))]
