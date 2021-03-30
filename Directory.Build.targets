@@ -113,9 +113,12 @@
   </ItemGroup>
 
   <!-- Include Roslyn Code Analysis for every project -->
+   <!-- FxCopAnalyzers package has been deprecated in favor of 'Microsoft.CodeAnalysis.NetAnalyzers', hence this is now commented out -->
+   <!--
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers"></PackageReference>
   </ItemGroup>
+  -->
 
 <!-- Centrally manage package versions for all NuGet package dependencies, courtesy of https://www.strathweb.com/2018/07/solution-wide-nuget-package-version-handling-with-msbuild-15/ -->
   <ItemGroup>
@@ -190,7 +193,10 @@
     <PackageReference Update="Microsoft.Build.Utilities.Core" Version="16.8.0" />
 
     <!-- Roslyn Code Analyzers -->
+       <!-- FxCopAnalyzers package has been deprecated in favor of 'Microsoft.CodeAnalysis.NetAnalyzers', hence this is now commented out -->
+   <!--
     <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2"></PackageReference>
+    -->
 
     <!-- Microsoft Source Link -->
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" />
