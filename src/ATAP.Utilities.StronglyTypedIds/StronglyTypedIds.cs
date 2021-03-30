@@ -168,7 +168,7 @@ namespace ATAP.Utilities.StronglyTypedIds{
     }
   // attribution [Get All Types in an Assembly](https://haacked.com/archive/2012/07/23/get-all-types-in-an-assembly.aspx/)
   // ToDo: move to an ATAP Utility assembly that extends reflection over assembly's metadata
-    public static IEnumerable<Type> GetLoadableTypes(this Assembly assembly)
+    public static IEnumerable<Type?> GetLoadableTypes(this Assembly assembly)
     {
       if (assembly == null) throw new ArgumentNullException(nameof(assembly));
       try
