@@ -10,14 +10,14 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
   //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes
   public class StronglyTypedIdTypeConverterTestData<TValue> where TValue : notnull
   {
-    public IStronglyTypedId<TValue> InstanceTestData { get; set; }
+    public IAbstractStronglyTypedId<TValue> InstanceTestData { get; set; }
     public string SerializedTestData { get; set; }
 
     public StronglyTypedIdTypeConverterTestData()
     {
     }
 
-    public StronglyTypedIdTypeConverterTestData(IStronglyTypedId<TValue> instanceTestData, string serializedTestData)
+    public StronglyTypedIdTypeConverterTestData(IAbstractStronglyTypedId<TValue> instanceTestData, string serializedTestData)
     {
       InstanceTestData = instanceTestData;
       SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
@@ -29,15 +29,15 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
     public static IEnumerable<object[]> StronglyTypedIdTypeConverterTestData() {
       switch (typeof(TValue)) {
         case Type guidType when typeof(TValue) == typeof(Guid): {
-            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.Empty), SerializedTestData = "00000000-0000-0000-0000-000000000000" } };
-            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IStronglyTypedId<TValue>)new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), SerializedTestData = "01234567-abcd-9876-cdef-456789abcdef" } };
-            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.NewGuid()), SerializedTestData = "Random, so ignore this property of the test data" } };
+            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.Empty), SerializedTestData = "00000000-0000-0000-0000-000000000000" } };
+            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), SerializedTestData = "01234567-abcd-9876-cdef-456789abcdef" } };
+            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.NewGuid()), SerializedTestData = "Random, so ignore this property of the test data" } };
           }
           break;
         case Type intType when typeof(TValue) == typeof(int): {
-            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IStronglyTypedId<TValue>)new IntStronglyTypedId(0), SerializedTestData = "0" } };
-            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IStronglyTypedId<TValue>)new IntStronglyTypedId(1234567), SerializedTestData = "1234567" } };
-            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IStronglyTypedId<TValue>)new IntStronglyTypedId(new Random().Next()), SerializedTestData = "Random, so ignore this property of the test data" } };
+            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new IntStronglyTypedId(0), SerializedTestData = "0" } };
+            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new IntStronglyTypedId(1234567), SerializedTestData = "1234567" } };
+            yield return new StronglyTypedIdTypeConverterTestData<TValue>[] { new StronglyTypedIdTypeConverterTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new IntStronglyTypedId(new Random().Next()), SerializedTestData = "Random, so ignore this property of the test data" } };
           }
           break;
         // ToDo: replace with new custom exception and localization of exception message

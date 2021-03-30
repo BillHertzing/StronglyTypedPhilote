@@ -9,7 +9,7 @@ namespace ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson {
   // Attribution https://thomaslevesque.com/2020/12/07/csharp-9-records-as-strongly-typed-ids-part-3-json-serialization/
 
   public class StronglyTypedIdJsonConverter<TStronglyTypedId, TValue> : JsonConverter<TStronglyTypedId>
-      where TStronglyTypedId : IStronglyTypedId<TValue>
+      where TStronglyTypedId : IAbstractStronglyTypedId<TValue>
       where TValue : notnull {
     public override TStronglyTypedId Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
       if (reader.TokenType is JsonTokenType.Null) {

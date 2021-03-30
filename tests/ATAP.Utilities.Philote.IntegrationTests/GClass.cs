@@ -8,7 +8,7 @@ using ATAP.Utilities.StronglyTypedIds;
 using Itenso.TimePeriod;
 namespace ATAP.Utilities.Philote.IntegrationTests {
 
-  public record GCommentId<TValue> : AbstractStronglyTypedId<TValue>, IStronglyTypedId<TValue> where TValue : notnull {
+  public record GCommentId<TValue> : AbstractStronglyTypedId<TValue>, IAbstractStronglyTypedId<TValue> where TValue : notnull {
     public GCommentId() : base() { }
     public GCommentId(TValue value) : base(value) { }
   }
@@ -20,7 +20,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     //   else {
     //     ID = new GCommentId<int>() {Value = new Random().Next()};
     //   }
-    //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IStronglyTypedId<TValue>>();
+    //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
     //   TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     // }
     // public GCommentPhilote(Guid? iD = default, ConcurrentDictionary<string, GCommentId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
@@ -28,11 +28,11 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     //   else {
     //     ID = new GCommentId<Guid>() {Value = Guid.NewGuid()};
     //   }
-    //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IStronglyTypedId<TValue>>();
+    //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
     //   TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     // }
 
-    public GCommentPhilote(GCommentId<TValue> iD = default, ConcurrentDictionary<string, IStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
+    public GCommentPhilote(GCommentId<TValue> iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
       if (iD != default) { ID = iD; }
       else {
         ID = (typeof(TValue)) switch {
@@ -45,16 +45,16 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
       }
       // Attribution [Linq ToDictionary will not implicitly convert class to interface](https://stackoverflow.com/questions/25136049/linq-todictionary-will-not-implicitly-convert-class-to-interface) Educational but ultimately fails
       // The ToDictionary extension method available in LINQ for generic Dictionaries is NOT availabe for ConcurrentDictionaries, the following won't work...
-      //  additionalIDs.ToDictionary(kvp => kvp.Key, kvp => (IStronglyTypedId<TValue>) kvp.Value)
+      //  additionalIDs.ToDictionary(kvp => kvp.Key, kvp => (IAbstractStronglyTypedId<TValue>) kvp.Value)
       // A this is a concurrent operation we will need to put a semaphore around the argument passed in
       // attribution [How do you convert a dictionary to a ConcurrentDictionary?](https://stackoverflow.com/questions/27063889/how-do-you-convert-a-dictionary-to-a-concurrentdictionary) from a comment on a question, contributed by Panagiotis Kanavos
       // we have to convert the parameter's value to a cast to a less derived interface
       if (additionalIDs != default) {
       // ToDo : add write semaphore around the parameter before enumerating the Dictionary
-        AdditionalIDs = new ConcurrentDictionary<string, IStronglyTypedId<TValue>>(additionalIDs.Select(kvp => new KeyValuePair<string, IStronglyTypedId<TValue>>(kvp.Key, (IStronglyTypedId<TValue>)kvp.Value)));
+        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>(additionalIDs.Select(kvp => new KeyValuePair<string, IAbstractStronglyTypedId<TValue>>(kvp.Key, (IAbstractStronglyTypedId<TValue>)kvp.Value)));
       }
       else {
-        AdditionalIDs = new ConcurrentDictionary<string, IStronglyTypedId<TValue>>();
+        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
       }
       TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     }
@@ -78,7 +78,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     public IAbstractPhilote<GCommentId<TValue> ,TValue> Philote { get; init; }
   }
 
-  public record GBodyId<TValue> : AbstractStronglyTypedId<TValue>, IStronglyTypedId<TValue> where TValue : notnull {
+  public record GBodyId<TValue> : AbstractStronglyTypedId<TValue>, IAbstractStronglyTypedId<TValue> where TValue : notnull {
     public GBodyId() : base() { }
     public GBodyId(TValue value) : base(value) { }
   }
@@ -97,10 +97,10 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
         };
       }
       if (additionalIDs != default) {
-        AdditionalIDs = new ConcurrentDictionary<string, IStronglyTypedId<TValue>>(additionalIDs.Select(kvp => new KeyValuePair<string, IStronglyTypedId<TValue>>(kvp.Key, (IStronglyTypedId<TValue>)kvp.Value)));
+        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>(additionalIDs.Select(kvp => new KeyValuePair<string, IAbstractStronglyTypedId<TValue>>(kvp.Key, (IAbstractStronglyTypedId<TValue>)kvp.Value)));
       }
       else {
-        AdditionalIDs = new ConcurrentDictionary<string, IStronglyTypedId<TValue>>();
+        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
       }
       TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     }

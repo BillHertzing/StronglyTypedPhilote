@@ -1,6 +1,6 @@
-# Abstract StronglyTypedId records within another Strongly Typed record
+# Abstract `StronglyTypedId` records within another `StronglyTyped` record
 
-This repository focuses on the concept of a StronglyTypedId  (STID). If you  have not worked with this concept before, please see also
+This repository focuses on the concept of a StronglyTypedId (STID). If you have not worked with this concept before, please see also
 
 * [Series: Using strongly-typed entity IDs to avoid primitive obsession](https://andrewlock.net/series/using-strongly-typed-entity-ids-to-avoid-primitive-obsession/) by Andrew Lock
 * [Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/) by Thomas Levesque
@@ -26,7 +26,7 @@ I'm looking for a better solution so that the Unit tests only have to be written
 
 In Mssr. Levesque's work, he uses `ProductID` and `OrderId` as examples of concrete types for the abstract `StronglyTypedId`. In this repository, I've used `GuidStronglyTypedId` and `IntStronglyTypedId` as concrete records that implement Mssr. Levesque's abstract record.
 
-There are Unit Tests for int and Guid concrete records, testing the `TypeConverter` methods. There are tests for the `Serializer`, testing the `Serialize` and `Deserialize` methods. There are tests of the `ToString()` method. ToString() uses the Invariant culture.
+There are Unit Tests for int and Guid concrete records, testing the `TypeConverter` methods. There are tests for the `Serializer`, testing the `Serialize` and `Deserialize` methods. There are tests of the `ToString()` method. The ToString() tests use the Invariant culture.
 
 Currently the `TypeConverters` work, The JSON serializers/deserializers for `System.text.Json` work for StronglyTypedId<TValue> and IStronglyTypedId<TValue>.
 
@@ -35,11 +35,11 @@ The JSON serializers/deserializers for `Newtonsoft` and it's Unit Tests are curr
 # `AbstractPhilote<TId, TValue>`
 
 This repository also defines an abstract generic record `AbstractPhilote<TId, TValue>`. The full definition includes constraints on the generic type parameters, `where TId : AbstractStronglyTypedId<TValue>, new() where TValue : notnull`
-The `AbstractPhilote<TId, TValue>` record contains an `ID` auto-implemented of type `StronglyTypedId<TValue>`, an auto-implemented  `AdditionalIDs` of type `ConcurrentDictionary<string,StronglyTypedId<TValue>` for aliases and an auto-implemented `TimeBlocks` of type `IEnumerable<ITimeBlock>` for timestamps.  I'm using the time/date library `TimePeriodLibrary.NET` by Jani Giannoudisr from GitHub for rich timestamp features.
+The `AbstractPhilote<TId, TValue>` record contains an `ID` auto-implemented property of type `StronglyTypedId<TValue>`, an auto-implemented property `AdditionalIDs` of type `ConcurrentDictionary<string,StronglyTypedId<TValue>` for aliases and an auto-implemented property `TimeBlocks` of type `IEnumerable<ITimeBlock>` for timestamps. I'm using the time/date library `TimePeriodLibrary.NET` by Jani Giannoudisr from GitHub for rich timestamp features.
 
-When a Philote is added to a class as a field or property, it is expected that the first generic type parameter is an implementation of `StronglyTypedID<TValue>`, as indicated by the constraint `where TId : AbstractStronglyTypedId<TValue>,`, and furhtermore it muust have a `new()` constructor as indicated by the `new()` in the constraint. this ensures the Deserializer can create a new instances.  The second generic type parameter `TValue` is passed along to the implementation of the `TId<TValue>`.
+When a Philote is added to a class as a field or property, it is expected that the first generic type parameter is an implementation of `StronglyTypedID<TValue>`, as indicated by the constraint `where TId : AbstractStronglyTypedId<TValue>,`, and furhtermore it muust have a `new()` constructor as indicated by the `new()` in the constraint. this ensures the Deserializer can create a new instances. The second generic type parameter `TValue` is passed along to the implementation of the `TId<TValue>`.
 
-During runtime, a choice has to be made between int or Guid for the runtime type of TValue.
+During runtime, a choice has to be made between `int` or `Guid` for the runtime type of `TValue`.
 
 The JSON serializers/deserializers for a Philote, using either `Newtonsoft` or `Systrem.Text.Json` and all related Unit Tests are currently in development.
 
