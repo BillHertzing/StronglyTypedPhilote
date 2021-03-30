@@ -54,8 +54,9 @@ During runtime, a choice has to be made between `int` or `Guid` for the runtime 
 
 The JSON serializers/deserializers for a Philote, using either `Newtonsoft` or `Systrem.Text.Json` and all related Unit Tests are currently in development.
 
+## Attributions
 
-Attributions:
+* [Strongly typed Guid as generic struct](https://stackoverflow.com/questions/53748675/strongly-typed-guid-as-generic-struct) Answer  as provided by Eric Lippert,
 * [Series: Using strongly-typed entity IDs to avoid primitive obsession](https://andrewlock.net/series/using-strongly-typed-entity-ids-to-avoid-primitive-obsession/) by Andrew Lock
 * [Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/) by Thomas Levesque
 * [Time Period Library for .NET](https://github.com/Giannoudis/TimePeriodLibrary) by Jani Giannoudisr
