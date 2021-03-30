@@ -24,7 +24,7 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
     }
   }
 
-  public class StronglyTypedIdTypeConverterTestDataGenerator<TValue>  : IEnumerable<object[]> {
+  public class StronglyTypedIdTypeConverterTestDataGenerator<TValue>  : IEnumerable<object[]>  where TValue: notnull {
 
     public static IEnumerable<object[]> StronglyTypedIdTypeConverterTestData() {
       switch (typeof(TValue)) {
