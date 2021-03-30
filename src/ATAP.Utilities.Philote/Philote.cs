@@ -50,8 +50,8 @@ namespace ATAP.Utilities.Philote {
       else {
         ID = (typeof(TValue)) switch {
 
-        Type intType when typeof(TValue) == typeof(int) => new IntStronglyTypedId() { Value = new Random().Next() } as TId,
-        //Type GuidType when typeof(TValue) == typeof(Guid) => Activator.CreateInstance(typeof(Guid), new object[] { Guid.NewGuid() }) as TId,
+          Type intType when typeof(TValue) == typeof(int) => new IntStronglyTypedId() { Value = new Random().Next() } as TId,
+          //Type GuidType when typeof(TValue) == typeof(Guid) => Activator.CreateInstance(typeof(Guid), new object[] { Guid.NewGuid() }) as TId,
           //Type intType when typeof(TValue) == typeof(int) => (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() },
           Type GuidType when typeof(TValue) == typeof(Guid) => (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId(),
           // ToDo: replace with new custom exception and localization of exception message
@@ -59,7 +59,20 @@ namespace ATAP.Utilities.Philote {
 
         };
       }
-      AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
+      // Attribution [Linq ToDictionary will not implicitly convert class to interface](https://stackoverflow.com/questions/25136049/linq-todictionary-will-not-implicitly-convert-class-to-interface) Educational but ultimately fails
+      // The ToDictionary extension method available in LINQ for generic Dictionaries is NOT availabe for ConcurrentDictionaries, the following won't work...
+      //  additionalIDs.ToDictionary(kvp => kvp.Key, kvp => (IAbstractStronglyTypedId<TValue>) kvp.Value)
+      // A this is a concurrent operation we will need to put a semaphore around the argument passed in
+      // attribution [How do you convert a dictionary to a ConcurrentDictionary?](https://stackoverflow.com/questions/27063889/how-do-you-convert-a-dictionary-to-a-concurrentdictionary) from a comment on a question, contributed by Panagiotis Kanavos
+      // we have to convert the parameter's value to a cast to a less derived interface
+
+      if (additionalIDs != default) {
+        // ToDo : add write semaphore around the parameter before enumerating the Dictionary
+        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>(additionalIDs.Select(kvp => new KeyValuePair<string, IAbstractStronglyTypedId<TValue>>(kvp.Key, (IAbstractStronglyTypedId<TValue>)kvp.Value)));
+      }
+      else {
+        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
+      }
       TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     }
 
