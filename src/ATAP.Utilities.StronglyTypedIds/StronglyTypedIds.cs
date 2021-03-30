@@ -11,19 +11,19 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ATAP.Utilities.StronglyTypedIds{
+namespace ATAP.Utilities.StronglyTypedIds {
   // Attribution for IdAsStruct<T>(earlier): taken from answers provided to this question: https://stackoverflow.com/questions/53748675/strongly-typed-guid-as-generic-struct
-  // Modifications:  CheckValue and all references removed, because our use case requires Guid.Empty to be a valid value
+  // Modifications: CheckValue and all references removed, because our use case requires Guid.Empty to be a valid value
   // Attribution 1/8/2021:[Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/)
 
 
-  public record GuidStronglyTypedId : AbstractStronglyTypedId<Guid>{
+  public record GuidStronglyTypedId : AbstractStronglyTypedId<Guid>, IGuidStronglyTypedId {
     public GuidStronglyTypedId(Guid value) : base(value) { }
     public GuidStronglyTypedId() : base() { }
     public override string ToString() => base.ToString();
 
   }
-  public record IntStronglyTypedId : AbstractStronglyTypedId<int>{
+  public record IntStronglyTypedId : AbstractStronglyTypedId<int>, IIntStronglyTypedId {
     public IntStronglyTypedId(int value) : base(value) { }
     public IntStronglyTypedId() : base() { }
     public override string ToString() => base.ToString();
@@ -36,8 +36,8 @@ namespace ATAP.Utilities.StronglyTypedIds{
 
     public AbstractStronglyTypedId() {
       Value = (typeof(TValue)) switch {
-        Type inttype when typeof(TValue) == typeof(int) => (TValue)(object)new Random().Next(),
-        Type guidtype when typeof(TValue) == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
+        Type intType when typeof(TValue) == typeof(int) => (TValue)(object)new Random().Next(),
+        Type guidType when typeof(TValue) == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
         _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}"))
       };
     }
@@ -47,8 +47,8 @@ namespace ATAP.Utilities.StronglyTypedIds{
 
     public static bool AllowedTValue() {
       return (typeof(TValue)) switch {
-        Type intType when intType == typeof(int) => true,
-        Type GuidType when GuidType == typeof(Guid) => true,
+        Type intType when typeof(TValue) == typeof(int) => true,
+        Type guidType when typeof(TValue) == typeof(Guid) => true,
         _ => false,
       };
     }
@@ -166,33 +166,29 @@ namespace ATAP.Utilities.StronglyTypedIds{
           stronglyTypedIdType,
           CreateFactory<TValue>);
     }
-  // attribution [Get All Types in an Assembly](https://haacked.com/archive/2012/07/23/get-all-types-in-an-assembly.aspx/)
-  // ToDo: move to an ATAP Utility assembly that extends reflection over assembly's metadata
-    public static IEnumerable<Type?> GetLoadableTypes(this Assembly assembly)
-    {
+    // attribution [Get All Types in an Assembly](https://haacked.com/archive/2012/07/23/get-all-types-in-an-assembly.aspx/)
+    // ToDo: move to an ATAP Utility assembly that extends reflection over assembly's metadata
+    public static IEnumerable<Type?> GetLoadableTypes(this Assembly assembly) {
       if (assembly == null) throw new ArgumentNullException(nameof(assembly));
-      try
-      {
+      try {
         return assembly.GetTypes();
       }
-      catch (ReflectionTypeLoadException e)
-      {
+      catch (ReflectionTypeLoadException e) {
         // ToDo: Improve exception handling to also report on assemblies that fail GetTypes()
         return e.Types.Where(t => t != null);
       }
     }
-// Attribution: [Get all types implementing specific open generic type](https://stackoverflow.com/questions/8645430/get-all-types-implementing-specific-open-generic-type)
-    public static IEnumerable<Type> GetAllTypesImplementingOpenGenericType(this Assembly assembly, Type openGenericType)
-    {
+    // Attribution: [Get all types implementing specific open generic type](https://stackoverflow.com/questions/8645430/get-all-types-implementing-specific-open-generic-type)
+    public static IEnumerable<Type> GetAllTypesImplementingOpenGenericType(this Assembly assembly, Type openGenericType) {
       return from x in assembly.GetTypes()
-        from z in x.GetInterfaces()
-        let y = x.BaseType
-        where
-          (y != null && y.IsGenericType &&
-           openGenericType.IsAssignableFrom(y.GetGenericTypeDefinition())) ||
-          (z.IsGenericType &&
-           openGenericType.IsAssignableFrom(z.GetGenericTypeDefinition()))
-        select x;
+             from z in x.GetInterfaces()
+             let y = x.BaseType
+             where
+               (y != null && y.IsGenericType &&
+                openGenericType.IsAssignableFrom(y.GetGenericTypeDefinition())) ||
+               (z.IsGenericType &&
+                openGenericType.IsAssignableFrom(z.GetGenericTypeDefinition()))
+             select x;
     }
 
     private static Func<TValue, object> CreateFactory<TValue>(Type stronglyTypedIdType)
@@ -212,7 +208,7 @@ namespace ATAP.Utilities.StronglyTypedIds{
         var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
         var allTypes = loadedAssemblies.SelectMany(assembly => assembly.GetTypes());
         var typesImplementing =
-          loadedAssemblies.SelectMany(assembly => assembly.GetAllTypesImplementingOpenGenericType(typeof (AbstractStronglyTypedId<TValue>)));
+          loadedAssemblies.SelectMany(assembly => assembly.GetAllTypesImplementingOpenGenericType(typeof(AbstractStronglyTypedId<TValue>)));
         // var GuidSTIDTypex = allTypes
         //   .FirstOrDefault(t => t.IsAssignableFrom((typeof (AbstractStronglyTypedId<TValue>))) &&
         //                        t.GetInterfaces().Any(x =>
@@ -221,29 +217,29 @@ namespace ATAP.Utilities.StronglyTypedIds{
         //                          x.GetGenericArguments()[0] ==  typeof(Guid)));
 
         // ToDo: wrap in a try/catch block
-         switch (typeof(TValue)) {
-           case Type intType when intType == typeof(int) :
-             sTIDType = allTypes.Where(t => t.Name == "IntStronglyTypedId").Single();
-             ctor = sTIDType.GetConstructor(new[] {typeof(int)});
-             break;
-           case Type GuidType when GuidType == typeof(Guid) :
-             sTIDType = allTypes.Where(t => t.Name == "GuidStronglyTypedId").Single();
-             ctor = sTIDType.GetConstructor(new[] {typeof(Guid)});
-             break;
-           default:
-             // ToDo: replace with custom exception and message
-             throw new ArgumentException($"Type '{typeof(TValue)}' is neither Guid nor int");
+        switch (typeof(TValue)) {
+          case Type intType when intType == typeof(int):
+            sTIDType = allTypes.Where(t => t.Name == "IntStronglyTypedId").Single();
+            ctor = sTIDType.GetConstructor(new[] { typeof(int) });
+            break;
+          case Type GuidType when GuidType == typeof(Guid):
+            sTIDType = allTypes.Where(t => t.Name == "GuidStronglyTypedId").Single();
+            ctor = sTIDType.GetConstructor(new[] { typeof(Guid) });
+            break;
+          default:
+            // ToDo: replace with custom exception and message
+            throw new ArgumentException($"Type '{typeof(TValue)}' is neither Guid nor int");
 
-         };
-         //ctor = sTIDType.GetTypeInfo().DeclaredConstructors.ToList()[1];
-         if (ctor is null) {
-           // ToDo: replace with custom exception and message
-           throw new ArgumentException($"Type '{stronglyTypedIdType}' converted to `{sTIDType}` doesn't have a constructor with one parameter of type '{typeof(TValue)}'");
-         }
+        };
+        //ctor = sTIDType.GetTypeInfo().DeclaredConstructors.ToList()[1];
+        if (ctor is null) {
+          // ToDo: replace with custom exception and message
+          throw new ArgumentException($"Type '{stronglyTypedIdType}' converted to `{sTIDType}` doesn't have a constructor with one parameter of type '{typeof(TValue)}'");
+        }
         // This ends the extensions to Mssr. Levesque's code to handle Deserialization of IAbstractStronglyTypedId
       }
       else {
-        ctor = stronglyTypedIdType.GetConstructor(new[] {typeof(TValue)});
+        ctor = stronglyTypedIdType.GetConstructor(new[] { typeof(TValue) });
         if (ctor is null) {
           // ToDo: replace with custom exception and message
           throw new ArgumentException($"Type '{stronglyTypedIdType}' doesn't have a constructor with one parameter of type '{typeof(TValue)}'");

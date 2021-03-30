@@ -22,7 +22,7 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
 
     [Theory]
     [MemberData(nameof(GuidStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(GuidStronglyTypedIdSerializationTestDataGenerator))]
-    public void GuidIdSerializeToJSON(GuidStronglyTypedIdSerializationTestData inTestData) {
+    public void GuidStronglyTypedIdSerializeToJSON(GuidStronglyTypedIdSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
@@ -38,7 +38,7 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
 
     [Theory]
     [MemberData(nameof(GuidStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(GuidStronglyTypedIdSerializationTestDataGenerator))]
-    public void GuidIdDeserializeFromJSON(GuidStronglyTypedIdSerializationTestData inTestData) {
+    public void GuidStronglyTypedIdDeserializeFromJSON(GuidStronglyTypedIdSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
@@ -94,7 +94,7 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
 
     [Theory]
     [MemberData(nameof(IntStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(IntStronglyTypedIdSerializationTestDataGenerator))]
-    public void IntIdSerializeToJSON(IntStronglyTypedIdSerializationTestData inTestData) {
+    public void IntStronglyTypedIdSerializeToJSON(IntStronglyTypedIdSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // new AbstractStronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
@@ -111,7 +111,7 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
 
     [Theory]
     [MemberData(nameof(IntStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(IntStronglyTypedIdSerializationTestDataGenerator))]
-    public void IntIdDeserializeFromJSON(IntStronglyTypedIdSerializationTestData inTestData) {
+    public void IntStronglyTypedIdDeserializeFromJSON(IntStronglyTypedIdSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
