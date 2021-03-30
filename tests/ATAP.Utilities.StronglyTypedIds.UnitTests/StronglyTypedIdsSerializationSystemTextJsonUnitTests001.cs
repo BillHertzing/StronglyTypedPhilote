@@ -15,7 +15,7 @@ using System.Text.Json;
 //using Newtonsoft.Json;
 
 namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
-  // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commentedout below
+  // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commented out below
   //  [CollectionDefinition(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
   //  [Collection(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001))]
   public partial class StronglyTypedIdSerializationSystemTextJsonUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson> {

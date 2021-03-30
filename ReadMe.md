@@ -1,13 +1,13 @@
 # Abstract StronglyTypedId records within another Strongly Typed record
 
-This repository focuses on the concept of a StronglyTypedId  (STID) . If you  have not worked with this concept before, please see also
+This repository focuses on the concept of a StronglyTypedId  (STID). If you  have not worked with this concept before, please see also
 
 * [Series: Using strongly-typed entity IDs to avoid primitive obsession](https://andrewlock.net/series/using-strongly-typed-entity-ids-to-avoid-primitive-obsession/) by Andrew Lock
 * [Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/) by Thomas Levesque
 
 This repository is a small abstract of the ATAP.Utilities repository which focuses on just the `StronglyTypedId` record type and the `Philote` record type, and is built to support discussions with other OSS developers on these concepts.
 
-The type of the value of a STID, as found in existing systems and databases, is overwhelmingly int, Guid, or string. Conceptual operations on STIDs are exactly the same regardless of the value's type, which makes the STID particularly suited for implementation with an Abstract Type. Furthermore, since IDs should be immutable, C# records can supply a lot of of the necessary boiler plate. Combining these, as Mssr. Levesque demonstrates, an abstract record makes a good choice as the base implementation of the StronglyTypedId type.
+The type of the value of a STID, as found in existing systems and databases, is overwhelmingly int, Guid, or string. Conceptual operations on STIDs are exactly the same regardless of the value's type, which makes the STID particularly suited for implementation with an Abstract Type. Furthermore, since IDs should be immutable, C# records can supply a lot of of the necessary boiler plate. Combining these, as Mssr. Levesque demonstrates, an abstract record makes a good choice as the base implementation of the `StronglyTypedId` type.
 
 STIDs assign a unique ID to an instance of a type that includes a STID as a field or property. The ID needs
 
@@ -16,13 +16,13 @@ STIDs assign a unique ID to an instance of a type that includes a STID as a fiel
 1) to be able to be written/read from a databases
 1) to provide the above capabilities in a secure and efficient manner
 
-Previously, the ATAP repositories / libraries have used a struct, not a class, for their implementation of `StronglyTypedId` (see the answer to this Stackoverflow question(TBD)), and the ServiceStack JSON serializers/deserializers. This repository focuses on extending Mssr. Levesque's code by incorporating the StronglyTypedId as one property of a class/record, and extending the JsonSerialzers' Converters to handle Interfaces, ISTID, and ICollection<ISTID>.
+Previously, the ATAP repositories / libraries have used a struct, not a class, for their implementation of `StronglyTypedId` (see the answer to this StackOverflow question(TBD)), and the ServiceStack JSON serializers/deserializers. This repository focuses on extending Mssr. Levesque's code by incorporating the StronglyTypedId as one property of a class/record, and extending the JsonSerialzers' Converters to handle `Interfaces`, `ISTID`, and `ICollection<ISTID>`.
 
 In the ATAP.Utilities repository, the choice of a specific serializer library is deferred until runtime, and controlled by a configuration setting. Unit tests there use a Fixture which implements a DI container `NInject` and supplies an `ISerializer` service. `Newtonsoft`, `Systrem.Text.Json`, and (soon, tbd, `ServiceStack`) are the specific implementation instances that supply the runtime service.
 
 Contrasting that, in this repository and for simplicity, `System.Text.Json` and `NewtonSoft` serializers for `StronglyTypedId` are implemented using individual hard-coded fixtures. Unit Tests are duplicated to use each Fixture, which results in files and classes having names ending in UnitTestsNewtonsoft001 and UnitTestsSystemTextJson001
 
-I'm looking for a better solution so that the Unit tests only have to be written once, and can be run against multiple fixtures each of which directly incorporates a single serialization library. Eventually dynamic loading of the serializer library will be supported, as well as a service implementation using ServiceStack.
+I'm looking for a better solution so that the Unit tests only have to be written once, and can be run against multiple fixtures each of which directly incorporates a single serialization library. Eventually dynamic loading of the serializer library will be supported, as well as a service implementation using ServiceStack. Please use the Issues for this repository if you would like to contribute.
 
 In Mssr. Levesque's work, he uses `ProductID` and `OrderId` as examples of concrete types for the abstract `StronglyTypedId`. In this repository, I've used `GuidStronglyTypedId` and `IntStronglyTypedId` as concrete records that implement Mssr. Levesque's abstract record.
 
@@ -30,7 +30,7 @@ There are Unit Tests for int and Guid concrete records, testing the `TypeConvert
 
 Currently the `TypeConverters` work, The JSON serializers/deserializers for `System.text.Json` work for StronglyTypedId<TValue> and IStronglyTypedId<TValue>.
 
-The JSON serializers/deserializers for`Newtonsoft` and it's Unit Tests are currently in development.
+The JSON serializers/deserializers for `Newtonsoft` and it's Unit Tests are currently in development.
 
 # `AbstractPhilote<TId, TValue>`
 
