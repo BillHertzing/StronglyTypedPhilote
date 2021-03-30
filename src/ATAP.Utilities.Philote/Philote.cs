@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Linq;
+using System.Reflection;
 using ATAP.Utilities.StronglyTypedIds;
 using Itenso.TimePeriod;
 
@@ -38,7 +39,7 @@ namespace ATAP.Utilities.Philote {
     //     ID = Activator.CreateInstance(typeof(TId), new object[] { iD }) as TId;
     //   }
     //   else {
-    //     ID = (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId() { Value = Guid.NewGuid() };
+    //     ID = (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId();
     //   }
     //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
     //   TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
@@ -52,7 +53,7 @@ namespace ATAP.Utilities.Philote {
         Type intType when typeof(TValue) == typeof(int) => new IntStronglyTypedId() { Value = new Random().Next() } as TId,
         //Type GuidType when typeof(TValue) == typeof(Guid) => Activator.CreateInstance(typeof(Guid), new object[] { Guid.NewGuid() }) as TId,
           //Type intType when typeof(TValue) == typeof(int) => (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() },
-          Type GuidType when typeof(TValue) == typeof(Guid) => (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId() { Value = Guid.NewGuid() },
+          Type GuidType when typeof(TValue) == typeof(Guid) => (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId(),
           // ToDo: replace with new custom exception and localization of exception message
           _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}")),
 

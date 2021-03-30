@@ -26,7 +26,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     // public GCommentPhilote(Guid? iD = default, ConcurrentDictionary<string, GCommentId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
     //   if (iD != default) { ID = iD; }
     //   else {
-    //     ID = new GCommentId<Guid>() {Value = Guid.NewGuid()};
+    //     ID = new GCommentId<Guid>();
     //   }
     //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
     //   TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
@@ -37,7 +37,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
       else {
         ID = (typeof(TValue)) switch {
           Type intType when typeof(TValue) == typeof(int) => new GCommentId<int>() { Value = new Random().Next() } as GCommentId<TValue>,
-          Type GuidType when typeof(TValue) == typeof(Guid) => new GCommentId<Guid>() { Value = Guid.NewGuid() } as GCommentId<TValue>,
+          Type GuidType when typeof(TValue) == typeof(Guid) => new GCommentId<Guid>() as GCommentId<TValue>,
           // ToDo: replace with new custom exception and localization of exception message
           _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}")),
 
@@ -90,7 +90,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
       else {
         ID = (typeof(TValue)) switch {
           Type intType when typeof(TValue) == typeof(int) => new GBodyId<int>() { Value = new Random().Next() } as GBodyId<TValue>,
-          Type GuidType when typeof(TValue) == typeof(Guid) => new GBodyId<Guid>() { Value = Guid.NewGuid() } as GBodyId<TValue>,
+          Type GuidType when typeof(TValue) == typeof(Guid) => new GBodyId<Guid>() as GBodyId<TValue>,
           // ToDo: replace with new custom exception and localization of exception message
           _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}")),
 

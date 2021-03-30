@@ -42,7 +42,7 @@ namespace ATAP.Utilities.Philote.UnitTests {
       else {
         ID = (typeof(TValue)) switch {
           Type intType when typeof(TValue) == typeof(int) => new TestClassWithPhiloteId<int>() { Value = new Random().Next() } as TestClassWithPhiloteId<TValue>,
-          Type GuidType when typeof(TValue) == typeof(Guid) => new TestClassWithPhiloteId<Guid>() { Value = Guid.NewGuid() } as TestClassWithPhiloteId<TValue>,
+          Type GuidType when typeof(TValue) == typeof(Guid) => new TestClassWithPhiloteId<Guid>() as TestClassWithPhiloteId<TValue>,
           // ToDo: replace with new custom exception and localization of exception message
           _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}")),
 
