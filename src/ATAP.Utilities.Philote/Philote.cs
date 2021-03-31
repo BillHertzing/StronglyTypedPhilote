@@ -53,7 +53,8 @@ namespace ATAP.Utilities.Philote {
           Type intType when typeof(TValue) == typeof(int) => new IntStronglyTypedId() { Value = new Random().Next() } as TId,
           //Type GuidType when typeof(TValue) == typeof(Guid) => Activator.CreateInstance(typeof(Guid), new object[] { Guid.NewGuid() }) as TId,
           //Type intType when typeof(TValue) == typeof(int) => (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() },
-          Type GuidType when typeof(TValue) == typeof(Guid) => (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId(),
+          // Type GuidType when typeof(TValue) == typeof(Guid) => (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId(),
+          Type GuidType when typeof(TValue) == typeof(Guid) => (TId) InstanceFactory.CreateInstance(typeof(TId)),
           // ToDo: replace with new custom exception and localization of exception message
           _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}")),
 
