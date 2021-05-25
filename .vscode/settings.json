@@ -6,9 +6,7 @@
   "git.confirmSync": false,
   "testExplorer.addToEditorContextMenu": true,
   "dotnet-test-explorer.testProjectPath": "**/*UnitTests.csproj",
-  "yaml.schemas": {
-      "file:///toc.schema.json": "/toc\\.yml/i"
-  },
+  "yaml.schemas": {},
   "cSpell.enableFiletypes": [
       "sql"
   ],

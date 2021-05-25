@@ -1,0 +1,5 @@
+- name: SolutionDocumentation
+  href: SolutionDocumentation/
+- name: Source Code Documentation
+  href: GeneratedDocumentation/
+  homepage: GeneratedDocumentation/index.md

@@ -17,6 +17,13 @@ docs/**/*.*
 # temporary files used during development
 .devlog/
 
+# DocFx fioes to ignore
+/**/DROP/
+/**/TEMP/
+/**/packages/
+# _site # Got to commit _site to GitHub so it can be published on the GHPages branch
+/GeneratedDocumentation/**/*.*
+
 # User-specific files
 *.suo
 *.user

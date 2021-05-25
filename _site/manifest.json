@@ -1,0 +1,378 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Dropbox/whertzing/GitHub/StronglyTypedPhilote",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html",
+          "hash": "JafgFMWahwS3+DUXH/VDLeQTA9IPZK+LaqzSF/nvP74="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.html",
+          "hash": "xYvN+yFNws8RVqXMUOnfCNWUYAVtBFZvCHx+gUMGKQE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.html",
+          "hash": "P/85jiYDHdYYJPZDoJaDWQPTEfTBRa7AU/i0cQ9qs8I="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html",
+          "hash": "SgcONSuf0rxa9KwtRib/leksnKDyscPfEs7F85eXsqA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IGuidPhilote-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IGuidPhilote-1.html",
+          "hash": "//bcbTaxVexHDiWm5mq06SyITnZ1XZG7boNfTy8RBjg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IIntPhilote-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IIntPhilote-1.html",
+          "hash": "dAtFhoMbjhSQ/6OMphx7rziT9FS5eneSnpLFiqs8Gbc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html",
+          "hash": "TBdhP6h5Bu+dDPJmZXiynA+C+Ynk5b+9kr46Y73DjRQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html",
+          "hash": "nLTzSSWQvk2NGGpqHmjHK/3aHDlz0ZAf4amh4Ky/s0E="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.html",
+          "hash": "CvxKpsU9MuId4zbxO1GF4JoMnd5ltWxoU3f2wj0aXPI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html",
+          "hash": "9/L5uvWIfRgC38SU2I5832CjIiB/0dgTTTy3HqwwqEU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.html",
+          "hash": "6qBp7iXj1VWZBABeyIlOiI5CJsN1zGFVpq9W0sRG/PQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.TypeToIgnore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.TypeToIgnore.html",
+          "hash": "2txx2YzQI6E8c9jli7x7BElzN/1PPLgBZ+7pC/uBEAo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.html",
+          "hash": "zLRXZoFM4qewSX4mdHhC3///q+5WBxvGjt/qBExsJ14="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.html",
+          "hash": "X7SUMUN0ToJmszH+5dp2druNz563iZg/062mhDQFxpQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId.html",
+          "hash": "Q6EoPzcnAexQ2+R9Fr0eVPLImsL4hqJ2UtvWCZiEVjs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId.html",
+          "hash": "jj32WhrI1nyDWmomjaG7FqnwCdx5tvYmsRroHcO2Zfk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html",
+          "hash": "8s5qFKylIKFnJf7jao0wANy4EvNjj0grVvsrGRv6PdI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html",
+          "hash": "gWfHug4y5UqmvmjapKspPSV8X0cANIL6M4iIRA4RwNE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.html",
+          "hash": "tDc0B7mXr4iVmlbJcu+/PS26DcBhPsIOCqnB4O+j294="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.html",
+          "hash": "lrRwnZeMh3KKDrbp716+cwsEQb2l4zYHPhGcNDxCUJY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "GeneratedDocumentation/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/index.html",
+          "hash": "cc1A5jHYy1VFGA074u/stiRERkMGypnfcNhkNCLMUMA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "GeneratedDocumentation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "GeneratedDocumentation/toc.html",
+          "hash": "wdHQZhhEr/IQMOuT9bzC0q7z/KIbmQXNKxaQ08FIroc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ReadMe.md",
+      "output": {
+        ".html": {
+          "relative_path": "ReadMe.html",
+          "hash": "Z/PHqC5jgkAtxv1Gm92BhvsBJ94F6xcDLFBC5bfGhF4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "SolutionDocumentation/StronglyTypedPhiloteQuickStart.md",
+      "output": {
+        ".html": {
+          "relative_path": "SolutionDocumentation/StronglyTypedPhiloteQuickStart.html",
+          "hash": "e0rpA2mncR2NrRZWwHk04of2NKmZO269MuveEsLJgNo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "SolutionDocumentation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SolutionDocumentation/toc.html",
+          "hash": "P3Mgr0FiHsf3JAeKqXXzkeFlhrr2XDNs+Brzqjsxld0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "JcmvSumx70emFnsS8bawdt43elBipDvsLO3sqjCzP24="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "AoYF+dk72/agpgqrekqr2eJijgBICEGXUP10Sno51N4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 4
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 20,
+          "skipped_file_count": 20
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

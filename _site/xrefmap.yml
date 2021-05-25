@@ -1,0 +1,542 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: ATAP.Utilities.Collection
+  name: ATAP.Utilities.Collection
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.html
+  commentId: N:ATAP.Utilities.Collection
+  fullName: ATAP.Utilities.Collection
+  nameWithType: ATAP.Utilities.Collection
+- uid: ATAP.Utilities.Collection.Extensions
+  name: Extensions
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html
+  commentId: T:ATAP.Utilities.Collection.Extensions
+  fullName: ATAP.Utilities.Collection.Extensions
+  nameWithType: Extensions
+- uid: ATAP.Utilities.Collection.Extensions.AddRange*
+  name: AddRange
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_AddRange_
+  commentId: Overload:ATAP.Utilities.Collection.Extensions.AddRange
+  isSpec: "True"
+  fullName: ATAP.Utilities.Collection.Extensions.AddRange
+  nameWithType: Extensions.AddRange
+- uid: ATAP.Utilities.Collection.Extensions.AddRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})
+  name: AddRange<T>(ICollection<T>, IEnumerable<T>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_AddRange__1_System_Collections_Generic_ICollection___0__System_Collections_Generic_IEnumerable___0__
+  commentId: M:ATAP.Utilities.Collection.Extensions.AddRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})
+  name.vb: AddRange(Of T)(ICollection(Of T), IEnumerable(Of T))
+  fullName: ATAP.Utilities.Collection.Extensions.AddRange<T>(System.Collections.Generic.ICollection<T>, System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.AddRange(Of T)(System.Collections.Generic.ICollection(Of T), System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: Extensions.AddRange<T>(ICollection<T>, IEnumerable<T>)
+  nameWithType.vb: Extensions.AddRange(Of T)(ICollection(Of T), IEnumerable(Of T))
+- uid: ATAP.Utilities.Collection.Extensions.AddRange``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{``0})
+  name: AddRange<TValue>(IList<TValue>, IEnumerable<TValue>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_AddRange__1_System_Collections_Generic_IList___0__System_Collections_Generic_IEnumerable___0__
+  commentId: M:ATAP.Utilities.Collection.Extensions.AddRange``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{``0})
+  name.vb: AddRange(Of TValue)(IList(Of TValue), IEnumerable(Of TValue))
+  fullName: ATAP.Utilities.Collection.Extensions.AddRange<TValue>(System.Collections.Generic.IList<TValue>, System.Collections.Generic.IEnumerable<TValue>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.AddRange(Of TValue)(System.Collections.Generic.IList(Of TValue), System.Collections.Generic.IEnumerable(Of TValue))
+  nameWithType: Extensions.AddRange<TValue>(IList<TValue>, IEnumerable<TValue>)
+  nameWithType.vb: Extensions.AddRange(Of TValue)(IList(Of TValue), IEnumerable(Of TValue))
+- uid: ATAP.Utilities.Collection.Extensions.AddRange``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
+  name: AddRange<TKey, TValue>(Dictionary<TKey, TValue>, IEnumerable<KeyValuePair<TKey, TValue>>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_AddRange__2_System_Collections_Generic_Dictionary___0___1__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair___0___1___
+  commentId: M:ATAP.Utilities.Collection.Extensions.AddRange``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
+  name.vb: AddRange(Of TKey, TValue)(Dictionary(Of TKey, TValue), IEnumerable(Of KeyValuePair(Of TKey, TValue)))
+  fullName: ATAP.Utilities.Collection.Extensions.AddRange<TKey, TValue>(System.Collections.Generic.Dictionary<TKey, TValue>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<TKey, TValue>>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.AddRange(Of TKey, TValue)(System.Collections.Generic.Dictionary(Of TKey, TValue), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue)))
+  nameWithType: Extensions.AddRange<TKey, TValue>(Dictionary<TKey, TValue>, IEnumerable<KeyValuePair<TKey, TValue>>)
+  nameWithType.vb: Extensions.AddRange(Of TKey, TValue)(Dictionary(Of TKey, TValue), IEnumerable(Of KeyValuePair(Of TKey, TValue)))
+- uid: ATAP.Utilities.Collection.Extensions.DistinctBy*
+  name: DistinctBy
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_DistinctBy_
+  commentId: Overload:ATAP.Utilities.Collection.Extensions.DistinctBy
+  isSpec: "True"
+  fullName: ATAP.Utilities.Collection.Extensions.DistinctBy
+  nameWithType: Extensions.DistinctBy
+- uid: ATAP.Utilities.Collection.Extensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})
+  name: DistinctBy<TSource, TKey>(IEnumerable<TSource>, Func<TSource, TKey>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__
+  commentId: M:ATAP.Utilities.Collection.Extensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})
+  name.vb: DistinctBy(Of TSource, TKey)(IEnumerable(Of TSource), Func(Of TSource, TKey))
+  fullName: ATAP.Utilities.Collection.Extensions.DistinctBy<TSource, TKey>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, TKey>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.DistinctBy(Of TSource, TKey)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, TKey))
+  nameWithType: Extensions.DistinctBy<TSource, TKey>(IEnumerable<TSource>, Func<TSource, TKey>)
+  nameWithType.vb: Extensions.DistinctBy(Of TSource, TKey)(IEnumerable(Of TSource), Func(Of TSource, TKey))
+- uid: ATAP.Utilities.Collection.Extensions.ForEach*
+  name: ForEach
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_ForEach_
+  commentId: Overload:ATAP.Utilities.Collection.Extensions.ForEach
+  isSpec: "True"
+  fullName: ATAP.Utilities.Collection.Extensions.ForEach
+  nameWithType: Extensions.ForEach
+- uid: ATAP.Utilities.Collection.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  name: ForEach<T>(IEnumerable<T>, Action<T>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__
+  commentId: M:ATAP.Utilities.Collection.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  name.vb: ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+  fullName: ATAP.Utilities.Collection.Extensions.ForEach<T>(System.Collections.Generic.IEnumerable<T>, System.Action<T>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.ForEach(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Action(Of T))
+  nameWithType: Extensions.ForEach<T>(IEnumerable<T>, Action<T>)
+  nameWithType.vb: Extensions.ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+- uid: ATAP.Utilities.Collection.Extensions.HasSingle*
+  name: HasSingle
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_HasSingle_
+  commentId: Overload:ATAP.Utilities.Collection.Extensions.HasSingle
+  isSpec: "True"
+  fullName: ATAP.Utilities.Collection.Extensions.HasSingle
+  nameWithType: Extensions.HasSingle
+- uid: ATAP.Utilities.Collection.Extensions.HasSingle``1(System.Collections.Generic.IEnumerable{``0},``0@)
+  name: HasSingle<T>(IEnumerable<T>, out T)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_HasSingle__1_System_Collections_Generic_IEnumerable___0____0__
+  commentId: M:ATAP.Utilities.Collection.Extensions.HasSingle``1(System.Collections.Generic.IEnumerable{``0},``0@)
+  name.vb: HasSingle(Of T)(IEnumerable(Of T), ByRef T)
+  fullName: ATAP.Utilities.Collection.Extensions.HasSingle<T>(System.Collections.Generic.IEnumerable<T>, out T)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.HasSingle(Of T)(System.Collections.Generic.IEnumerable(Of T), ByRef T)
+  nameWithType: Extensions.HasSingle<T>(IEnumerable<T>, out T)
+  nameWithType.vb: Extensions.HasSingle(Of T)(IEnumerable(Of T), ByRef T)
+- uid: ATAP.Utilities.Collection.Extensions.Merge*
+  name: Merge
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_Merge_
+  commentId: Overload:ATAP.Utilities.Collection.Extensions.Merge
+  isSpec: "True"
+  fullName: ATAP.Utilities.Collection.Extensions.Merge
+  nameWithType: Extensions.Merge
+- uid: ATAP.Utilities.Collection.Extensions.Merge``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.Dictionary{``0,``1}})
+  name: Merge<TKey, TValue>(IEnumerable<Dictionary<TKey, TValue>>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_Merge__2_System_Collections_Generic_IEnumerable_System_Collections_Generic_Dictionary___0___1___
+  commentId: M:ATAP.Utilities.Collection.Extensions.Merge``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.Dictionary{``0,``1}})
+  name.vb: Merge(Of TKey, TValue)(IEnumerable(Of Dictionary(Of TKey, TValue)))
+  fullName: ATAP.Utilities.Collection.Extensions.Merge<TKey, TValue>(System.Collections.Generic.IEnumerable<System.Collections.Generic.Dictionary<TKey, TValue>>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.Merge(Of TKey, TValue)(System.Collections.Generic.IEnumerable(Of System.Collections.Generic.Dictionary(Of TKey, TValue)))
+  nameWithType: Extensions.Merge<TKey, TValue>(IEnumerable<Dictionary<TKey, TValue>>)
+  nameWithType.vb: Extensions.Merge(Of TKey, TValue)(IEnumerable(Of Dictionary(Of TKey, TValue)))
+- uid: ATAP.Utilities.Collection.Extensions.Traverse*
+  name: Traverse
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_Traverse_
+  commentId: Overload:ATAP.Utilities.Collection.Extensions.Traverse
+  isSpec: "True"
+  fullName: ATAP.Utilities.Collection.Extensions.Traverse
+  nameWithType: Extensions.Traverse
+- uid: ATAP.Utilities.Collection.Extensions.Traverse``1(``0,System.Func{``0,``0})
+  name: Traverse<T>(T, Func<T, T>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_Traverse__1___0_System_Func___0___0__
+  commentId: M:ATAP.Utilities.Collection.Extensions.Traverse``1(``0,System.Func{``0,``0})
+  name.vb: Traverse(Of T)(T, Func(Of T, T))
+  fullName: ATAP.Utilities.Collection.Extensions.Traverse<T>(T, System.Func<T, T>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.Traverse(Of T)(T, System.Func(Of T, T))
+  nameWithType: Extensions.Traverse<T>(T, Func<T, T>)
+  nameWithType.vb: Extensions.Traverse(Of T)(T, Func(Of T, T))
+- uid: ATAP.Utilities.Collection.Extensions.Traverse``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  name: Traverse<T>(T, Func<T, IEnumerable<T>>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_Traverse__1___0_System_Func___0_System_Collections_Generic_IEnumerable___0___
+  commentId: M:ATAP.Utilities.Collection.Extensions.Traverse``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  name.vb: Traverse(Of T)(T, Func(Of T, IEnumerable(Of T)))
+  fullName: ATAP.Utilities.Collection.Extensions.Traverse<T>(T, System.Func<T, System.Collections.Generic.IEnumerable<T>>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.Traverse(Of T)(T, System.Func(Of T, System.Collections.Generic.IEnumerable(Of T)))
+  nameWithType: Extensions.Traverse<T>(T, Func<T, IEnumerable<T>>)
+  nameWithType.vb: Extensions.Traverse(Of T)(T, Func(Of T, IEnumerable(Of T)))
+- uid: ATAP.Utilities.Collection.Extensions.Traverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  name: Traverse<T>(IEnumerable<T>, Func<T, IEnumerable<T>>)
+  href: GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html#ATAP_Utilities_Collection_Extensions_Traverse__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  commentId: M:ATAP.Utilities.Collection.Extensions.Traverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  name.vb: Traverse(Of T)(IEnumerable(Of T), Func(Of T, IEnumerable(Of T)))
+  fullName: ATAP.Utilities.Collection.Extensions.Traverse<T>(System.Collections.Generic.IEnumerable<T>, System.Func<T, System.Collections.Generic.IEnumerable<T>>)
+  fullName.vb: ATAP.Utilities.Collection.Extensions.Traverse(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Func(Of T, System.Collections.Generic.IEnumerable(Of T)))
+  nameWithType: Extensions.Traverse<T>(IEnumerable<T>, Func<T, IEnumerable<T>>)
+  nameWithType.vb: Extensions.Traverse(Of T)(IEnumerable(Of T), Func(Of T, IEnumerable(Of T)))
+- uid: ATAP.Utilities.Philote
+  name: ATAP.Utilities.Philote
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.html
+  commentId: N:ATAP.Utilities.Philote
+  fullName: ATAP.Utilities.Philote
+  nameWithType: ATAP.Utilities.Philote
+- uid: ATAP.Utilities.Philote.DefaultConfiguration`1
+  name: DefaultConfiguration<T>
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.html
+  commentId: T:ATAP.Utilities.Philote.DefaultConfiguration`1
+  name.vb: DefaultConfiguration(Of T)
+  fullName: ATAP.Utilities.Philote.DefaultConfiguration<T>
+  fullName.vb: ATAP.Utilities.Philote.DefaultConfiguration(Of T)
+  nameWithType: DefaultConfiguration<T>
+  nameWithType.vb: DefaultConfiguration(Of T)
+- uid: ATAP.Utilities.Philote.DefaultConfiguration`1.Production
+  name: Production
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.html#ATAP_Utilities_Philote_DefaultConfiguration_1_Production
+  commentId: F:ATAP.Utilities.Philote.DefaultConfiguration`1.Production
+  fullName: ATAP.Utilities.Philote.DefaultConfiguration<T>.Production
+  fullName.vb: ATAP.Utilities.Philote.DefaultConfiguration(Of T).Production
+  nameWithType: DefaultConfiguration<T>.Production
+  nameWithType.vb: DefaultConfiguration(Of T).Production
+- uid: ATAP.Utilities.Philote.IAbstractPhilote`2
+  name: IAbstractPhilote<TId, TValue>
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html
+  commentId: T:ATAP.Utilities.Philote.IAbstractPhilote`2
+  name.vb: IAbstractPhilote(Of TId, TValue)
+  fullName: ATAP.Utilities.Philote.IAbstractPhilote<TId, TValue>
+  fullName.vb: ATAP.Utilities.Philote.IAbstractPhilote(Of TId, TValue)
+  nameWithType: IAbstractPhilote<TId, TValue>
+  nameWithType.vb: IAbstractPhilote(Of TId, TValue)
+- uid: ATAP.Utilities.Philote.IAbstractPhilote`2.AdditionalIDs
+  name: AdditionalIDs
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html#ATAP_Utilities_Philote_IAbstractPhilote_2_AdditionalIDs
+  commentId: P:ATAP.Utilities.Philote.IAbstractPhilote`2.AdditionalIDs
+  fullName: ATAP.Utilities.Philote.IAbstractPhilote<TId, TValue>.AdditionalIDs
+  fullName.vb: ATAP.Utilities.Philote.IAbstractPhilote(Of TId, TValue).AdditionalIDs
+  nameWithType: IAbstractPhilote<TId, TValue>.AdditionalIDs
+  nameWithType.vb: IAbstractPhilote(Of TId, TValue).AdditionalIDs
+- uid: ATAP.Utilities.Philote.IAbstractPhilote`2.AdditionalIDs*
+  name: AdditionalIDs
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html#ATAP_Utilities_Philote_IAbstractPhilote_2_AdditionalIDs_
+  commentId: Overload:ATAP.Utilities.Philote.IAbstractPhilote`2.AdditionalIDs
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.IAbstractPhilote<TId, TValue>.AdditionalIDs
+  fullName.vb: ATAP.Utilities.Philote.IAbstractPhilote(Of TId, TValue).AdditionalIDs
+  nameWithType: IAbstractPhilote<TId, TValue>.AdditionalIDs
+  nameWithType.vb: IAbstractPhilote(Of TId, TValue).AdditionalIDs
+- uid: ATAP.Utilities.Philote.IAbstractPhilote`2.ID
+  name: ID
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html#ATAP_Utilities_Philote_IAbstractPhilote_2_ID
+  commentId: P:ATAP.Utilities.Philote.IAbstractPhilote`2.ID
+  fullName: ATAP.Utilities.Philote.IAbstractPhilote<TId, TValue>.ID
+  fullName.vb: ATAP.Utilities.Philote.IAbstractPhilote(Of TId, TValue).ID
+  nameWithType: IAbstractPhilote<TId, TValue>.ID
+  nameWithType.vb: IAbstractPhilote(Of TId, TValue).ID
+- uid: ATAP.Utilities.Philote.IAbstractPhilote`2.ID*
+  name: ID
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html#ATAP_Utilities_Philote_IAbstractPhilote_2_ID_
+  commentId: Overload:ATAP.Utilities.Philote.IAbstractPhilote`2.ID
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.IAbstractPhilote<TId, TValue>.ID
+  fullName.vb: ATAP.Utilities.Philote.IAbstractPhilote(Of TId, TValue).ID
+  nameWithType: IAbstractPhilote<TId, TValue>.ID
+  nameWithType.vb: IAbstractPhilote(Of TId, TValue).ID
+- uid: ATAP.Utilities.Philote.IAbstractPhilote`2.TimeBlocks
+  name: TimeBlocks
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html#ATAP_Utilities_Philote_IAbstractPhilote_2_TimeBlocks
+  commentId: P:ATAP.Utilities.Philote.IAbstractPhilote`2.TimeBlocks
+  fullName: ATAP.Utilities.Philote.IAbstractPhilote<TId, TValue>.TimeBlocks
+  fullName.vb: ATAP.Utilities.Philote.IAbstractPhilote(Of TId, TValue).TimeBlocks
+  nameWithType: IAbstractPhilote<TId, TValue>.TimeBlocks
+  nameWithType.vb: IAbstractPhilote(Of TId, TValue).TimeBlocks
+- uid: ATAP.Utilities.Philote.IAbstractPhilote`2.TimeBlocks*
+  name: TimeBlocks
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html#ATAP_Utilities_Philote_IAbstractPhilote_2_TimeBlocks_
+  commentId: Overload:ATAP.Utilities.Philote.IAbstractPhilote`2.TimeBlocks
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.IAbstractPhilote<TId, TValue>.TimeBlocks
+  fullName.vb: ATAP.Utilities.Philote.IAbstractPhilote(Of TId, TValue).TimeBlocks
+  nameWithType: IAbstractPhilote<TId, TValue>.TimeBlocks
+  nameWithType.vb: IAbstractPhilote(Of TId, TValue).TimeBlocks
+- uid: ATAP.Utilities.Philote.IGuidPhilote`1
+  name: IGuidPhilote<TId>
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IGuidPhilote-1.html
+  commentId: T:ATAP.Utilities.Philote.IGuidPhilote`1
+  name.vb: IGuidPhilote(Of TId)
+  fullName: ATAP.Utilities.Philote.IGuidPhilote<TId>
+  fullName.vb: ATAP.Utilities.Philote.IGuidPhilote(Of TId)
+  nameWithType: IGuidPhilote<TId>
+  nameWithType.vb: IGuidPhilote(Of TId)
+- uid: ATAP.Utilities.Philote.IIntPhilote`1
+  name: IIntPhilote<TId>
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IIntPhilote-1.html
+  commentId: T:ATAP.Utilities.Philote.IIntPhilote`1
+  name.vb: IIntPhilote(Of TId)
+  fullName: ATAP.Utilities.Philote.IIntPhilote<TId>
+  fullName.vb: ATAP.Utilities.Philote.IIntPhilote(Of TId)
+  nameWithType: IIntPhilote<TId>
+  nameWithType.vb: IIntPhilote(Of TId)
+- uid: ATAP.Utilities.Philote.InstanceFactory
+  name: InstanceFactory
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html
+  commentId: T:ATAP.Utilities.Philote.InstanceFactory
+  fullName: ATAP.Utilities.Philote.InstanceFactory
+  nameWithType: InstanceFactory
+- uid: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(System.Type)
+  name: CreateInstance(Type)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html#ATAP_Utilities_Philote_InstanceFactory_CreateInstance_System_Type_
+  commentId: M:ATAP.Utilities.Philote.InstanceFactory.CreateInstance(System.Type)
+  fullName: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(System.Type)
+  nameWithType: InstanceFactory.CreateInstance(Type)
+- uid: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(System.Type,System.Object[])
+  name: CreateInstance(Type, Object[])
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html#ATAP_Utilities_Philote_InstanceFactory_CreateInstance_System_Type_System_Object___
+  commentId: M:ATAP.Utilities.Philote.InstanceFactory.CreateInstance(System.Type,System.Object[])
+  name.vb: CreateInstance(Type, Object())
+  fullName: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(System.Type, System.Object[])
+  fullName.vb: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(System.Type, System.Object())
+  nameWithType: InstanceFactory.CreateInstance(Type, Object[])
+  nameWithType.vb: InstanceFactory.CreateInstance(Type, Object())
+- uid: ATAP.Utilities.Philote.InstanceFactory.CreateInstance*
+  name: CreateInstance
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html#ATAP_Utilities_Philote_InstanceFactory_CreateInstance_
+  commentId: Overload:ATAP.Utilities.Philote.InstanceFactory.CreateInstance
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.InstanceFactory.CreateInstance
+  nameWithType: InstanceFactory.CreateInstance
+- uid: ATAP.Utilities.Philote.InstanceFactory.CreateInstance``1(System.Type,``0)
+  name: CreateInstance<TArg1>(Type, TArg1)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html#ATAP_Utilities_Philote_InstanceFactory_CreateInstance__1_System_Type___0_
+  commentId: M:ATAP.Utilities.Philote.InstanceFactory.CreateInstance``1(System.Type,``0)
+  name.vb: CreateInstance(Of TArg1)(Type, TArg1)
+  fullName: ATAP.Utilities.Philote.InstanceFactory.CreateInstance<TArg1>(System.Type, TArg1)
+  fullName.vb: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(Of TArg1)(System.Type, TArg1)
+  nameWithType: InstanceFactory.CreateInstance<TArg1>(Type, TArg1)
+  nameWithType.vb: InstanceFactory.CreateInstance(Of TArg1)(Type, TArg1)
+- uid: ATAP.Utilities.Philote.InstanceFactory.CreateInstance``2(System.Type,``0,``1)
+  name: CreateInstance<TArg1, TArg2>(Type, TArg1, TArg2)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html#ATAP_Utilities_Philote_InstanceFactory_CreateInstance__2_System_Type___0___1_
+  commentId: M:ATAP.Utilities.Philote.InstanceFactory.CreateInstance``2(System.Type,``0,``1)
+  name.vb: CreateInstance(Of TArg1, TArg2)(Type, TArg1, TArg2)
+  fullName: ATAP.Utilities.Philote.InstanceFactory.CreateInstance<TArg1, TArg2>(System.Type, TArg1, TArg2)
+  fullName.vb: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(Of TArg1, TArg2)(System.Type, TArg1, TArg2)
+  nameWithType: InstanceFactory.CreateInstance<TArg1, TArg2>(Type, TArg1, TArg2)
+  nameWithType.vb: InstanceFactory.CreateInstance(Of TArg1, TArg2)(Type, TArg1, TArg2)
+- uid: ATAP.Utilities.Philote.InstanceFactory.CreateInstance``3(System.Type,``0,``1,``2)
+  name: CreateInstance<TArg1, TArg2, TArg3>(Type, TArg1, TArg2, TArg3)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html#ATAP_Utilities_Philote_InstanceFactory_CreateInstance__3_System_Type___0___1___2_
+  commentId: M:ATAP.Utilities.Philote.InstanceFactory.CreateInstance``3(System.Type,``0,``1,``2)
+  name.vb: CreateInstance(Of TArg1, TArg2, TArg3)(Type, TArg1, TArg2, TArg3)
+  fullName: ATAP.Utilities.Philote.InstanceFactory.CreateInstance<TArg1, TArg2, TArg3>(System.Type, TArg1, TArg2, TArg3)
+  fullName.vb: ATAP.Utilities.Philote.InstanceFactory.CreateInstance(Of TArg1, TArg2, TArg3)(System.Type, TArg1, TArg2, TArg3)
+  nameWithType: InstanceFactory.CreateInstance<TArg1, TArg2, TArg3>(Type, TArg1, TArg2, TArg3)
+  nameWithType.vb: InstanceFactory.CreateInstance(Of TArg1, TArg2, TArg3)(Type, TArg1, TArg2, TArg3)
+- uid: ATAP.Utilities.Philote.InstanceFactoryGeneric`3
+  name: InstanceFactoryGeneric<TArg1, TArg2, TArg3>
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.html
+  commentId: T:ATAP.Utilities.Philote.InstanceFactoryGeneric`3
+  name.vb: InstanceFactoryGeneric(Of TArg1, TArg2, TArg3)
+  fullName: ATAP.Utilities.Philote.InstanceFactoryGeneric<TArg1, TArg2, TArg3>
+  fullName.vb: ATAP.Utilities.Philote.InstanceFactoryGeneric(Of TArg1, TArg2, TArg3)
+  nameWithType: InstanceFactoryGeneric<TArg1, TArg2, TArg3>
+  nameWithType.vb: InstanceFactoryGeneric(Of TArg1, TArg2, TArg3)
+- uid: ATAP.Utilities.Philote.InstanceFactoryGeneric`3.CreateInstance(System.Type,`0,`1,`2)
+  name: CreateInstance(Type, TArg1, TArg2, TArg3)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.html#ATAP_Utilities_Philote_InstanceFactoryGeneric_3_CreateInstance_System_Type__0__1__2_
+  commentId: M:ATAP.Utilities.Philote.InstanceFactoryGeneric`3.CreateInstance(System.Type,`0,`1,`2)
+  fullName: ATAP.Utilities.Philote.InstanceFactoryGeneric<TArg1, TArg2, TArg3>.CreateInstance(System.Type, TArg1, TArg2, TArg3)
+  fullName.vb: ATAP.Utilities.Philote.InstanceFactoryGeneric(Of TArg1, TArg2, TArg3).CreateInstance(System.Type, TArg1, TArg2, TArg3)
+  nameWithType: InstanceFactoryGeneric<TArg1, TArg2, TArg3>.CreateInstance(Type, TArg1, TArg2, TArg3)
+  nameWithType.vb: InstanceFactoryGeneric(Of TArg1, TArg2, TArg3).CreateInstance(Type, TArg1, TArg2, TArg3)
+- uid: ATAP.Utilities.Philote.InstanceFactoryGeneric`3.CreateInstance*
+  name: CreateInstance
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.html#ATAP_Utilities_Philote_InstanceFactoryGeneric_3_CreateInstance_
+  commentId: Overload:ATAP.Utilities.Philote.InstanceFactoryGeneric`3.CreateInstance
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.InstanceFactoryGeneric<TArg1, TArg2, TArg3>.CreateInstance
+  fullName.vb: ATAP.Utilities.Philote.InstanceFactoryGeneric(Of TArg1, TArg2, TArg3).CreateInstance
+  nameWithType: InstanceFactoryGeneric<TArg1, TArg2, TArg3>.CreateInstance
+  nameWithType.vb: InstanceFactoryGeneric(Of TArg1, TArg2, TArg3).CreateInstance
+- uid: ATAP.Utilities.Philote.IPhiloteConverterFactory`1
+  name: IPhiloteConverterFactory<T>
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html
+  commentId: T:ATAP.Utilities.Philote.IPhiloteConverterFactory`1
+  name.vb: IPhiloteConverterFactory(Of T)
+  fullName: ATAP.Utilities.Philote.IPhiloteConverterFactory<T>
+  fullName.vb: ATAP.Utilities.Philote.IPhiloteConverterFactory(Of T)
+  nameWithType: IPhiloteConverterFactory<T>
+  nameWithType.vb: IPhiloteConverterFactory(Of T)
+- uid: ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html#ATAP_Utilities_Philote_IPhiloteConverterFactory_1_CanConvert_System_Type_
+  commentId: M:ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CanConvert(System.Type)
+  fullName: ATAP.Utilities.Philote.IPhiloteConverterFactory<T>.CanConvert(System.Type)
+  fullName.vb: ATAP.Utilities.Philote.IPhiloteConverterFactory(Of T).CanConvert(System.Type)
+  nameWithType: IPhiloteConverterFactory<T>.CanConvert(Type)
+  nameWithType.vb: IPhiloteConverterFactory(Of T).CanConvert(Type)
+- uid: ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CanConvert*
+  name: CanConvert
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html#ATAP_Utilities_Philote_IPhiloteConverterFactory_1_CanConvert_
+  commentId: Overload:ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CanConvert
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.IPhiloteConverterFactory<T>.CanConvert
+  fullName.vb: ATAP.Utilities.Philote.IPhiloteConverterFactory(Of T).CanConvert
+  nameWithType: IPhiloteConverterFactory<T>.CanConvert
+  nameWithType.vb: IPhiloteConverterFactory(Of T).CanConvert
+- uid: ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CreateConverter(System.Type,ISerializerOptions)
+  name: CreateConverter(Type, ISerializerOptions)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html#ATAP_Utilities_Philote_IPhiloteConverterFactory_1_CreateConverter_System_Type_ISerializerOptions_
+  commentId: M:ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CreateConverter(System.Type,ISerializerOptions)
+  fullName: ATAP.Utilities.Philote.IPhiloteConverterFactory<T>.CreateConverter(System.Type, ISerializerOptions)
+  fullName.vb: ATAP.Utilities.Philote.IPhiloteConverterFactory(Of T).CreateConverter(System.Type, ISerializerOptions)
+  nameWithType: IPhiloteConverterFactory<T>.CreateConverter(Type, ISerializerOptions)
+  nameWithType.vb: IPhiloteConverterFactory(Of T).CreateConverter(Type, ISerializerOptions)
+- uid: ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CreateConverter*
+  name: CreateConverter
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html#ATAP_Utilities_Philote_IPhiloteConverterFactory_1_CreateConverter_
+  commentId: Overload:ATAP.Utilities.Philote.IPhiloteConverterFactory`1.CreateConverter
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.IPhiloteConverterFactory<T>.CreateConverter
+  fullName.vb: ATAP.Utilities.Philote.IPhiloteConverterFactory(Of T).CreateConverter
+  nameWithType: IPhiloteConverterFactory<T>.CreateConverter
+  nameWithType.vb: IPhiloteConverterFactory(Of T).CreateConverter
+- uid: ATAP.Utilities.Philote.JsonConverter.SystemTextJson
+  name: ATAP.Utilities.Philote.JsonConverter.SystemTextJson
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.html
+  commentId: N:ATAP.Utilities.Philote.JsonConverter.SystemTextJson
+  fullName: ATAP.Utilities.Philote.JsonConverter.SystemTextJson
+  nameWithType: ATAP.Utilities.Philote.JsonConverter.SystemTextJson
+- uid: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory
+  name: PhiloteConverterFactory
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html
+  commentId: T:ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory
+  fullName: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory
+  nameWithType: PhiloteConverterFactory
+- uid: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html#ATAP_Utilities_Philote_JsonConverter_SystemTextJson_PhiloteConverterFactory_CanConvert_System_Type_
+  commentId: M:ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CanConvert(System.Type)
+  fullName: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CanConvert(System.Type)
+  nameWithType: PhiloteConverterFactory.CanConvert(Type)
+- uid: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CanConvert*
+  name: CanConvert
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html#ATAP_Utilities_Philote_JsonConverter_SystemTextJson_PhiloteConverterFactory_CanConvert_
+  commentId: Overload:ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CanConvert
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CanConvert
+  nameWithType: PhiloteConverterFactory.CanConvert
+- uid: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)
+  name: CreateConverter(Type, JsonSerializerOptions)
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html#ATAP_Utilities_Philote_JsonConverter_SystemTextJson_PhiloteConverterFactory_CreateConverter_System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)
+  fullName: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CreateConverter(System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: PhiloteConverterFactory.CreateConverter(Type, JsonSerializerOptions)
+- uid: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CreateConverter*
+  name: CreateConverter
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html#ATAP_Utilities_Philote_JsonConverter_SystemTextJson_PhiloteConverterFactory_CreateConverter_
+  commentId: Overload:ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CreateConverter
+  isSpec: "True"
+  fullName: ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.CreateConverter
+  nameWithType: PhiloteConverterFactory.CreateConverter
+- uid: ATAP.Utilities.Philote.TypeToIgnore
+  name: TypeToIgnore
+  href: GeneratedDocumentation/ATAP.Utilities.Philote.TypeToIgnore.html
+  commentId: T:ATAP.Utilities.Philote.TypeToIgnore
+  fullName: ATAP.Utilities.Philote.TypeToIgnore
+  nameWithType: TypeToIgnore
+- uid: ATAP.Utilities.StronglyTypedIds
+  name: ATAP.Utilities.StronglyTypedIds
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.html
+  commentId: N:ATAP.Utilities.StronglyTypedIds
+  fullName: ATAP.Utilities.StronglyTypedIds
+  nameWithType: ATAP.Utilities.StronglyTypedIds
+- uid: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId`1
+  name: IAbstractStronglyTypedId<TValue>
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.html
+  commentId: T:ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId`1
+  name.vb: IAbstractStronglyTypedId(Of TValue)
+  fullName: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId<TValue>
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId(Of TValue)
+  nameWithType: IAbstractStronglyTypedId<TValue>
+  nameWithType.vb: IAbstractStronglyTypedId(Of TValue)
+- uid: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId`1.Value
+  name: Value
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.html#ATAP_Utilities_StronglyTypedIds_IAbstractStronglyTypedId_1_Value
+  commentId: P:ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId`1.Value
+  fullName: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId<TValue>.Value
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId(Of TValue).Value
+  nameWithType: IAbstractStronglyTypedId<TValue>.Value
+  nameWithType.vb: IAbstractStronglyTypedId(Of TValue).Value
+- uid: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId`1.Value*
+  name: Value
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.html#ATAP_Utilities_StronglyTypedIds_IAbstractStronglyTypedId_1_Value_
+  commentId: Overload:ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId`1.Value
+  isSpec: "True"
+  fullName: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId<TValue>.Value
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId(Of TValue).Value
+  nameWithType: IAbstractStronglyTypedId<TValue>.Value
+  nameWithType.vb: IAbstractStronglyTypedId(Of TValue).Value
+- uid: ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId
+  name: IGuidStronglyTypedId
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId.html
+  commentId: T:ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId
+  fullName: ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId
+  nameWithType: IGuidStronglyTypedId
+- uid: ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId
+  name: IIntStronglyTypedId
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId.html
+  commentId: T:ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId
+  fullName: ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId
+  nameWithType: IIntStronglyTypedId
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson
+  name: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.html
+  commentId: N:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson
+  nameWithType: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2
+  name: StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html
+  commentId: T:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2
+  name.vb: StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue)
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue)
+  nameWithType: StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>
+  nameWithType.vb: StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue)
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverter_2_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Read(ByRef System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Read*
+  name: Read
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverter_2_Read_
+  commentId: Overload:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Read
+  isSpec: "True"
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Read
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Read
+  nameWithType: StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Read
+  nameWithType.vb: StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Read
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TStronglyTypedId, JsonSerializerOptions)
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverter_2_Write_System_Text_Json_Utf8JsonWriter__0_System_Text_Json_JsonSerializerOptions_
+  commentId: M:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Write(System.Text.Json.Utf8JsonWriter, TStronglyTypedId, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Write(System.Text.Json.Utf8JsonWriter, TStronglyTypedId, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Write(Utf8JsonWriter, TStronglyTypedId, JsonSerializerOptions)
+  nameWithType.vb: StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Write(Utf8JsonWriter, TStronglyTypedId, JsonSerializerOptions)
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Write*
+  name: Write
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverter_2_Write_
+  commentId: Overload:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter`2.Write
+  isSpec: "True"
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Write
+  fullName.vb: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Write
+  nameWithType: StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>.Write
+  nameWithType.vb: StronglyTypedIdJsonConverter(Of TStronglyTypedId, TValue).Write
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory
+  name: StronglyTypedIdJsonConverterFactory
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html
+  commentId: T:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory
+  nameWithType: StronglyTypedIdJsonConverterFactory
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverterFactory_CanConvert_System_Type_
+  commentId: M:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CanConvert(System.Type)
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CanConvert(System.Type)
+  nameWithType: StronglyTypedIdJsonConverterFactory.CanConvert(Type)
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CanConvert*
+  name: CanConvert
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverterFactory_CanConvert_
+  commentId: Overload:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CanConvert
+  isSpec: "True"
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CanConvert
+  nameWithType: StronglyTypedIdJsonConverterFactory.CanConvert
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)
+  name: CreateConverter(Type, JsonSerializerOptions)
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverterFactory_CreateConverter_System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CreateConverter(System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StronglyTypedIdJsonConverterFactory.CreateConverter(Type, JsonSerializerOptions)
+- uid: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CreateConverter*
+  name: CreateConverter
+  href: GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html#ATAP_Utilities_StronglyTypedIds_JsonConverter_Shim_SystemTextJson_StronglyTypedIdJsonConverterFactory_CreateConverter_
+  commentId: Overload:ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CreateConverter
+  isSpec: "True"
+  fullName: ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.CreateConverter
+  nameWithType: StronglyTypedIdJsonConverterFactory.CreateConverter

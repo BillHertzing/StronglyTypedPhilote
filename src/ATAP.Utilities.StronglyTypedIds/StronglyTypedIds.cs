@@ -18,6 +18,10 @@ namespace ATAP.Utilities.StronglyTypedIds {
 
 
   public record GuidStronglyTypedId : AbstractStronglyTypedId<Guid>, IGuidStronglyTypedId {
+    /// <summary>
+  ///
+  /// </summary>
+  /// <param name="value"></param>
     public GuidStronglyTypedId(Guid value) : base(value) { }
     public GuidStronglyTypedId() : base() { }
     public override string ToString() => base.ToString();
