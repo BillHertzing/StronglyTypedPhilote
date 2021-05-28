@@ -16,47 +16,93 @@ namespace ATAP.Utilities.StronglyTypedIds {
   // Modifications: CheckValue and all references removed, because our use case requires Guid.Empty to be a valid value
   // Attribution 1/8/2021:[Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/)
 
-
+  /// <summary>
+  /// XML Commen text regarding `public record GuidStronglyTypedId`
+  /// </summary>
   public record GuidStronglyTypedId : AbstractStronglyTypedId<Guid>, IGuidStronglyTypedId {
     /// <summary>
+    ///
+    /// </summary>
+    /// <param name="value"></param>
+    public GuidStronglyTypedId(Guid value) : base(value) { }
+    /// <summary>
+    ///
+    /// </summary>
+    public GuidStronglyTypedId() : base() { }
+    /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString() => base.ToString();
+
+  }
+  /// <summary>
   ///
   /// </summary>
-  /// <param name="value"></param>
-    public GuidStronglyTypedId(Guid value) : base(value) { }
-    public GuidStronglyTypedId() : base() { }
-    public override string ToString() => base.ToString();
-
-  }
   public record IntStronglyTypedId : AbstractStronglyTypedId<int>, IIntStronglyTypedId {
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="value"></param>
     public IntStronglyTypedId(int value) : base(value) { }
+    /// <summary>
+    ///
+    /// </summary>
     public IntStronglyTypedId() : base() { }
+    /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
     public override string ToString() => base.ToString();
   }
 
+  /// <summary>
+  ///
+  /// </summary>
+  /// <typeparam name="TValue"></typeparam>
   [TypeConverter(typeof(StronglyTypedIdConverter))]
   public abstract record AbstractStronglyTypedId<TValue> : IAbstractStronglyTypedId<TValue> where TValue : notnull {
+    /// <summary>
+    ///
+    /// </summary>
     public TValue Value { get; init; }
+    /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
     public override string ToString() { var str = Value.ToString(); return str; }
-
+    /// <summary>
+    ///
+    /// </summary>
     public AbstractStronglyTypedId() {
       Value = (typeof(TValue)) switch {
-        Type intType when typeof(TValue) == typeof(int) => (TValue)(object)new Random().Next(),
-        Type guidType when typeof(TValue) == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
+              Type when typeof(TValue) == typeof(int) => (TValue)(object)new Random().Next(),
+              Type when typeof(TValue) == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
         _ => throw new Exception(FormattableString.Invariant($"Invalid TValue type {typeof(TValue)}"))
       };
     }
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="value"></param>
     public AbstractStronglyTypedId(TValue value) {
       Value = value;
     }
-
+    /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
     public static bool AllowedTValue() {
       return (typeof(TValue)) switch {
-        Type intType when typeof(TValue) == typeof(int) => true,
-        Type guidType when typeof(TValue) == typeof(Guid) => true,
+        Type when typeof(TValue) == typeof(int) => true,
+        Type when typeof(TValue) == typeof(Guid) => true,
         _ => false,
       };
     }
-
+    /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
     private static TValue RandomTValue() {
       if (!AllowedTValue()) {
         throw new Exception(String.Format("Invalid TValue type {0}", typeof(TValue)));
@@ -65,7 +111,7 @@ namespace ATAP.Utilities.StronglyTypedIds {
         Type intType when intType == typeof(int) => (TValue)(object)new Random().Next(),
         Type GuidType when GuidType == typeof(Guid) => (TValue)(object)Guid.NewGuid(),
         // ToDo: replace with custom exception and message
-        _ => throw new ArgumentException("Type of TValue is not suported"),
+        _ => throw new ArgumentException("Type of TValue is not supported"),
       };
     }
   }
@@ -173,7 +219,9 @@ namespace ATAP.Utilities.StronglyTypedIds {
     // attribution [Get All Types in an Assembly](https://haacked.com/archive/2012/07/23/get-all-types-in-an-assembly.aspx/)
     // ToDo: move to an ATAP Utility assembly that extends reflection over assembly's metadata
     public static IEnumerable<Type?> GetLoadableTypes(this Assembly assembly) {
-      if (assembly == null) throw new ArgumentNullException(nameof(assembly));
+      if (assembly == null) {
+        throw new ArgumentNullException(nameof(assembly));
+      }
       try {
         return assembly.GetTypes();
       }
@@ -206,7 +254,7 @@ namespace ATAP.Utilities.StronglyTypedIds {
       Type sTIDType;
       ConstructorInfo? ctor;
       if (stronglyTypedIdType.IsInterface) {
-        // Get the Interface name, strip the preceeding 'I'.
+        // Get the Interface name, strip the preceding 'I'.
         var STIDTypeName = stronglyTypedIdType.Name.Remove(0, 1);
         var idType = stronglyTypedIdType.GetGenericArguments()[0];
         var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();

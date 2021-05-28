@@ -1,303 +1,24 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Dropbox/whertzing/GitHub/StronglyTypedPhilote",
+  "source_base_path": "C:/Dropbox/whertzing/GitHub/StronglyTypedPhilote/src/ATAP.Utilities.AutoDoc",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.yml",
+      "type": "Resource",
       "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.Extensions.html",
-          "hash": "JafgFMWahwS3+DUXH/VDLeQTA9IPZK+LaqzSF/nvP74="
+        "resource": {
+          "relative_path": "index.json"
         }
       },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Collection.html",
-          "hash": "xYvN+yFNws8RVqXMUOnfCNWUYAVtBFZvCHx+gUMGKQE="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.html",
-          "hash": "P/85jiYDHdYYJPZDoJaDWQPTEfTBRa7AU/i0cQ9qs8I="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html",
-          "hash": "SgcONSuf0rxa9KwtRib/leksnKDyscPfEs7F85eXsqA="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IGuidPhilote-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IGuidPhilote-1.html",
-          "hash": "//bcbTaxVexHDiWm5mq06SyITnZ1XZG7boNfTy8RBjg="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IIntPhilote-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IIntPhilote-1.html",
-          "hash": "dAtFhoMbjhSQ/6OMphx7rziT9FS5eneSnpLFiqs8Gbc="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html",
-          "hash": "TBdhP6h5Bu+dDPJmZXiynA+C+Ynk5b+9kr46Y73DjRQ="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactory.html",
-          "hash": "nLTzSSWQvk2NGGpqHmjHK/3aHDlz0ZAf4amh4Ky/s0E="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.html",
-          "hash": "CvxKpsU9MuId4zbxO1GF4JoMnd5ltWxoU3f2wj0aXPI="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html",
-          "hash": "9/L5uvWIfRgC38SU2I5832CjIiB/0dgTTTy3HqwwqEU="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.html",
-          "hash": "6qBp7iXj1VWZBABeyIlOiI5CJsN1zGFVpq9W0sRG/PQ="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.TypeToIgnore.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.TypeToIgnore.html",
-          "hash": "2txx2YzQI6E8c9jli7x7BElzN/1PPLgBZ+7pC/uBEAo="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.Philote.html",
-          "hash": "zLRXZoFM4qewSX4mdHhC3///q+5WBxvGjt/qBExsJ14="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.html",
-          "hash": "X7SUMUN0ToJmszH+5dp2druNz563iZg/062mhDQFxpQ="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId.html",
-          "hash": "Q6EoPzcnAexQ2+R9Fr0eVPLImsL4hqJ2UtvWCZiEVjs="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId.html",
-          "hash": "jj32WhrI1nyDWmomjaG7FqnwCdx5tvYmsRroHcO2Zfk="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html",
-          "hash": "8s5qFKylIKFnJf7jao0wANy4EvNjj0grVvsrGRv6PdI="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html",
-          "hash": "gWfHug4y5UqmvmjapKspPSV8X0cANIL6M4iIRA4RwNE="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.html",
-          "hash": "tDc0B7mXr4iVmlbJcu+/PS26DcBhPsIOCqnB4O+j294="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/ATAP.Utilities.StronglyTypedIds.html",
-          "hash": "lrRwnZeMh3KKDrbp716+cwsEQb2l4zYHPhGcNDxCUJY="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
+      "is_incremental": false
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "GeneratedDocumentation/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/index.html",
-          "hash": "cc1A5jHYy1VFGA074u/stiRERkMGypnfcNhkNCLMUMA="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "GeneratedDocumentation/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "GeneratedDocumentation/toc.html",
-          "hash": "wdHQZhhEr/IQMOuT9bzC0q7z/KIbmQXNKxaQ08FIroc="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "ReadMe.md",
+      "source_relative_path": "../../ReadMe.md",
       "output": {
         ".html": {
           "relative_path": "ReadMe.html",
-          "hash": "Z/PHqC5jgkAtxv1Gm92BhvsBJ94F6xcDLFBC5bfGhF4="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "SolutionDocumentation/StronglyTypedPhiloteQuickStart.md",
-      "output": {
-        ".html": {
-          "relative_path": "SolutionDocumentation/StronglyTypedPhiloteQuickStart.html",
-          "hash": "e0rpA2mncR2NrRZWwHk04of2NKmZO269MuveEsLJgNo="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "SolutionDocumentation/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "SolutionDocumentation/toc.html",
-          "hash": "P3Mgr0FiHsf3JAeKqXXzkeFlhrr2XDNs+Brzqjsxld0="
+          "hash": "b4hfX5IG7DMUpZ0I50M6Lfrruj27KMtp4Q/AMKqW0q4="
         }
       },
       "is_incremental": false,
@@ -305,23 +26,503 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "index.md",
+      "source_relative_path": "../../SolutionDocumentation/Attributions.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "JcmvSumx70emFnsS8bawdt43elBipDvsLO3sqjCzP24="
+          "relative_path": "SolutionDocumentation/Attributions.html",
+          "hash": "E7jRbcrHJPSJJCAe/V7pcsPQbNTzRBUk+4NH/5PYab0="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../../SolutionDocumentation/Index.md",
+      "output": {
+        ".html": {
+          "relative_path": "SolutionDocumentation/Index.html",
+          "hash": "EK/T0zGtuDpuL2ycw8LwtqGijf0V5KR3YdIcX0cCkTo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../../SolutionDocumentation/StronglyTypedPhiloteQuickStart.md",
+      "output": {
+        ".html": {
+          "relative_path": "SolutionDocumentation/StronglyTypedPhiloteQuickStart.html",
+          "hash": "ODk35GRslXMwZbzLwWVqymCDGZNolCD/sIQ5IOLkYGc="
+        }
+      },
+      "is_incremental": false,
       "version": ""
     },
     {
       "type": "Toc",
-      "source_relative_path": "toc.yml",
+      "source_relative_path": "../../SolutionDocumentation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SolutionDocumentation/toc.html",
+          "hash": "Dcf+nltMHM/P2NGlJWDRGELvyTp6TL62ydvd810AGJE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../../index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "G+Ybpi500JA6647ljr/EipZ7mic4/6ZGep72UBdUxNI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "../../toc.yml",
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "AoYF+dk72/agpgqrekqr2eJijgBICEGXUP10Sno51N4="
+          "hash": "cYer6kG8eNVOskD5KIpcy7d77L8PneESl3ls/C01M4E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ApiDocumentationTOC/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/index.html",
+          "hash": "wQoMlMlY7ssNKni7V6zS3dayxf87vzjXc9wObTL4sQI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ATAPLogo-64x61.bmp",
+      "output": {
+        "resource": {
+          "relative_path": "images/ATAPLogo-64x61.bmp"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/android-chrome-192x192.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/android-chrome-192x192.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/android-chrome-512x512.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/android-chrome-512x512.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/apple-touch-icon.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/apple-touch-icon.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ataplogo - 1 inch high.bmp",
+      "output": {
+        "resource": {
+          "relative_path": "images/ataplogo - 1 inch high.bmp"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ataplogo.bmp",
+      "output": {
+        "resource": {
+          "relative_path": "images/ataplogo.bmp"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ataplogo1inch.bmp",
+      "output": {
+        "resource": {
+          "relative_path": "images/ataplogo1inch.bmp"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon-16x16.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon-16x16.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon-32x32.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon-32x32.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/mstile-150x150.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/mstile-150x150.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/safari-pinned-tab.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/safari-pinned-tab.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Collection.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Collection.Extensions.html",
+          "hash": "qu9szxDPHBIQrXtOkikAGdqv+uEUiUnSSvpZkn0iXWw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Collection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Collection.html",
+          "hash": "cSuBfeNBy38zkQ8OHShIxl+faw5c53O9ltMb9P5+U5E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.DefaultConfiguration-1.html",
+          "hash": "q2zZoCByARxUjnTA7zaP81KaODXZUCKKKWxgRUj2r9U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.IAbstractPhilote-2.html",
+          "hash": "ESeGnX89APg4r/GtEreY6PU+fHySr/4cjGe/xlLEYYY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.IGuidPhilote-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.IGuidPhilote-1.html",
+          "hash": "kpOhrKn2HXy/FExknlazkOja9TG/P7rtjx2EyMkYgVE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.IIntPhilote-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.IIntPhilote-1.html",
+          "hash": "Z8CU7c6e/b6/PepPLbJyRNBkZ/VQimM0/DOSDOpdRZY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.IPhiloteConverterFactory-1.html",
+          "hash": "nO1UZKQsHSw0swPOkyr2lNJv8i2LjV8RAjIJQVm8EgU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.InstanceFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.InstanceFactory.html",
+          "hash": "+IqHBj+oaLa6JYIMTDmAxh+9l0rLwIc7EZaPzqbpQR4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.InstanceFactoryGeneric-3.html",
+          "hash": "3OlPIMF6hlWCM84t7dXDzeSk0L/aj0PHB/PI8AEFb/8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.PhiloteConverterFactory.html",
+          "hash": "zAWW9faOfi3v/dVk+PtkLJqwMJWN8F3NU151duRt5cs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.JsonConverter.SystemTextJson.html",
+          "hash": "BlJ2s/USVdK9D9Zyd6tVLk0Fi9sV/YE6eGs2Qet3Mig="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.TypeToIgnore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.TypeToIgnore.html",
+          "hash": "ZkwKQ6RBD0cvtoUg2XVja+BqP5q3xMiXp5/0yNxxmQk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.Philote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.Philote.html",
+          "hash": "oK03K3NH4oXITOicopxJL9snK2ujCQJH7sF/LyTq5+Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.IAbstractStronglyTypedId-1.html",
+          "hash": "YMnRvRuI86RPE2EfJKG3lFUfrfVRMNrW31wcnXoXveI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.IGuidStronglyTypedId.html",
+          "hash": "c7ZKwdwanJuXrnUqqlWZeL/KLEwTzf+nxCU/WdHeV2Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.IIntStronglyTypedId.html",
+          "hash": "4y8trEF0Bxagty/j9LP9kV876QTko0Fq6qr+epZgRdI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.StronglyTypedIdJsonConverter-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.StronglyTypedIdJsonConverter-2.html",
+          "hash": "lsrTYCVv4xS8aRZln5kKRiAodAK3WckO6viSfHy8M5w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.StronglyTypedIdJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.StronglyTypedIdJsonConverter.html",
+          "hash": "jy+lFwXlcKuVCvCC5ztyZZmSQVJtM1YwY8C3BewJ8mA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.html",
+          "hash": "zBz7gHxxPCZVY2P8DOw9KdxV/zUtF9BSdLCBiuvl0HU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverter-2.html",
+          "hash": "RlOhhIpT9Mr0L2OAFSviXv02MFj9tJ3EG0SPqnLc6v8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory.html",
+          "hash": "UmyZnLJnpnEQDPgYu0bztAoRsViDmDjEvdSKMKqanFY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.html",
+          "hash": "nEc13reOQDfLA79RdaZy7QKRbe7Y7zZ62U834sH8L3o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/ApiDocumentation/ATAP.Utilities.StronglyTypedIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/ATAP.Utilities.StronglyTypedIds.html",
+          "hash": "VjaVVY9UbVeNzS4+veu7jp9zgBtSdV2tk9+3YlZjYk4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/ApiDocumentation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ApiDocumentation/toc.html",
+          "hash": "JlGP4u0DAIdb1aft0TwSrKUWyeJl+N/Qemz0LR7YCsI="
         }
       },
       "is_incremental": false,
@@ -331,23 +532,32 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 4,
-          "skipped_file_count": 4
+          "total_file_count": 6,
+          "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 20,
-          "skipped_file_count": 20
+          "total_file_count": 23,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -360,8 +570,8 @@
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

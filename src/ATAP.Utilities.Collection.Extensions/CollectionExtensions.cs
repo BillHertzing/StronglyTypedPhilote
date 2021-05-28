@@ -89,7 +89,9 @@ namespace ATAP.Utilities.Collection {
     /// <typeparam name="T"></typeparam>
     /// <param name="source"></param>
     /// <param name="action"></param>
-    /// Attribution: [Is there an easy way to append one IList<MyType> to another?](https://stackoverflow.com/questions/9520291/is-there-an-easy-way-to-append-one-ilistmytype-to-another)
+    /// <attribution>
+    /// [Is there an easy way to append one IList<MyType> to another?](https://stackoverflow.com/questions/9520291/is-there-an-easy-way-to-append-one-ilistmytype-to-another)
+    /// </attribution>
     public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> enumerable) {
       // ToDo: Localize the exception message
       if (enumerable == null) { throw new ArgumentNullException($"{nameof(enumerable)} argument should never be null"); }

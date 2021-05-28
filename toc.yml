@@ -1,5 +1,4 @@
 - name: SolutionDocumentation
-  href: SolutionDocumentation/
+  href: /SolutionDocumentation/
 - name: Source Code Documentation
-  href: GeneratedDocumentation/
-  homepage: GeneratedDocumentation/index.md
+  href: /ApiDocumentation/
