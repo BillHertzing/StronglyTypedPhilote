@@ -25,7 +25,7 @@ namespace ATAP.Utilities.Collection {
     //}
 
     /// <summary>
-    ///
+    /// Add an enumerable KeyValue pair to a dictionary
     /// </summary>
     /// <attribution>
     /// https://stackoverflow.com/questions/3982448/adding-a-dictionary-to-another
@@ -52,7 +52,7 @@ namespace ATAP.Utilities.Collection {
     }
 
     /// <summary>
-    ///
+    /// Add an IEnumerable to a List
     /// </summary>
     /// <typeparam name="TValue"></typeparam>
     /// <param name="source"></param>
@@ -68,7 +68,7 @@ namespace ATAP.Utilities.Collection {
       }
     }
     /// <summary>
-    ///
+    /// Perform an Action on each element of an IEnumerable
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="source"></param>
@@ -87,8 +87,8 @@ namespace ATAP.Utilities.Collection {
     /// Static extension that adds any enumerable to any collection (handles AddRange for IList<T> to IList<T>)
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="source"></param>
-    /// <param name="action"></param>
+    /// <param name="collection"></param>
+    /// <param name="enumerable"></param>
     /// <attribution>
     /// [Is there an easy way to append one IList<MyType> to another?](https://stackoverflow.com/questions/9520291/is-there-an-easy-way-to-append-one-ilistmytype-to-another)
     /// </attribution>

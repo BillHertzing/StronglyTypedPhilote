@@ -1,3 +1,5 @@
+- name: Home
+  href: /ReadMe.html
 - name: SolutionDocumentation
   href: /SolutionDocumentation/
 - name: Source Code Documentation

@@ -1,16 +1,28 @@
 # Abstract `StronglyTypedId` records within another `StronglyTyped` record
 
-This repository focuses on the concept of a `StronglyTypedId` If you have not worked with this concept before, please see also
+Welcome to the documentation site for the StronglyTypedPhilote repository. This site contains information on building, testing and using the StronglyTypedId and StronglyTypedPhilote classes and methods. It also has concept documentation on how the assemblies are expected to be used and how they are built.
+
+This repository is a training, experimentation and discussion repository, aimed at explaining and testing the concept of the abstract record StronglyTypedID and a class StronglyTypedPhilote that incorporates and extends the StronglytypedId concept. If you have not worked with the concept of a `StronglyTypedId` before, please see also
 
 * [Series: Using strongly-typed entity IDs to avoid primitive obsession](https://andrewlock.net/series/using-strongly-typed-entity-ids-to-avoid-primitive-obsession/) by Andrew Lock
 * [Using C# 9 records as strongly-typed ids](https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/) by Thomas Levesque
 * [Strongly typed Guid as generic struct](https://stackoverflow.com/questions/53748675/strongly-typed-guid-as-generic-struct) The 'accepted' answer by Eric Lippert
 
+For the high-level overview of, the purpose for, and the contents of this repository, start with the repository [ReadMe](/ReadMe.md) (this document)
+
+To get started using the code examples, see the [QuickStart](/SolutionDocumentation/StronglyTypedPhiloteQuickStart.md)
+
+This documentation website follows the conventions of sites built with the [DocFx tool](https://dotnet.github.io/docfx/). Across the top are major sections, along the left side is a Table Of Contents (TOC) that changes per the major section content, and along the right side is a content-specific TOC that changes according to which document is being viewed.
+
+If you are new to using this repository, please start with the [Getting Started](/SolutionDocumentation/GettingStarted.html) guide.
+
+The code and content of this repository are under the [MIT License](/LICENSE.md
+
 This repository is a small abstract of the ATAP.Utilities repository. This repository focuses on just the `StronglyTypedId` record type and the `AbstractPhilote` record type, and is built to support discussions with other OSS developers on these concepts.
 
 The type of the value of a `StronglyTypedId`, as found in existing systems and databases, is overwhelmingly int, Guid, or string. Conceptual operations on the `StronglyTypedId` are exactly the same regardless of the value's type, which makes the `StronglyTypedId` particularly suited for implementation with an Abstract Type. Furthermore, since IDs should be immutable, C# records can supply a lot of of the necessary boiler plate. Combining these, as Mssr. Levesque demonstrates, an abstract record makes a good choice as the base implementation of the `StronglyTypedId` type.
 
-For this repository, I have renamed Mssr. Lavesque's `StronglyTypedId` to `AbstractStronglyTypedId<TValue>` to help me reason abou the code. adding the word 'Abstract' reminds me that iit cannot be used as a concrete implementation.
+For this repository, I have renamed Mssr. Lavesque's `StronglyTypedId` to `AbstractStronglyTypedId<TValue>` to help me reason betterabout the code. Adding the word 'Abstract' reminds me that `AbstractStronglyTypedId` cannot be used as a concrete implementation.
 
 The `AbstractStronglyTypedId<TValue>` and any type that derives from it needs:
 

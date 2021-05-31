@@ -11,10 +11,27 @@
             "**/obj/**",
             "*AutoDoc*/**"
           ],
-          "src": "../"
+          "src": "../../src"
         }
       ],
-      "dest": "./obj/ApiDocumentation/",
+      "dest": "./obj/ApiDocumentation/src",
+      "disableGitFeatures": false
+    },
+    {
+      "src": [
+        {
+          "files": [
+            "**/*.cs"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "*AutoDoc*/**"
+          ],
+          "src": "../../tests"
+        }
+      ],
+      "dest": "./obj/ApiDocumentation/tests",
       "disableGitFeatures": false
     }
   ],
@@ -30,7 +47,7 @@
           "**/toc.yml"
         ],
 
-        "src": "./obj/ApiDocumentation",
+        "src": "./obj/ApiDocumentation/",
         "dest": "./ApiDocumentation/"
       },
       {
@@ -92,7 +109,7 @@
     ],
     "globalMetadata": {
       "_appTitle": "StronglyTypedPhilote",
-      "_appLogoPath": "/images/ATAPLogo-64x61.bmp",
+      "_appLogoPath": "/images/ATAPLogo_594_x_563",
       "_enableSearch": true,
       "_enableNewTab": true,
       "_disableNavbar": false,
