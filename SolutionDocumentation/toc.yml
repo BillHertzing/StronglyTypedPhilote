@@ -1,4 +1,12 @@
 - name: QuickStart
   href: StronglyTypedPhiloteQuickStart.md
-- name: Attributions
+- name: Who
   href: Attributions.md
+- name: What
+  href: 001-what-is-a-StronglyTypedPhilote.md
+- name: Why
+  href: 002-why-should-I-care.md
+- name: Where
+  href: 003-OS-Package-and-Database-Compatability.md
+- name: How
+  href: 004-OS-Package-and-Database-Compatability.md

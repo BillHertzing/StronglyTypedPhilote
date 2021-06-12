@@ -23,9 +23,15 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
       SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
-
+/// <summary>
+/// The generic test data generator, which produces a single test data object each time when enumerated
+/// </summary>
+/// <typeparam name="TValue">One of int, GUID, or string</typeparam>
   public class StronglyTypedIdTypeConverterTestDataGenerator<TValue>  : IEnumerable<object[]>  where TValue: notnull {
-
+/// <summary>
+/// Test Data in the format of `Declaration of an Object Instance` coupled with it's expected serialization
+/// </summary>
+/// <returns></returns>
     public static IEnumerable<object[]> StronglyTypedIdTypeConverterTestData() {
       switch (typeof(TValue)) {
         case Type guidType when typeof(TValue) == typeof(Guid): {

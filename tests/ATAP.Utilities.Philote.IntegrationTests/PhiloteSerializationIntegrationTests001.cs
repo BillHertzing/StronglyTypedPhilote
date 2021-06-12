@@ -25,7 +25,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     [MemberData(nameof(GCommentWithIntSerializationTestDataGenerator.TestData), MemberType = typeof(GCommentWithIntSerializationTestDataGenerator))]
     public void GCommentWithIntPhiloteSerializeToJson(GCommentWithIntSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+      if (inTestData == null) { throw new ArgumentNullException(paramName: $"{nameof(inTestData)} argument should never be null"); }
       if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647),").Success) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -40,7 +40,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     [MemberData(nameof(GCommentWithGuidSerializationTestDataGenerator.TestData), MemberType = typeof(GCommentWithGuidSerializationTestDataGenerator))]
     public void GCommentWithGuidPhiloteSerializeToJson(GCommentWithGuidSerializationTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+      if (inTestData == null) { throw new ArgumentNullException(paramName: $"{nameof(inTestData)} argument should never be null"); }
       if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success) {
         //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
         JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);

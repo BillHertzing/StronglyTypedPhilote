@@ -16,11 +16,14 @@ using System.Text.Json;
 
 namespace ATAP.Utilities.StronglyTypedIds.UnitTests
 {
-
+/// <summary>
+/// Unit Tests 001 cover the StronglyTypedIds as serialized/deserialized by System.Text.Json
+/// </summary>
   public partial class StronglyTypedIdTypeConverterUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson>
   {
 
     [Fact]
+    ///
     public void GuidIdCanConvertTests() {
       var converterGuid = TypeDescriptor.GetConverter(typeof(GuidStronglyTypedId));
       converterGuid.CanConvertFrom(typeof(string)).Should().Be(true);
