@@ -3,7 +3,7 @@
 
 Welcome to the documentation site for the StronglyTypedPhilote repository. This site contains information on building, testing and using the StronglyTypedPhilote classes and methods. It also has concept documentation on how the assemblies are expected to be used and how they are built.
 
-This repository is a training, experimentation and discussion repository, aimed at explaining and testing the concept of the abstract record StronglyTypedID and a class StronglyTypedPhilote that incorporates and extends the StronglytypedId concept.
+This repository is a training, experimentation and discussion repository, aimed at explaining and testing the concept of the abstract record StronglyTypedId and a class StronglyTypedPhilote that incorporates and extends the StronglytypedId concept.
 
 For the high-level overview of the purpose for, and the contents of, this repository, start with the repository [ReadMe](/README.html)
 

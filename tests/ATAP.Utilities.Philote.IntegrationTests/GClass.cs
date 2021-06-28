@@ -15,7 +15,7 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
   public interface IGCommentPhilote<TValue> : IAbstractPhilote<GCommentId<TValue>, TValue> where TValue : notnull { }
   public record GCommentPhilote<TValue> : AbstractPhilote<GCommentId<TValue>, TValue>, IAbstractPhilote<GCommentId<TValue>, TValue>, IGCommentPhilote<TValue>
     where TValue : notnull {
-    public GCommentPhilote(GCommentId<TValue> iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
+    public GCommentPhilote(GCommentId<TValue> iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIds = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIds, timeBlocks) { }
   }
 
   public interface IGComment<TValue> where TValue : notnull {
@@ -39,10 +39,10 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
 
   public interface IGBodyPhilote<TValue> : IAbstractPhilote<GBodyId<TValue>, TValue> where TValue : notnull { }
   public record GBodyPhilote<TValue> : AbstractPhilote<GBodyId<TValue>, TValue>, IGBodyPhilote<TValue> where TValue : notnull {
-    public GBodyPhilote(GBodyId<TValue> iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
-    //   if (iD != default) { ID = iD; }
+    public GBodyPhilote(GBodyId<TValue> iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIds = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIds, timeBlocks) { }
+    //   if (iD != default) { Id = iD; }
     //   else {
-    //     ID = (typeof(TValue)) switch {
+    //     Id = (typeof(TValue)) switch {
     //       Type intType when typeof(TValue) == typeof(int) => new GBodyId<int>() { Value = new Random().Next() } as GBodyId<TValue>,
     //       Type GuidType when typeof(TValue) == typeof(Guid) => new GBodyId<Guid>() as GBodyId<TValue>,
     //       // ToDo: replace with new custom exception and localization of exception message
@@ -50,11 +50,11 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
 
     //     };
     //   }
-    //   if (additionalIDs != default) {
-    //     AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>(additionalIDs.Select(kvp => new KeyValuePair<string, IAbstractStronglyTypedId<TValue>>(kvp.Key, (IAbstractStronglyTypedId<TValue>)kvp.Value)));
+    //   if (additionalIds != default) {
+    //     AdditionalIds = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>(additionalIds.Select(kvp => new KeyValuePair<string, IAbstractStronglyTypedId<TValue>>(kvp.Key, (IAbstractStronglyTypedId<TValue>)kvp.Value)));
     //   }
     //   else {
-    //     AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
+    //     AdditionalIds = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
     //   }
     //   TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     // }

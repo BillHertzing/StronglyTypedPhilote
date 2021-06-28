@@ -41,6 +41,22 @@
     <DotNetCliToolReference Include="dotnet-xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- ServiceStack  -->
+    <PackageReference Include="ServiceStack" />
+    <!-- ServiceStack serializers and dump utility -->
+    <PackageReference Include="ServiceStack.Text.EnumMemberSerializer" />
+    <PackageReference Include="ServiceStack.Text" />
+    <!-- ServiceStack ORMLite and SQLServer -->
+    <PackageReference Include="ServiceStack.OrmLite" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer" />
+    <!-- ServiceStack HTTPClient for making HTTP calls -->
+    <PackageReference Include="ServiceStack.HttpClient" />
+
+    <!-- Library of rich time and interval manipulation routines -->
+    <PackageReference Include="TimePeriodLibrary.NET" Version="2.1.1" />
+  </ItemGroup>
+
     <!-- Standalone reference to Microsoft.Extensions.DependencyInjection is used by unitTest projects
             that inject a Serializer via Dependency Injection-->
   <ItemGroup>

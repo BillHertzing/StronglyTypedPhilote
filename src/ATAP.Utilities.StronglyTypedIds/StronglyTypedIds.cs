@@ -251,17 +251,17 @@ namespace ATAP.Utilities.StronglyTypedIds {
       // This starts the extensions to Mssr. Levesque's code to handle Deserialization of IAbstractStronglyTypedId
       // Attribution:[Get all types implementing specific open generic type](https://stackoverflow.com/questions/8645430/get-all-types-implementing-specific-open-generic-type)
       // Attribution:[Find all types implementing a certain generic interface with specific T type](https://stackoverflow.com/questions/33694960/find-all-types-implementing-a-certain-generic-interface-with-specific-t-type)
-      Type sTIDType;
+      Type sTIdType;
       ConstructorInfo? ctor;
       if (stronglyTypedIdType.IsInterface) {
         // Get the Interface name, strip the preceding 'I'.
-        var STIDTypeName = stronglyTypedIdType.Name.Remove(0, 1);
+        var STIdTypeName = stronglyTypedIdType.Name.Remove(0, 1);
         var idType = stronglyTypedIdType.GetGenericArguments()[0];
         var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
         var allTypes = loadedAssemblies.SelectMany(assembly => assembly.GetTypes());
         var typesImplementing =
           loadedAssemblies.SelectMany(assembly => assembly.GetAllTypesImplementingOpenGenericType(typeof(AbstractStronglyTypedId<TValue>)));
-        // var GuidSTIDTypex = allTypes
+        // var GuidSTIdTypex = allTypes
         //   .FirstOrDefault(t => t.IsAssignableFrom((typeof (AbstractStronglyTypedId<TValue>))) &&
         //                        t.GetInterfaces().Any(x =>
         //                          x.IsGenericType &&
@@ -271,22 +271,22 @@ namespace ATAP.Utilities.StronglyTypedIds {
         // ToDo: wrap in a try/catch block
         switch (typeof(TValue)) {
           case Type intType when intType == typeof(int):
-            sTIDType = allTypes.Where(t => t.Name == "IntStronglyTypedId").Single();
-            ctor = sTIDType.GetConstructor(new[] { typeof(int) });
+            sTIdType = allTypes.Where(t => t.Name == "IntStronglyTypedId").Single();
+            ctor = sTIdType.GetConstructor(new[] { typeof(int) });
             break;
           case Type GuidType when GuidType == typeof(Guid):
-            sTIDType = allTypes.Where(t => t.Name == "GuidStronglyTypedId").Single();
-            ctor = sTIDType.GetConstructor(new[] { typeof(Guid) });
+            sTIdType = allTypes.Where(t => t.Name == "GuidStronglyTypedId").Single();
+            ctor = sTIdType.GetConstructor(new[] { typeof(Guid) });
             break;
           default:
             // ToDo: replace with custom exception and message
             throw new ArgumentException($"Type '{typeof(TValue)}' is neither Guid nor int");
 
         };
-        //ctor = sTIDType.GetTypeInfo().DeclaredConstructors.ToList()[1];
+        //ctor = sTIdType.GetTypeInfo().DeclaredConstructors.ToList()[1];
         if (ctor is null) {
           // ToDo: replace with custom exception and message
-          throw new ArgumentException($"Type '{stronglyTypedIdType}' converted to `{sTIDType}` doesn't have a constructor with one parameter of type '{typeof(TValue)}'");
+          throw new ArgumentException($"Type '{stronglyTypedIdType}' converted to `{sTIdType}` doesn't have a constructor with one parameter of type '{typeof(TValue)}'");
         }
         // This ends the extensions to Mssr. Levesque's code to handle Deserialization of IAbstractStronglyTypedId
       }
@@ -315,11 +315,11 @@ namespace ATAP.Utilities.StronglyTypedIds {
         idType = baseType.GetGenericArguments()[0];
         return true;
       }
-      // This starts the extensions to Mssr. Lavesque's code to handle serialization of IAbstractStronglyTypedId
+      // This starts the extensions to Mssr. Levesque's code to handle serialization of IAbstractStronglyTypedId
       if (type.IsInterface && type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IAbstractStronglyTypedId<>)) {
         idType = type.GetGenericArguments()[0];
         return true;
-      } // This ends the extensions to Mssr. Lavesque's code to handle serialization of IAbstractStronglyTypedId
+      } // This ends the extensions to Mssr. Levesque's code to handle serialization of IAbstractStronglyTypedId
 
       idType = null;
       return false;

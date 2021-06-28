@@ -45,25 +45,58 @@
     <DotNetCliToolReference Include="dotnet-xunit" />
   </ItemGroup>
 
-    <!-- Standalone reference to Microsoft.Extensions.DependencyInjection is used by unitTest projects
+  <!-- Standalone reference to Microsoft.Extensions.DependencyInjection is used by unitTest projects
             that inject a Serializer via Dependency Injection-->
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
-  <!-- ToDo: Copy specified DLLs and PDFs of specific Shim assemblies for Serializer to inject -->
-    <!-- Copy all Serialization libraries for the ISerializer DI-injected service to the outputdir-->
+  <!-- ATAP Utility Packages that handle IConfiguration, and dynamic loading plugin assemblies, and plugins for Serializers -->
   <ItemGroup>
-  <!--
-    <ProjectReference Include="..\ATAP.Utilities.Serializer.Shim.NewtonsoftJson\ATAP.Utilities.Serializer.Shim.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\ATAP.Utilities.Serializer.Shim.ServiceStackJson\ATAP.Utilities.Serializer.Shim.ServiceStackJson.csproj" />
-    <ProjectReference Include="..\ATAP.Utilities.Serializer.Shim.SystemTextJson\ATAP.Utilities.Serializer.Shim.SystemTextJson.csproj" />
-    -->
+    <!-- ETW is not used in Unit tests, but ATAP libraries used by unit tests have a reference to this. UYnitl I can figure out how to include these as dependent packages in the appropriate `ATAP.Utilitiies.` librarirys, they are included specifically, here -->
+    <!-- Packages to implement ETW logging of method entry, method exit, and exceptions -->
+    <PackageReference Include="ATAP.Utilities.ETW" Version="1.0.0" />
+    <PackageReference Include="MethodBoundaryAspect.Fody" />
+    <!---->
+    <PackageReference Include="ATAP.Utilities.Testing" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Configuration.Extensions" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.FileIO" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.GenericHost.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.GenericHost.Extensions" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader.StringConstants" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.StringConstants" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.SerializerLoader" Version="1.0.0" />
   </ItemGroup>
 
+  <!-- ToDo: Copy specified DLLs and PDBs of specific Shim assemblies for Serializer to inject -->
+  <!-- Copy all Serialization libraries for the ISerializer DI-injected service to the outputdir-->
+  <ItemGroup>
+    <PackageReference Include="ATAP.Utilities.Serializer.Shim.SystemTextJson" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.Shim.NewtonsoftJson" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.Shim.ServiceStackJson" Version="1.0.0" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <!-- ServiceStack  -->
+    <PackageReference Include="ServiceStack" />
+    <!-- ServiceStack serializers and dump utility -->
+    <PackageReference Include="ServiceStack.Text.EnumMemberSerializer" />
+    <PackageReference Include="ServiceStack.Text" />
+    <!-- ServiceStack ORMLite and SQLServer -->
+    <PackageReference Include="ServiceStack.OrmLite" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer" />
+    <!-- ServiceStack HTTPClient for making HTTP calls -->
+    <PackageReference Include="ServiceStack.HttpClient" />
 
-    <ItemGroup>
+    <!-- Library of rich time and interval manipulation routines -->
+    <PackageReference Include="TimePeriodLibrary.NET" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds\ATAP.Utilities.StronglyTypedIds.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.Interfaces\ATAP.Utilities.StronglyTypedIds.Interfaces.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.csproj" />
@@ -71,4 +104,3 @@
   </ItemGroup>
 
 </Project>
-

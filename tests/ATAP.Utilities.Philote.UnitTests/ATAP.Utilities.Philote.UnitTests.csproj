@@ -48,13 +48,28 @@
   </ItemGroup>
 
   <!-- ToDo: Copy specified DLLs and PDFs of specific Shim assemblies for Serializer to inject -->
-    <!-- Copy all Serialization libraries for the ISerializer DI-injected service to the outputdir-->
+  <!-- Copy all Serialization libraries for the ISerializer DI-injected service to the outputdir-->
   <ItemGroup>
   <!--
     <ProjectReference Include="..\ATAP.Utilities.Serializer.Shim.NewtonsoftJson\ATAP.Utilities.Serializer.Shim.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\ATAP.Utilities.Serializer.Shim.ServiceStackJson\ATAP.Utilities.Serializer.Shim.ServiceStackJson.csproj" />
     <ProjectReference Include="..\ATAP.Utilities.Serializer.Shim.SystemTextJson\ATAP.Utilities.Serializer.Shim.SystemTextJson.csproj" />
     -->
+  </ItemGroup>
+
+  <!-- ATAP Utility Packages that handle IConfiguration, and dynamic loading plugin assemblies, and plugins for Serializers -->
+  <ItemGroup>
+    <PackageReference Include="ATAP.Utilities.Configuration.Extensions" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.FileIO" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.GenericHost.Extensions" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.GenericHost.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader.StringConstants" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.StringConstants" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.SerializerLoader" Version="1.0.0" />
   </ItemGroup>
 
     <ItemGroup>
@@ -66,5 +81,22 @@
     <!-- <ProjectReference Include="..\..\src\ATAP.Utilities.Philote.JsonConverter.Shim.Newtonsoft\ATAP.Utilities.Philote.JsonConverter.Shim.Newtonsoft.csproj" /> -->
   </ItemGroup>
 
-</Project>
+    <ItemGroup>
+    <!-- ServiceStack  -->
+    <PackageReference Include="ServiceStack" />
+    <!-- ServiceStack serializers and dump utility -->
+    <PackageReference Include="ServiceStack.Text.EnumMemberSerializer" />
+    <PackageReference Include="ServiceStack.Text" />
+    <!-- ServiceStack ORMLite and SQLServer -->
+    <PackageReference Include="ServiceStack.OrmLite" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer" />
+    <!-- ServiceStack HTTPClient for making HTTP calls -->
+    <PackageReference Include="ServiceStack.HttpClient" />
 
+    <!-- Library of rich time and interval manipulation routines -->
+    <PackageReference Include="TimePeriodLibrary.NET" Version="2.1.1" />
+  </ItemGroup>
+
+
+
+</Project>

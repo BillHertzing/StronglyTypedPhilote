@@ -11,44 +11,44 @@ namespace ATAP.Utilities.Philote {
   // public abstract record AbstractGuidPhilote<TId> : AbstractPhilote<TId, Guid> where TId : AbstractStronglyTypedId<Guid>, new() {
   //   //public AbstractGuidPhilote() : base() { }
   //   public AbstractGuidPhilote(Guid value) : base(value) { }
-  //   public AbstractGuidPhilote(TId iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
+  //   public AbstractGuidPhilote(TId iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>? additionalIds = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIds, timeBlocks) { }
   //   public override string ToString() => base.ToString();
   // }
 
   // public abstract record AbstractIntPhilote<TId> : AbstractPhilote<TId, int> where TId : AbstractStronglyTypedId<int>, new() {
   //   //public AbstractIntPhilote() : base() { }
   //   public AbstractIntPhilote(int value) : base(value) { }
-  //   public AbstractIntPhilote(TId iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<int>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIDs, timeBlocks) { }
+  //   public AbstractIntPhilote(TId iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<int>>? additionalIds = default, IEnumerable<ITimeBlock>? timeBlocks = default) : base(iD, additionalIds, timeBlocks) { }
   //   public override string ToString() => base.ToString();
   // }
 
   public abstract record AbstractPhilote<TId, TValue> : IAbstractPhilote<TId, TValue> where TId : AbstractStronglyTypedId<TValue>, new() where TValue : notnull {
 
-    // public AbstractPhilote(int? iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
+    // public AbstractPhilote(int? iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIds = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
     //   if (iD != null) {
-    //     ID = Activator.CreateInstance(typeof(TId), new object[] { iD }) as TId;
+    //     Id = Activator.CreateInstance(typeof(TId), new object[] { iD }) as TId;
     //   }
     //   else {
-    //     ID = (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() };
+    //     Id = (TId)(object)(AbstractStronglyTypedId<int>)new IntStronglyTypedId() { Value = new Random().Next() };
     //   }
-    //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
+    //   AdditionalIds = additionalIds != default ? additionalIds : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
     //   TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     // }
-    // public AbstractPhilote(Guid? iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
+    // public AbstractPhilote(Guid? iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIds = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
     //   if (iD != null) {
-    //     ID = Activator.CreateInstance(typeof(TId), new object[] { iD }) as TId;
+    //     Id = Activator.CreateInstance(typeof(TId), new object[] { iD }) as TId;
     //   }
     //   else {
-    //     ID = (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId();
+    //     Id = (TId)(object)(AbstractStronglyTypedId<Guid>)new GuidStronglyTypedId();
     //   }
-    //   AdditionalIDs = additionalIDs != default ? additionalIDs : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
+    //   AdditionalIds = additionalIds != default ? additionalIds : new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
     //   TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     // }
 
-    public AbstractPhilote(TId iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
-      if (iD != null) { ID = iD; }
+    public AbstractPhilote(TId iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIds = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
+      if (iD != null) { Id = iD; }
       else {
-        ID = (typeof(TValue)) switch {
+        Id = (typeof(TValue)) switch {
 
           Type intType when typeof(TValue) == typeof(int) => new IntStronglyTypedId() { Value = new Random().Next() } as TId,
           // The following fails to work because Guid lacks a new()
@@ -65,23 +65,23 @@ namespace ATAP.Utilities.Philote {
       }
       // Attribution [Linq ToDictionary will not implicitly convert class to interface](https://stackoverflow.com/questions/25136049/linq-todictionary-will-not-implicitly-convert-class-to-interface) Educational but ultimately fails
       // The ToDictionary extension method available in LINQ for generic Dictionaries is NOT availabe for ConcurrentDictionaries, the following won't work...
-      //  additionalIDs.ToDictionary(kvp => kvp.Key, kvp => (IAbstractStronglyTypedId<TValue>) kvp.Value)
+      //  additionalIds.ToDictionary(kvp => kvp.Key, kvp => (IAbstractStronglyTypedId<TValue>) kvp.Value)
       // A this is a concurrent operation we will need to put a semaphore around the argument passed in
       // attribution [How do you convert a dictionary to a ConcurrentDictionary?](https://stackoverflow.com/questions/27063889/how-do-you-convert-a-dictionary-to-a-concurrentdictionary) from a comment on a question, contributed by Panagiotis Kanavos
       // we have to convert the parameter's value to a cast to a less derived interface
 
-      if (additionalIDs != default) {
+      if (additionalIds != default) {
         // ToDo : add write semaphore around the parameter before enumerating the Dictionary
-        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>(additionalIDs.Select(kvp => new KeyValuePair<string, IAbstractStronglyTypedId<TValue>>(kvp.Key, (IAbstractStronglyTypedId<TValue>)kvp.Value)));
+        AdditionalIds = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>(additionalIds.Select(kvp => new KeyValuePair<string, IAbstractStronglyTypedId<TValue>>(kvp.Key, (IAbstractStronglyTypedId<TValue>)kvp.Value)));
       }
       else {
-        AdditionalIDs = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
+        AdditionalIds = new ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>();
       }
       TimeBlocks = timeBlocks != default ? timeBlocks : new List<ITimeBlock>();
     }
 
-    public TId ID { get; init; }
-    public ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? AdditionalIDs { get; init; }
+    public TId Id { get; init; }
+    public ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? AdditionalIds { get; init; }
     public IEnumerable<ITimeBlock>? TimeBlocks { get; init; }
   }
 }
