@@ -65,51 +65,51 @@ namespace ATAP.Utilities.Philote.UnitTests {
     }
   }
 
-  public class TestClassWithIntPhiloteSerializationTestData {
+  public class TestClassWithIntPhiloteTestData {
     public IAbstractPhilote<TestClassWithPhiloteId<int>, int> InstanceTestData { get; set; }
     public string SerializedTestData { get; set; }
-    public TestClassWithIntPhiloteSerializationTestData() {
+    public TestClassWithIntPhiloteTestData() {
     }
-    public TestClassWithIntPhiloteSerializationTestData(TestClassWithPhilote<int> instanceTestData, string serializedTestData) {
+    public TestClassWithIntPhiloteTestData(TestClassWithPhilote<int> instanceTestData, string serializedTestData) {
       InstanceTestData = instanceTestData;
       SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
 
-  public class TestClassWithGuidPhiloteSerializationTestData {
+  public class TestClassWithGuidPhiloteTestData {
     public IAbstractPhilote<TestClassWithPhiloteId<Guid>, Guid> InstanceTestData { get; set; }
     public string SerializedTestData { get; set; }
-    public TestClassWithGuidPhiloteSerializationTestData() {
+    public TestClassWithGuidPhiloteTestData() {
     }
-    public TestClassWithGuidPhiloteSerializationTestData(TestClassWithPhilote<Guid> instanceTestData, string serializedTestData) {
+    public TestClassWithGuidPhiloteTestData(TestClassWithPhilote<Guid> instanceTestData, string serializedTestData) {
       InstanceTestData = instanceTestData;
       SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
 
-  public class TestClassWithIntPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+  public class TestClassWithIntPhiloteTestDataGenerator : IEnumerable<object[]> {
     public static IEnumerable<object[]> TestData() {
-      yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(Int32.MinValue)), SerializedTestData = "{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-      yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(-1)), SerializedTestData = "{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-      yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(0)), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-      yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(1)), SerializedTestData = "{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-      yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(Int32.MaxValue)), SerializedTestData = "{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-      // yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataInt32Min", philote: new TestClassIntPhilote(Int32.MinValue)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataInt32Min\",\"Philote\":{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-      // yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataNegativeOne", philote: new TestClassIntPhilote(-1)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataNegativeOne\",\"Philote\":{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-      // yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataZero", philote: new TestClassIntPhilote(0)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataZero\",\"Philote\":{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-      // yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataPositiveOne", philote: new TestClassIntPhilote(1)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataPositiveOne\",\"Philote\":{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-      // yield return new[] { new TestClassWithIntPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataInt32Max", philote: new TestClassIntPhilote(Int32.MaxValue)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataInt32Max\",\"Philote\":{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(Int32.MinValue)), SerializedTestData = "{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+      yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(-1)), SerializedTestData = "{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+      yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(0)), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+      yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(1)), SerializedTestData = "{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+      yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithPhilote<int>(iD: new TestClassWithPhiloteId<int>(Int32.MaxValue)), SerializedTestData = "{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+      // yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataInt32Min", philote: new TestClassIntPhilote(Int32.MinValue)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataInt32Min\",\"Philote\":{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      // yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataNegativeOne", philote: new TestClassIntPhilote(-1)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataNegativeOne\",\"Philote\":{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      // yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataZero", philote: new TestClassIntPhilote(0)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataZero\",\"Philote\":{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      // yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataPositiveOne", philote: new TestClassIntPhilote(1)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataPositiveOne\",\"Philote\":{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      // yield return new[] { new TestClassWithIntPhiloteTestData { InstanceTestData = new TestClassWithIntPhilote(name: "TestClassWithIntPhiloteTestDataInt32Max", philote: new TestClassIntPhilote(Int32.MaxValue)), SerializedTestData = "{\"Name\":\"TestClassWithIntPhiloteTestDataInt32Max\",\"Philote\":{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
     }
     public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
     IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
   }
 
-  public class TestClassWithGuidPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+  public class TestClassWithGuidPhiloteTestDataGenerator : IEnumerable<object[]> {
     public static IEnumerable<object[]> TestData() {
-      yield return new[] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<Guid>(iD: new TestClassWithPhiloteId<Guid>(Guid.Empty)), SerializedTestData = "{\"Philote\":{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-      yield return new[] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<Guid>(iD: new TestClassWithPhiloteId<Guid>(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Philote\":{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-      // yield return new [] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<Guid>(name: "TestClassWithGuidPhiloteTestDataGuidEmpty", philote: new TestClassGuidPhilote(Guid.Empty)), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-      // yield return new [] { new TestClassWithGuidPhiloteSerializationTestData { InstanceTestData = new TestClassWithPhilote<Guid>(name: "TestClassWithGuidPhiloteTestDataGuid01234", philote: new TestClassGuidPhilote(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuid01234\",\"Philote\":{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      yield return new[] { new TestClassWithGuidPhiloteTestData { InstanceTestData = new TestClassWithPhilote<Guid>(iD: new TestClassWithPhiloteId<Guid>(Guid.Empty)), SerializedTestData = "{\"Philote\":{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      yield return new[] { new TestClassWithGuidPhiloteTestData { InstanceTestData = new TestClassWithPhilote<Guid>(iD: new TestClassWithPhiloteId<Guid>(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Philote\":{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      // yield return new [] { new TestClassWithGuidPhiloteTestData { InstanceTestData = new TestClassWithPhilote<Guid>(name: "TestClassWithGuidPhiloteTestDataGuidEmpty", philote: new TestClassGuidPhilote(Guid.Empty)), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+      // yield return new [] { new TestClassWithGuidPhiloteTestData { InstanceTestData = new TestClassWithPhilote<Guid>(name: "TestClassWithGuidPhiloteTestDataGuid01234", philote: new TestClassGuidPhilote(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Name\":\"TestClassWithGuidPhiloteTestDataGuid01234\",\"Philote\":{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
     }
     public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
     IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
@@ -149,12 +149,12 @@ namespace ATAP.Utilities.Philote.UnitTests {
   //   public IAbstractPhilote<TestClassWithIntPhiloteId<int>, int> Philote { get; set; }
   // }
 
-  // public class TestClassWithIntPhiloteSerializationTestData {
+  // public class TestClassWithIntPhiloteTestData {
   //   public TestClassWithIntPhilote InstanceTestData { get; set; }
   //   public string SerializedTestData { get; set; }
-  //   public TestClassWithIntPhiloteSerializationTestData() {
+  //   public TestClassWithIntPhiloteTestData() {
   //   }
-  //   public TestClassWithIntPhiloteSerializationTestData(TestClassWithIntPhilote instanceTestData, string serializedTestData) {
+  //   public TestClassWithIntPhiloteTestData(TestClassWithIntPhilote instanceTestData, string serializedTestData) {
   //     InstanceTestData = instanceTestData;
   //     SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
   //   }
@@ -175,21 +175,21 @@ namespace ATAP.Utilities.Philote.UnitTests {
   //   public TestClassGuidPhilote Philote { get; set; }
   // }
 
-  // public class TestClassWithGuidPhiloteSerializationTestData {
+  // public class TestClassWithGuidPhiloteTestData {
   //   public IAbstractPhilote<TestClassWithPhiloteId<Guid>, Guid> InstanceTestData { get; set; }
   //   public string SerializedTestData { get; set; }
-  //   public TestClassWithGuidPhiloteSerializationTestData() {
+  //   public TestClassWithGuidPhiloteTestData() {
   //   }
-  //   public TestClassWithGuidPhiloteSerializationTestData(TestClassWithPhilote<Guid> instanceTestData, string serializedTestData) {
+  //   public TestClassWithGuidPhiloteTestData(TestClassWithPhilote<Guid> instanceTestData, string serializedTestData) {
   //     InstanceTestData = instanceTestData;
   //     SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
   //   }
   // }
 
-  // public class TestClassWithGuidPhiloteSerializationTestData {
+  // public class TestClassWithGuidPhiloteTestData {
   //   public TestClassWithGuidPhilote InstanceTestData { get; set; }
   //   public string SerializedTestData { get; set; }
-  //   public TestClassWithGuidPhiloteSerializationTestData() {
+  //   public TestClassWithGuidPhiloteTestData() {
   //   }
   // }
 
@@ -207,24 +207,24 @@ namespace ATAP.Utilities.Philote.UnitTests {
   //   public TestRecordIntPhilote Philote { get; set; }
   // }
 
-  // public class TestRecordWithIntPhiloteSerializationTestData {
+  // public class TestRecordWithIntPhiloteTestData {
   //   public TestRecordWithIntPhilote InstanceTestData { get; set; }
   //   public string SerializedTestData { get; set; }
-  //   public TestRecordWithIntPhiloteSerializationTestData() {
+  //   public TestRecordWithIntPhiloteTestData() {
   //   }
-  //   public TestRecordWithIntPhiloteSerializationTestData(TestRecordWithIntPhilote instanceTestData, string serializedTestData) {
+  //   public TestRecordWithIntPhiloteTestData(TestRecordWithIntPhilote instanceTestData, string serializedTestData) {
   //     InstanceTestData = instanceTestData;
   //     SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
   //   }
   // }
 
-  // public class TestRecordWithIntPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+  // public class TestRecordWithIntPhiloteTestDataGenerator : IEnumerable<object[]> {
   //   public static IEnumerable<object[]> TestData() {
-  //     yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataInt32Min", philote: new TestRecordIntPhilote(Int32.MinValue)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataInt32Min\",\"Philote\":{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataNegativeOne", philote: new TestRecordIntPhilote(-1)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataNegativeOne\",\"Philote\":{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataZero", philote: new TestRecordIntPhilote(0)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataZero\",\"Philote\":{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataPositiveOne", philote: new TestRecordIntPhilote(1)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataPositiveOne\",\"Philote\":{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new[] { new TestRecordWithIntPhiloteSerializationTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataInt32Max", philote: new TestRecordIntPhilote(Int32.MaxValue)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataInt32Max\",\"Philote\":{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new[] { new TestRecordWithIntPhiloteTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataInt32Min", philote: new TestRecordIntPhilote(Int32.MinValue)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataInt32Min\",\"Philote\":{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new[] { new TestRecordWithIntPhiloteTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataNegativeOne", philote: new TestRecordIntPhilote(-1)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataNegativeOne\",\"Philote\":{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new[] { new TestRecordWithIntPhiloteTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataZero", philote: new TestRecordIntPhilote(0)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataZero\",\"Philote\":{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new[] { new TestRecordWithIntPhiloteTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataPositiveOne", philote: new TestRecordIntPhilote(1)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataPositiveOne\",\"Philote\":{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new[] { new TestRecordWithIntPhiloteTestData { InstanceTestData = new TestRecordWithIntPhilote(name: "TestRecordWithIntPhiloteTestDataInt32Max", philote: new TestRecordIntPhilote(Int32.MaxValue)), SerializedTestData = "{\"Name\":\"TestRecordWithIntPhiloteTestDataInt32Max\",\"Philote\":{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
   //   }
   //   public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
   //   IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
@@ -244,17 +244,17 @@ namespace ATAP.Utilities.Philote.UnitTests {
   //   public TestRecordGuidPhilote Philote { get; set; }
   // }
 
-  // public class TestRecordWithGuidPhiloteSerializationTestData {
+  // public class TestRecordWithGuidPhiloteTestData {
   //   public TestRecordWithGuidPhilote InstanceTestData { get; set; }
   //   public string SerializedTestData { get; set; }
-  //   public TestRecordWithGuidPhiloteSerializationTestData() {
+  //   public TestRecordWithGuidPhiloteTestData() {
   //   }
   // }
 
-  // public class TestRecordWithGuidPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+  // public class TestRecordWithGuidPhiloteTestDataGenerator : IEnumerable<object[]> {
   //   public static IEnumerable<object[]> TestData() {
-  //     yield return new TestRecordWithGuidPhiloteSerializationTestData[] { new TestRecordWithGuidPhiloteSerializationTestData { InstanceTestData = new TestRecordWithGuidPhilote(name: "TestRecordWithGuidPhiloteTestDataGuidEmpty", philote: new TestRecordGuidPhilote(Guid.Empty)), SerializedTestData = "{\"Name\":\"TestRecordWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new TestRecordWithGuidPhiloteSerializationTestData[] { new TestRecordWithGuidPhiloteSerializationTestData { InstanceTestData = new TestRecordWithGuidPhilote(name: "TestRecordWithGuidPhiloteTestDataGuid01234", philote: new TestRecordGuidPhilote(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Name\":\"TestRecordWithGuidPhiloteTestDataGuid01234\",\"Philote\":{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new TestRecordWithGuidPhiloteTestData[] { new TestRecordWithGuidPhiloteTestData { InstanceTestData = new TestRecordWithGuidPhilote(name: "TestRecordWithGuidPhiloteTestDataGuidEmpty", philote: new TestRecordGuidPhilote(Guid.Empty)), SerializedTestData = "{\"Name\":\"TestRecordWithGuidPhiloteTestDataGuidEmpty\",\"Philote\":{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new TestRecordWithGuidPhiloteTestData[] { new TestRecordWithGuidPhiloteTestData { InstanceTestData = new TestRecordWithGuidPhilote(name: "TestRecordWithGuidPhiloteTestDataGuid01234", philote: new TestRecordGuidPhilote(new Guid("01234567-abcd-9876-cdef-456789abcdef"))), SerializedTestData = "{\"Name\":\"TestRecordWithGuidPhiloteTestDataGuid01234\",\"Philote\":{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
   //   }
   //   public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
   //   IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
@@ -270,26 +270,26 @@ namespace ATAP.Utilities.Philote.UnitTests {
   //   public IPhiloteTestRecordInt Philote { get; set; }
   // }
 
-  // public class TestClassWithIntIPhiloteSerializationTestData {
+  // public class TestClassWithIntIPhiloteTestData {
   //   public TestClassWithIntIPhilote InstanceTestData { get; set; }
   //   public string SerializedTestData { get; set; }
 
-  //   public TestClassWithIntIPhiloteSerializationTestData() {
+  //   public TestClassWithIntIPhiloteTestData() {
   //   }
 
-  //   public TestClassWithIntIPhiloteSerializationTestData(TestClassWithIntIPhilote instanceTestData, string serializedTestData) {
+  //   public TestClassWithIntIPhiloteTestData(TestClassWithIntIPhilote instanceTestData, string serializedTestData) {
   //     InstanceTestData = instanceTestData;
   //     SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
   //   }
   // }
 
-  // public class TestClassWithIntIPhiloteSerializationTestDataGenerator : IEnumerable<object[]> {
+  // public class TestClassWithIntIPhiloteTestDataGenerator : IEnumerable<object[]> {
   //   public static IEnumerable<object[]> TestData() {
-  //     yield return new TestClassWithIntIPhiloteSerializationTestData[] { new TestClassWithIntIPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataInt32Min", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(Int32.MinValue))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataInt32Min\",\"Philote\":{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new TestClassWithIntIPhiloteSerializationTestData[] { new TestClassWithIntIPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataNegativeOne", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(-1))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataNegativeOne\",\"Philote\":{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new TestClassWithIntIPhiloteSerializationTestData[] { new TestClassWithIntIPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataZero", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(0))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataZero\",\"Philote\":{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new TestClassWithIntIPhiloteSerializationTestData[] { new TestClassWithIntIPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataPositiveOne", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(1))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataPositiveOne\",\"Philote\":{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
-  //     yield return new TestClassWithIntIPhiloteSerializationTestData[] { new TestClassWithIntIPhiloteSerializationTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataInt32Max", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(Int32.MaxValue))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataInt32Max\",\"Philote\":{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new TestClassWithIntIPhiloteTestData[] { new TestClassWithIntIPhiloteTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataInt32Min", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(Int32.MinValue))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataInt32Min\",\"Philote\":{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new TestClassWithIntIPhiloteTestData[] { new TestClassWithIntIPhiloteTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataNegativeOne", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(-1))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataNegativeOne\",\"Philote\":{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new TestClassWithIntIPhiloteTestData[] { new TestClassWithIntIPhiloteTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataZero", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(0))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataZero\",\"Philote\":{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new TestClassWithIntIPhiloteTestData[] { new TestClassWithIntIPhiloteTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataPositiveOne", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(1))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataPositiveOne\",\"Philote\":{\"Id\":1,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
+  //     yield return new TestClassWithIntIPhiloteTestData[] { new TestClassWithIntIPhiloteTestData { InstanceTestData = new TestClassWithIntIPhilote(name: "TestClassWithIntIPhiloteTestDataInt32Max", philote: new PhiloteTestRecordInt(new IntStronglyTypedId(Int32.MaxValue))), SerializedTestData = "{\"Name\":\"TestClassWithIntIPhiloteTestDataInt32Max\",\"Philote\":{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}}" } };
   //   }
 
   //   public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
@@ -297,56 +297,56 @@ namespace ATAP.Utilities.Philote.UnitTests {
   // }
 
   // //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes
-  // public abstract class AbstractPhiloteInterfaceSerializationTestData<T, TValue> where T : class where TValue : notnull {
+  // public abstract class AbstractPhiloteInterfaceTestData<T, TValue> where T : class where TValue : notnull {
   //   public virtual IAbstractPhilote<T, TValue> InstanceTestData { get; set; }
   //   public string SerializedTestData { get; set; }
 
-  //   public AbstractPhiloteInterfaceSerializationTestData() {
+  //   public AbstractPhiloteInterfaceTestData() {
   //   }
 
-  //   public AbstractPhiloteInterfaceSerializationTestData(IAbstractPhilote<T, TValue> instanceTestData, string serializedTestData) {
+  //   public AbstractPhiloteInterfaceTestData(IAbstractPhilote<T, TValue> instanceTestData, string serializedTestData) {
   //     InstanceTestData = instanceTestData;
   //     SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
   //   }
   // }
 
-  // public class PT1IntSerializationTestDataGenerator : IEnumerable<object[]> {
+  // public class PT1IntTestDataGenerator : IEnumerable<object[]> {
   //   public static IEnumerable<object[]> TestData() {
-  //     yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(0)), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(-1)), SerializedTestData = "{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(Int32.MinValue)), SerializedTestData = "{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(Int32.MaxValue)), SerializedTestData = "{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(1234567)), SerializedTestData = "{\"Id\":1234567,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(new Random().Next())), SerializedTestData = "" } };
+  //     yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(0)), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(-1)), SerializedTestData = "{\"Id\":-1,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(Int32.MinValue)), SerializedTestData = "{\"Id\":-2147483648,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(Int32.MaxValue)), SerializedTestData = "{\"Id\":2147483647,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(1234567)), SerializedTestData = "{\"Id\":1234567,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(new Random().Next())), SerializedTestData = "" } };
 
 
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(0), null, null), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(0), null, null), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), null, null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.NewGuid()), null, null), SerializedTestData = "" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.NewGuid()), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
-  //     // yield return new PT1IntSerializationTestData[] { new PT1IntSerializationTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(0), null, null), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new IntStronglyTypedId(0), null, null), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), null, null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.NewGuid()), null, null), SerializedTestData = "" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.NewGuid()), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
+  //     // yield return new PT1IntTestData[] { new PT1IntTestData { InstanceTestData = new PT1Int(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
   //   }
 
   //   public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
   //   IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
   // }
 
-  // public class TestClassGuidPhiloteInterfaceSerializationTestDataGenerator : IEnumerable<object[]> {
+  // public class TestClassGuidPhiloteInterfaceTestDataGenerator : IEnumerable<object[]> {
   //   public static IEnumerable<object[]> TestData() {
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), null, null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), null, null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.NewGuid()), null, null), SerializedTestData = "" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.NewGuid()), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassGuidPhiloteInterfaceSerializationTestData[] { new TestClassGuidPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), null, null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), null, null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.NewGuid()), null, null), SerializedTestData = "" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "{\"Id\":\"01234567-abcd-9876-cdef-456789abcdef\",\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.NewGuid()), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(), null), SerializedTestData = "" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassGuidPhiloteInterfaceTestData[] { new TestClassGuidPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, Guid>)new TestClassGuidPhilote(new GuidStronglyTypedId(Guid.Empty), new ConcurrentDictionary<string, IAbstractStronglyTypedId<Guid>>(new List<KeyValuePair<string, IAbstractStronglyTypedId<Guid>>>() { new KeyValuePair<string, IAbstractStronglyTypedId<Guid>>("key1", new GuidStronglyTypedId(Guid.Empty)) }), null), SerializedTestData = "{\"Id\":\"00000000-0000-0000-0000-000000000000\",\"AdditionalIds\":{\"key1\":\"00000000-0000-0000-0000-000000000000\"},\"TimeBlocks\":[]}" } };
   //   }
 
   //   public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }
@@ -361,14 +361,14 @@ namespace ATAP.Utilities.Philote.UnitTests {
   //   }
   // }
 
-  // public class TestClassIntPhiloteInterfaceSerializationTestData : AbstractPhiloteInterfaceSerializationTestData<TestClass, int> {
+  // public class TestClassIntPhiloteInterfaceTestData : AbstractPhiloteInterfaceTestData<TestClass, int> {
   // }
 
-  // public class TestClassIntPhiloteInterfaceSerializationTestDataGenerator : IEnumerable<object[]> {
+  // public class TestClassIntPhiloteInterfaceTestDataGenerator : IEnumerable<object[]> {
   //   public static IEnumerable<object[]> TestData() {
-  //     yield return new TestClassIntPhiloteInterfaceSerializationTestData[] { new TestClassIntPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, int>)new TestClassIntPhilote(new IntStronglyTypedId(0), null, null), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassIntPhiloteInterfaceSerializationTestData[] { new TestClassIntPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, int>)new TestClassIntPhilote(new IntStronglyTypedId(1234567), null, null), SerializedTestData = "{\"Id\":1234567,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
-  //     yield return new TestClassIntPhiloteInterfaceSerializationTestData[] { new TestClassIntPhiloteInterfaceSerializationTestData { InstanceTestData = (IAbstractPhilote<TestClass, int>)new TestClassIntPhilote(new IntStronglyTypedId(new Random().Next()), null, null), SerializedTestData = "" } };
+  //     yield return new TestClassIntPhiloteInterfaceTestData[] { new TestClassIntPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, int>)new TestClassIntPhilote(new IntStronglyTypedId(0), null, null), SerializedTestData = "{\"Id\":0,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassIntPhiloteInterfaceTestData[] { new TestClassIntPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, int>)new TestClassIntPhilote(new IntStronglyTypedId(1234567), null, null), SerializedTestData = "{\"Id\":1234567,\"AdditionalIds\":{},\"TimeBlocks\":[]}" } };
+  //     yield return new TestClassIntPhiloteInterfaceTestData[] { new TestClassIntPhiloteInterfaceTestData { InstanceTestData = (IAbstractPhilote<TestClass, int>)new TestClassIntPhilote(new IntStronglyTypedId(new Random().Next()), null, null), SerializedTestData = "" } };
   //   }
 
   //   public IEnumerator<object[]> GetEnumerator() { return TestData().GetEnumerator(); }

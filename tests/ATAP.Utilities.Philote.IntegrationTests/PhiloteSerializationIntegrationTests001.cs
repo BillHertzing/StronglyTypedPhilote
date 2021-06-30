@@ -22,8 +22,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
   public partial class PhiloteSerializationSystemTextJsonIntegrationTests001 : IClassFixture<SerializationFixtureSystemTextJson> {
 
     [Theory]
-    [MemberData(nameof(GCommentWithIntSerializationTestDataGenerator.TestData), MemberType = typeof(GCommentWithIntSerializationTestDataGenerator))]
-    public void GCommentWithIntPhiloteSerializeToJson(GCommentWithIntSerializationTestData inTestData) {
+    [MemberData(nameof(GCommentWithIntTestDataGenerator.TestData), MemberType = typeof(GCommentWithIntTestDataGenerator))]
+    public void GCommentWithIntPhiloteSerializeToJson(GCommentWithIntTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException(paramName: $"{nameof(inTestData)} argument should never be null"); }
       if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647),").Success) {
@@ -37,8 +37,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     }
 
     [Theory]
-    [MemberData(nameof(GCommentWithGuidSerializationTestDataGenerator.TestData), MemberType = typeof(GCommentWithGuidSerializationTestDataGenerator))]
-    public void GCommentWithGuidPhiloteSerializeToJson(GCommentWithGuidSerializationTestData inTestData) {
+    [MemberData(nameof(GCommentWithGuidTestDataGenerator.TestData), MemberType = typeof(GCommentWithGuidTestDataGenerator))]
+    public void GCommentWithGuidPhiloteSerializeToJson(GCommentWithGuidTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException(paramName: $"{nameof(inTestData)} argument should never be null"); }
       if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success) {
@@ -52,8 +52,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     }
 
     // [Theory]
-    // [MemberData(nameof(TestClassWithGuidPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassWithGuidPhiloteSerializationTestDataGenerator))]
-    // public void TestClassWithGuidPhiloteSerializeToJson(TestClassWithGuidPhiloteSerializationTestData inTestData) {
+    // [MemberData(nameof(TestClassWithGuidPhiloteTestDataGenerator.TestData), MemberType = typeof(TestClassWithGuidPhiloteTestDataGenerator))]
+    // public void TestClassWithGuidPhiloteSerializeToJson(TestClassWithGuidPhiloteTestData inTestData) {
     //   if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(0000|0123)").Success ) {
     //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
     //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -65,8 +65,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     // }
     //
     // [Theory]
-    // [MemberData(nameof(TestClassWithIntIPhiloteSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassWithIntIPhiloteSerializationTestDataGenerator))]
-    // public void TestClassWithIntIPhiloteSerializeToJson(TestClassWithIntIPhiloteSerializationTestData inTestData) {
+    // [MemberData(nameof(TestClassWithIntIPhiloteTestDataGenerator.TestData), MemberType = typeof(TestClassWithIntIPhiloteTestDataGenerator))]
+    // public void TestClassWithIntIPhiloteSerializeToJson(TestClassWithIntIPhiloteTestData inTestData) {
     //   if (Regex.Match(inTestData.SerializedTestData, "\"ID\":(-2147483648|-1|0|1|2147483647),").Success ) {
     //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
     //     JsonSerializer.Serialize(inTestData.InstanceTestData, SerializationFixture.JsonSerializerOptions).Should().Be(inTestData.SerializedTestData);
@@ -78,8 +78,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     // }
     //
     // [Theory]
-    // [MemberData(nameof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator))]
-    // public void GuidPhiloteInterfaceSerializeToJson(TestClassGuidPhiloteInterfaceSerializationTestData inTestData) {
+    // [MemberData(nameof(TestClassGuidPhiloteInterfaceTestDataGenerator.TestData), MemberType = typeof(TestClassGuidPhiloteInterfaceTestDataGenerator))]
+    // public void GuidPhiloteInterfaceSerializeToJson(TestClassGuidPhiloteInterfaceTestData inTestData) {
     //   // new AbstractStronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
     //   if (inTestData.SerializedTestData.StartsWith("{\"ID\":\"0000", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.StartsWith("{\"ID\":\"01234", System.StringComparison.InvariantCulture)) {
     //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -92,8 +92,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     // }
     //
     // [Theory]
-    // [MemberData(nameof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassGuidPhiloteInterfaceSerializationTestDataGenerator))]
-    // public void GuidPhiloteInterfaceDeserializeFromJson(TestClassGuidPhiloteInterfaceSerializationTestData inTestData) {
+    // [MemberData(nameof(TestClassGuidPhiloteInterfaceTestDataGenerator.TestData), MemberType = typeof(TestClassGuidPhiloteInterfaceTestDataGenerator))]
+    // public void GuidPhiloteInterfaceDeserializeFromJson(TestClassGuidPhiloteInterfaceTestData inTestData) {
     //   if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
     //     Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
     //     act.Should().Throw<System.Text.Json.JsonException>()
@@ -110,8 +110,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     // }
     //
     // [Theory]
-    // [MemberData(nameof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator))]
-    // public void IntPhiloteInterfaceSerializeToJson(TestClassIntPhiloteInterfaceSerializationTestData inTestData) {
+    // [MemberData(nameof(TestClassIntPhiloteInterfaceTestDataGenerator.TestData), MemberType = typeof(TestClassIntPhiloteInterfaceTestDataGenerator))]
+    // public void IntPhiloteInterfaceSerializeToJson(TestClassIntPhiloteInterfaceTestData inTestData) {
     //   // new AbstractStronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
     //   if (inTestData.SerializedTestData.StartsWith("1234", System.StringComparison.InvariantCulture) || inTestData.SerializedTestData.Equals("0")) {
     //     //SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -125,8 +125,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     //
     //
     // [Theory]
-    // [MemberData(nameof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator.TestData), MemberType = typeof(TestClassIntPhiloteInterfaceSerializationTestDataGenerator))]
-    // public void IntPhiloteInterfaceDeserializeFromJson(TestClassIntPhiloteInterfaceSerializationTestData inTestData) {
+    // [MemberData(nameof(TestClassIntPhiloteInterfaceTestDataGenerator.TestData), MemberType = typeof(TestClassIntPhiloteInterfaceTestDataGenerator))]
+    // public void IntPhiloteInterfaceDeserializeFromJson(TestClassIntPhiloteInterfaceTestData inTestData) {
     //
     //
     //   if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
@@ -144,8 +144,8 @@ namespace ATAP.Utilities.Philote.IntegrationTests {
     //   }
     // }
     // [Theory]
-    // [MemberData(nameof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>.TestData), MemberType = typeof(StronglyTypedIdInterfaceSerializationTestDataGenerator<int>))]
-    // public void StronglyTypedIdInterfaceIntDeserializeFromJSON(StronglyTypedIdInterfaceSerializationTestData<int> inStronglyTypedIdTestData) {
+    // [MemberData(nameof(StronglyTypedIdInterfaceTestDataGenerator<int>.TestData), MemberType = typeof(StronglyTypedIdInterfaceTestDataGenerator<int>))]
+    // public void StronglyTypedIdInterfaceIntDeserializeFromJSON(StronglyTypedIdInterfaceTestData<int> inStronglyTypedIdTestData) {
     // if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
     //   Action act = () => JsonSerializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData, SerializationFixture.JsonSerializerOptions);
     //   act.Should().Throw<System.Text.Json.JsonException>()

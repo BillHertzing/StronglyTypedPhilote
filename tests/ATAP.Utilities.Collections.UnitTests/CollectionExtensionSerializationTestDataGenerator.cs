@@ -21,33 +21,33 @@ namespace ATAP.Utilities.Collection.UnitTests {
   }
 
   //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes
-  public class CollectionExtensionSerializationTestData<T> {
+  public class CollectionExtensionTestData<T> {
     public T InstanceTestData { get; set; }
     public string SerializedTestData { get; set; }
 
-    public CollectionExtensionSerializationTestData() {
+    public CollectionExtensionTestData() {
     }
 
-    public CollectionExtensionSerializationTestData(T instanceTestData, string serializedTestData) {
+    public CollectionExtensionTestData(T instanceTestData, string serializedTestData) {
       InstanceTestData = instanceTestData;
       SerializedTestData = serializedTestData ?? throw new ArgumentNullException(nameof(serializedTestData));
     }
   }
 
-  public class CollectionExtensionSerializationTestDataGenerator<T> : IEnumerable<object[]> {
-    public static IEnumerable<object[]> CollectionExtensionSerializationTestData() {
+  public class CollectionExtensionTestDataGenerator<T> : IEnumerable<object[]> {
+    public static IEnumerable<object[]> CollectionExtensionTestData() {
       switch (typeof(T)) {
         case Type heirDataType when typeof(T) == typeof(HierDataClass): {
-            yield return new CollectionExtensionSerializationTestData<HierDataClass>[] { new CollectionExtensionSerializationTestData<HierDataClass> {
+            yield return new CollectionExtensionTestData<HierDataClass>[] { new CollectionExtensionTestData<HierDataClass> {
               InstanceTestData = new HierDataClass(){Name="HierDataInstance001"}, SerializedTestData = "{\"Name\":\"HierDataInstance001\",\"ChildHierData\":null,\"ChildHierListData\":null}" } };
-            yield return new CollectionExtensionSerializationTestData<HierDataClass>[] { new CollectionExtensionSerializationTestData<HierDataClass> {
+            yield return new CollectionExtensionTestData<HierDataClass>[] { new CollectionExtensionTestData<HierDataClass> {
               InstanceTestData = new HierDataClass(){Name="HierDataInstance002", ChildHierListData = Enumerable.Empty<HierDataClass>()}, SerializedTestData = "{\"Name\":\"HierDataInstance002\",\"ChildHierData\":null,\"ChildHierListData\":[]}" } };
           }
           break;
         case Type iHeirDataType when typeof(T) == typeof(IHierDataClass): {
-            yield return new CollectionExtensionSerializationTestData<IHierDataClass>[] { new CollectionExtensionSerializationTestData<IHierDataClass> {
+            yield return new CollectionExtensionTestData<IHierDataClass>[] { new CollectionExtensionTestData<IHierDataClass> {
               InstanceTestData = (IHierDataClass)new HierDataClass(){Name="IHierDataInstance001"}, SerializedTestData = "{\"Name\":\"IHierDataInstance001\",\"ChildHierData\":null,\"ChildHierListData\":null}" } };
-            yield return new CollectionExtensionSerializationTestData<IHierDataClass>[] { new CollectionExtensionSerializationTestData<IHierDataClass> {
+            yield return new CollectionExtensionTestData<IHierDataClass>[] { new CollectionExtensionTestData<IHierDataClass> {
               InstanceTestData = (IHierDataClass)new HierDataClass(){Name="IHierDataInstance002", ChildHierListData = Enumerable.Empty<IHierDataClass>()}, SerializedTestData = "{\"Name\":\"IHierDataInstance002\",\"ChildHierData\":null,\"ChildHierListData\":[]}" } };
           }
           break;
@@ -57,7 +57,7 @@ namespace ATAP.Utilities.Collection.UnitTests {
       }
     }
 
-    public IEnumerator<object[]> GetEnumerator() { return CollectionExtensionSerializationTestData().GetEnumerator(); }
+    public IEnumerator<object[]> GetEnumerator() { return CollectionExtensionTestData().GetEnumerator(); }
     IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
   }
 

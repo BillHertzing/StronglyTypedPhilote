@@ -8,15 +8,16 @@ using Xunit.Abstractions;
 
 using ServiceStack;
 using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.MSSQL;
 
 using System.ComponentModel;
 using System.Data;
 
-namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
+namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commented out below
   //  [CollectionDefinition(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
   //  [Collection(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001))]
-  public partial class StronglyTypedIdDatabaseServiceStackMSSQLUnitTests001 : IClassFixture<DatabaseFixtureServiceStackMSSQL> {
+  public partial class StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001 : IClassFixture<DatabaseFixtureServiceStackMSSQL> {
 
     //
     [Fact]
@@ -37,8 +38,8 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
     }
 
     [Theory]
-    [MemberData(nameof(GuidStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(GuidStronglyTypedIdSerializationTestDataGenerator))]
-    public void GuidStronglyTypedIdToDb(GuidStronglyTypedIdSerializationTestData inTestData) {
+    [MemberData(nameof(GuidStronglyTypedIdTestDataGenerator.StronglyTypedIdTestData), MemberType = typeof(GuidStronglyTypedIdTestDataGenerator))]
+    public void GuidStronglyTypedIdToDb(GuidStronglyTypedIdTestData inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException(nameof(inTestData)); }
       // Arrange
@@ -67,8 +68,8 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
     }
 
     // [Theory]
-    // [MemberData(nameof(IntStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(IntStronglyTypedIdSerializationTestDataGenerator))]
-    // public void IntStronglyTypedIdSerializeToJSON(IntStronglyTypedIdSerializationTestData inTestData) {
+    // [MemberData(nameof(IntStronglyTypedIdTestDataGenerator.StronglyTypedIdTestData), MemberType = typeof(IntStronglyTypedIdTestDataGenerator))]
+    // public void IntStronglyTypedIdSerializeToJSON(IntStronglyTypedIdTestData inTestData) {
     //   // ToDo low priority localize the unit test's exception's message
     //   if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
     //   // new AbstractStronglyTypedId<int>() have random Values, two sets of test data have fixed, non-random integers, the rest are random
@@ -84,8 +85,8 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
     // }
 
     // [Theory]
-    // [MemberData(nameof(IntStronglyTypedIdSerializationTestDataGenerator.StronglyTypedIdSerializationTestData), MemberType = typeof(IntStronglyTypedIdSerializationTestDataGenerator))]
-    // public void IntStronglyTypedIdDeserializeFromJSON(IntStronglyTypedIdSerializationTestData inTestData) {
+    // [MemberData(nameof(IntStronglyTypedIdTestDataGenerator.StronglyTypedIdTestData), MemberType = typeof(IntStronglyTypedIdTestDataGenerator))]
+    // public void IntStronglyTypedIdDeserializeFromJSON(IntStronglyTypedIdTestData inTestData) {
     //   // ToDo low priority localize the unit test's exception's message
     //   if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
     //   if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {

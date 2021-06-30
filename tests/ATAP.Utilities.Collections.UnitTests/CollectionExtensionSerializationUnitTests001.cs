@@ -21,8 +21,8 @@ namespace ATAP.Utilities.Collection.UnitTests {
   public partial class CollectionExtensionSerializationSystemTextJsonUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson> {
 
     [Theory]
-    [MemberData(nameof(CollectionExtensionSerializationTestDataGenerator<HierDataClass>.CollectionExtensionSerializationTestData), MemberType = typeof(CollectionExtensionSerializationTestDataGenerator<HierDataClass>))]
-    public void HierDataClassSerializeToJSON(CollectionExtensionSerializationTestData<HierDataClass> inTestData) {
+    [MemberData(nameof(CollectionExtensionTestDataGenerator<HierDataClass>.CollectionExtensionTestData), MemberType = typeof(CollectionExtensionTestDataGenerator<HierDataClass>))]
+    public void HierDataClassSerializeToJSON(CollectionExtensionTestData<HierDataClass> inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -30,8 +30,8 @@ namespace ATAP.Utilities.Collection.UnitTests {
     }
 
     [Theory]
-    [MemberData(nameof(CollectionExtensionSerializationTestDataGenerator<HierDataClass>.CollectionExtensionSerializationTestData), MemberType = typeof(CollectionExtensionSerializationTestDataGenerator<HierDataClass>))]
-    public void HierDataClassDeserializeFromJSON(CollectionExtensionSerializationTestData<HierDataClass> inTestData) {
+    [MemberData(nameof(CollectionExtensionTestDataGenerator<HierDataClass>.CollectionExtensionTestData), MemberType = typeof(CollectionExtensionTestDataGenerator<HierDataClass>))]
+    public void HierDataClassDeserializeFromJSON(CollectionExtensionTestData<HierDataClass> inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {
@@ -48,8 +48,8 @@ namespace ATAP.Utilities.Collection.UnitTests {
     }
 
     [Theory]
-    [MemberData(nameof(CollectionExtensionSerializationTestDataGenerator<IHierDataClass>.CollectionExtensionSerializationTestData), MemberType = typeof(CollectionExtensionSerializationTestDataGenerator<IHierDataClass>))]
-    public void IHierDataClassSerializeToJSON(CollectionExtensionSerializationTestData<IHierDataClass> inTestData) {
+    [MemberData(nameof(CollectionExtensionTestDataGenerator<IHierDataClass>.CollectionExtensionTestData), MemberType = typeof(CollectionExtensionTestDataGenerator<IHierDataClass>))]
+    public void IHierDataClassSerializeToJSON(CollectionExtensionTestData<IHierDataClass> inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       // SerializationFixtureSystemTextJson.Serializer.Serialize(inTestData.InstanceTestData).Should().Be(inTestData.SerializedTestData);
@@ -57,8 +57,8 @@ namespace ATAP.Utilities.Collection.UnitTests {
     }
 
     [Theory]
-    [MemberData(nameof(CollectionExtensionSerializationTestDataGenerator<IHierDataClass>.CollectionExtensionSerializationTestData), MemberType = typeof(CollectionExtensionSerializationTestDataGenerator<IHierDataClass>))]
-    public void IHierDataClassDeserializeFromJSON(CollectionExtensionSerializationTestData<IHierDataClass> inTestData) {
+    [MemberData(nameof(CollectionExtensionTestDataGenerator<IHierDataClass>.CollectionExtensionTestData), MemberType = typeof(CollectionExtensionTestDataGenerator<IHierDataClass>))]
+    public void IHierDataClassDeserializeFromJSON(CollectionExtensionTestData<IHierDataClass> inTestData) {
       // ToDo low priority localize the unit test's exception's message
       if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
       if (String.IsNullOrEmpty(inTestData.SerializedTestData)) {

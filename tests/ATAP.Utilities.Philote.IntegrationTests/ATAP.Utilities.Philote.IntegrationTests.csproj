@@ -48,8 +48,10 @@
     <PackageReference Include="ServiceStack.Text.EnumMemberSerializer" />
     <PackageReference Include="ServiceStack.Text" />
     <!-- ServiceStack ORMLite and SQLServer -->
-    <PackageReference Include="ServiceStack.OrmLite" />
-    <PackageReference Include="ServiceStack.OrmLite.SqlServer" />
+    <PackageReference Include="ServiceStack.OrmLite.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.MySQL.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.SQLite.Core" />
     <!-- ServiceStack HTTPClient for making HTTP calls -->
     <PackageReference Include="ServiceStack.HttpClient" />
 

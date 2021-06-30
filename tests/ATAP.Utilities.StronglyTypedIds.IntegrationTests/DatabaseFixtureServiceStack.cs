@@ -25,7 +25,7 @@ using System.Reflection;
 
 using Microsoft.Extensions.Configuration;
 
-namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
+namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   // The DatabaseFixtureServiceStackMSSQL should be setup one time, before all tests are run
   public class DatabaseFixtureServiceStackMSSQL : IDisposable {
 
