@@ -29,9 +29,9 @@ using Itenso.TimePeriod;
   public record TestClassWithPhilote<TValue> : AbstractPhilote<TestClassWithPhiloteId<TValue>, TValue>, IAbstractPhilote<TestClassWithPhiloteId<TValue>, TValue>, ITestClassWithPhilote<TValue>
       where TValue : notnull {
     public TestClassWithPhilote(TestClassWithPhiloteId<TValue> iD = default, ConcurrentDictionary<string, IAbstractStronglyTypedId<TValue>>? additionalIDs = default, IEnumerable<ITimeBlock>? timeBlocks = default) {
-      if (iD != default) { ID = iD; }
+      if (iD != default) { Id = iD; }
       else {
-        ID = (typeof(TValue)) switch {
+        Id = (typeof(TValue)) switch {
           Type intType when typeof(TValue) == typeof(int) => new TestClassWithPhiloteId<int>() { Value = new Random().Next() } as TestClassWithPhiloteId<TValue>,
           Type GuidType when typeof(TValue) == typeof(Guid) => new TestClassWithPhiloteId<Guid>() as TestClassWithPhiloteId<TValue>,
           // ToDo: replace with new custom exception and localization of exception message

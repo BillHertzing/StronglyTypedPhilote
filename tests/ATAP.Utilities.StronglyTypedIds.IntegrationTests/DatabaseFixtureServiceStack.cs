@@ -1,42 +1,49 @@
+
+using System.Collections.Concurrent;
+using System.Data;
+using System.Linq;
+using System;
+using System.Text.Json;
+using System.IO;
+using System.Reflection;
+using Microsoft.Extensions.Configuration;
+
 // setup a database to be used to test concrete StronglyTypedId types storage and recall
 using ATAP.Utilities.Testing;
-using System.Linq;
 using ServiceStack;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
 using ServiceStack.DataAnnotations;
-using System.Data;
 using ServiceStack.Text;
 
-using ATAP.Utilities.StronglyTypedIds;
+using ServiceStack.Testing;
+using Xunit.Abstractions;
+
 using GenericHostExtensions = ATAP.Utilities.GenericHost.Extensions;
 using ConfigurationExtensions = ATAP.Utilities.Configuration.Extensions;
+using TestingExtensions = ATAP.Utilities.Testing.Extensions;
 
-using ServiceStack.Testing;
-using System.Collections.Concurrent;
+using ATAP.Utilities.StronglyTypedIds;
 using Itenso.TimePeriod;
-
-using System;
-
-using System.Text.Json;
-using Xunit.Abstractions;
-using System.IO;
-using System.Reflection;
-
-using Microsoft.Extensions.Configuration;
 
 namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   // The DatabaseFixtureServiceStackMSSQL should be setup one time, before all tests are run
   public class DatabaseFixtureServiceStackMSSQL : IDisposable {
 
-        // The list of environment prefixes this test will use
+    // The list of environment prefixes this test will recognize
     public static string[] commonTestEnvPrefixes = new string[1] { "CommonTest_" };
-    public static string[] specificTestEnvPrefixes = new string[1] { "StronglyTypedIdsUnitTest_" };
+    public static string[] specificTestEnvPrefixes = new string[1] { "StronglyTypedIdsIntegrationTest_" };
 
+    private IConfiguration TestClassConfigurationRoot { get; }
+    private IConfiguration TestHostConfigurationRoot { get; }
 
-    private ServiceStackHost AppHost { get; set; }
-    private string ConnectionString { get; set; }
-    public IDbConnection Db { get; set; }
+    private string ConnectionString { get; }
+    private string DatabaseName{ get; }
+    /// <summary>
+    /// Provider AutoProperty is used by ServiceStack OrmLite packages
+    /// </summary>
+    private IOrmLiteDialectProvider Provider { get; }
+    public IDbConnection Db { get; }
     // To detect redundant calls
     private bool _disposed = false;
     public DatabaseFixtureServiceStackMSSQL() {
@@ -56,9 +63,10 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
       #endregion
 
       #region initial testHostConfigurationBuilder and testHostConfigurationRoot
-      // Create the initial testHostConfigurationBuilder for this genericHost's ConfigurationRoot. This creates an ordered chain of configuration providers. The first providers in the chain have the lowest priority, the last providers in the chain have a higher priority.
+      // Create the initial testHostConfigurationBuilder for this testHost's ConfigurationRoot. This creates an ordered chain of configuration providers. The first providers in the chain have the lowest priority, the last providers in the chain have a higher priority.
       // Initial configuration does not take Environment into account.
       var testHostConfigurationBuilder = ConfigurationExtensions.ATAPStandardConfigurationBuilder(
+
         TestingDefaultConfiguration.Production,
         true,
         null,
@@ -70,8 +78,8 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
         null,
         null);
 
-      // Create this program's initial genericHost's ConfigurationRoot
-      var testHostConfigurationRoot = testHostConfigurationBuilder.Build();
+      // Create this program's initial testHost's ConfigurationRoot
+      TestHostConfigurationRoot = testHostConfigurationBuilder.Build();
       #endregion
 
       #region (optional) Debugging the  Configuration
@@ -84,9 +92,9 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
       #endregion
 
       #region Environment determination and validation
-      // ToDo: Before the genericHost is built, have to use a StringConstant for the string that means "Production", and hope the ConfigurationRoot value for Environment matches the StringConstant
+      // ToDo: Before the testHost is built, have to use a StringConstant for the string that means "Production", and hope the ConfigurationRoot value for Environment matches the StringConstant
       // Determine the environment (Debug, TestingUnit, TestingX, QA, QA1, QA2, ..., Staging, Production) to use from the initialtestHostConfigurationRoot
-      var envNameFromConfiguration = testHostConfigurationRoot.GetValue<string>(TestingStringConstants.EnvironmentConfigRootKey, TestingStringConstants.EnvironmentDefault);
+      var envNameFromConfiguration = TestHostConfigurationRoot.GetValue<string>(TestingStringConstants.EnvironmentConfigRootKey, TestingStringConstants.EnvironmentDefault);
 
       // optional: Validate that the environment provided is one this program understands how to use
       // Accepting any string for envNameFromConfiguration might pose a security risk, as it will allow arbitrary files to be loaded into the configuration root
@@ -109,12 +117,12 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
       // If the initial testHostConfigurationRoot specifies the Environment is production, then the testHostConfigurationBuilder is correct  "as-is"
       //   but if not, build a 2nd (final) testHostConfigurationBuilder, this time including environment-specific configuration providers
       if (envNameFromConfiguration != TestingStringConstants.EnvironmentProduction) {
-        // Recreate the ConfigurationBuilder for this genericHost, this time including environment-specific configuration providers.
-        testHostConfigurationBuilder = ConfigurationExtensions.ATAPStandardConfigurationBuilder(GenericTestDefaultConfiguration.Production,
+        // Recreate the ConfigurationBuilder for this testHost, this time including environment-specific configuration providers.
+        testHostConfigurationBuilder = ConfigurationExtensions.ATAPStandardConfigurationBuilder(TestingDefaultConfiguration.Production,
           false,
           envNameFromConfiguration,
           TestingStringConstants.genericTestSettingsFileName,
-          TestingStringConstants.testSettingsFileNameSuffix,
+          TestingStringConstants.genericTestSettingsFileName,
           loadedFromDirectory,
           initialStartupDirectory,
           commonTestEnvPrefixes,
@@ -122,14 +130,17 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
           null);
       }
 
+      // Create this program's final testHost's ConfigurationRoot
+      TestHostConfigurationRoot = testHostConfigurationBuilder.Build();
+
       // Create the testClassConfigurationBuilder, either as Production or as some other environment specific
       IConfigurationBuilder testClassConfigurationBuilder;
       testClassConfigurationBuilder = ConfigurationExtensions.ATAPStandardConfigurationBuilder(
-        StronglyTypedIdsUnitTestsDefaultConfiguration.Production,
-        envNameFromConfiguration == TestingStringConstants.EnvironmentProduction,
+        TestingDefaultConfiguration.Production,
+        envNameFromConfiguration == TestingStringConstants.EnvironmentDefault,
         envNameFromConfiguration,
-        Console03StringConstants.SettingsFileName,
-        StronglyTypedIdsUnitTests.SettingsFileNameSuffix,
+        StronglyTypedIdsIntegrationTestsStringConstants.TestClassSettingsFileName,
+        StronglyTypedIdsIntegrationTestsStringConstants.TestClassSettingsFileNameSuffix,
         loadedFromDirectory,
         initialStartupDirectory,
         specificTestEnvPrefixes,
@@ -137,38 +148,79 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
         null);
       #endregion
 
-
-      string host = "::1";
-      int port = 1433;
-      string databaseName = "StronglyTypedIdTestDatabase";
-      IOrmLiteDialectProvider provider = SqlServer2017Dialect.Provider;
+      TestClassConfigurationRoot = testClassConfigurationBuilder.Build();
+      DatabaseName = TestClassConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseNameConfigRootKey, TestingStringConstants.DatabaseNameDefault);
+      // ToDo: Move items specific to an integration technology into separate packages
+      IOrmLiteDialectProvider provider;
+      switch (envNameFromConfiguration) {
+        case TestingStringConstants.EnvironmentUnitTest: {
+            provider = SqlServer2017Dialect.Provider; // ToDo: remove this
+            break;
+          }
+        case TestingStringConstants.EnvironmentMSSQLIntegrationTest: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentMySQLIntegrationTest: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentSQLLiteIntegrationTest: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentSSOrmLiteMSSQLIntegrationTest: {
+            ConnectionString = TestClassConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseConnectionStringConfigRootKey, TestingStringConstants.DatabaseConnectionStringDefault); ;
+            var ProviderString = TestClassConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseProviderConfigRootKey, TestingStringConstants.DatabaseProviderDefault);
+            switch (ProviderString) {
+              case "SqlServer2017Dialect.Provider": {
+                  Provider = SqlServer2017Dialect.Provider;
+                  break;
+                }
+              default: throw new NotSupportedException($"The DatabaseProvider {ProviderString} is not supported.");
+            }
+            break;
+          }
+        case TestingStringConstants.EnvironmentSSOrmLiteMySQLIntegrationTest: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentSSOrmLiteSQLLiteIntegrationTest: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentTestDapperMSSQL: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentTestDapperMySQL: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentTestDapperSQLite: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        case TestingStringConstants.EnvironmentEFCoreIntegrationTest: {
+            throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+          }
+        // ToDo: Localize exception messages for tests?
+        default: throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
+      }
+      //SqlServer2017Dialect.Provider;
       // $"Server={host}:{port};Database={databaseName};Trusted_Connection=True";
       //ConnectionString = $"Server={host};Integrated Security=True;Database={databaseName};MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Application Name=Testing";
-      ConnectionString = $"Server={host};Integrated Security=True;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Application Name=Testing";
 
-      // Many ServiceStack ORM functions depend on the presence of a ServiceStack host
-      // AppHost = new BasicAppHost().Init();
-
-      //  validate the SQL Server instance connection
-      OrmLiteConnectionFactory dbFactory = new OrmLiteConnectionFactory(ConnectionString, provider);
+      //  validate the Database connection
+      // Only for ServiceStack OrmLite database technology
+      OrmLiteConnectionFactory dbFactory = new OrmLiteConnectionFactory(ConnectionString, Provider);
       // ToDo: In ATAP DB Management package, create a function which raises a custom exception?
-      if (dbFactory == null) { throw new Exception($"Failed to connect to any database with the connection string: \"{ConnectionString}\""); }
-
-      // Does the database already exist? Delete it if so
-
-      // Create the empty database using a Powershell script
-
-      //  apply the Flyway migrations to initialize the database
+      if (dbFactory == null) { throw new Exception($"Failed to create a dbFactory with the connection string: \"{ConnectionString}\""); }
 
       // make an IDbConnection to the database server
       Db = dbFactory.Open();
-      if (dbFactory == null) { throw new Exception($"Failed to connect to any database with the connection string: \"{ConnectionString}\""); }
+      if (Db == null) { throw new Exception($"Failed to open the database server with the connection string: \"{ConnectionString}\""); }
 
-      //
+      // Does the database already exist? Delete it if so
+      // ToDo: Move database creation into the testing package
+      Db.CreateDatabaseServiceStack(DatabaseName);
 
+      // Create an empty database. Delete the database if it already exists
 
+      // ToDo: apply the Flyway migrations to initialize the database
 
-      // Add Converters
       // JsonSerializerOptions.Converters.Add(new ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.StronglyTypedIdJsonConverterFactory());
 
     }
@@ -189,7 +241,7 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
 
       if (disposing) {
         // Need to dispose of Apphost and Db, if they are open, when the Database Fixture is disposed
-        AppHost?.Dispose();
+        // AppHost?.Dispose();
         Db?.Close();
 
       }
@@ -201,11 +253,11 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   }
 
 
-  public partial class StronglyTypedIdDatabaseServiceStackMSSQLUnitTests001 {
+  public partial class StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001 {
     protected DatabaseFixtureServiceStackMSSQL DatabaseFixture { get; }
     protected ITestOutputHelper TestOutput { get; }
 
-    public StronglyTypedIdDatabaseServiceStackMSSQLUnitTests001(ITestOutputHelper testOutput, DatabaseFixtureServiceStackMSSQL databaseFixture) {
+    public StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001(ITestOutputHelper testOutput, DatabaseFixtureServiceStackMSSQL databaseFixture) {
       DatabaseFixture = databaseFixture;
       TestOutput = testOutput;
       // ToDo: Ensure the System.StringComparison.CurrentCulture is configured properly to match the test data, for String.StartsWith used in the tests

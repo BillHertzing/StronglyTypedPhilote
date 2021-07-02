@@ -2,12 +2,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ATAP.Utilities.StronglyTypedIds;
 using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
-
 using System.ComponentModel;
+using ATAP.Utilities.Testing;
+
+using ATAP.Utilities.StronglyTypedIds;
 
 // For the tests that use the new Serializer/Deserializer
 using System.Text.Json;
@@ -17,9 +18,9 @@ using System.Text.Json;
 namespace ATAP.Utilities.StronglyTypedIds.UnitTests
 {
 /// <summary>
-/// Unit Tests 001 cover the StronglyTypedIds as serialized/deserialized by System.Text.Json
+/// Unit Tests 001 cover the StronglyTypedId TypeConverters
 /// </summary>
-  public partial class StronglyTypedIdTypeConverterUnitTests001 : IClassFixture<SerializationFixtureSystemTextJson>
+  public partial class StronglyTypedIdTypeConverterUnitTests001 : IClassFixture<SimpleFixture>
   {
 
     [Fact]

@@ -1,10 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <DefaultItemExcludes>SerializationFixture.Newtonsoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <TargetFrameworks>net5.0;</TargetFrameworks>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>

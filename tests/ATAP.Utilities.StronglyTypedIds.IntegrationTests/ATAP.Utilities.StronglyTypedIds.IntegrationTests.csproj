@@ -79,6 +79,7 @@
     <PackageReference Include="ATAP.Utilities.Serializer.Shim.ServiceStackJson" Version="1.0.0" />
   </ItemGroup>
 
+  <!-- Packages for tests that use ServiceStack-->
   <ItemGroup>
     <!-- ServiceStack  -->
     <PackageReference Include="ServiceStack" />
@@ -90,7 +91,6 @@
     <PackageReference Include="ServiceStack.OrmLite.SqlServer.Core" />
     <PackageReference Include="ServiceStack.OrmLite.MySQL.Core" />
     <PackageReference Include="ServiceStack.OrmLite.SQLite.Core" />
-
   </ItemGroup>
 
   <ItemGroup>
@@ -98,6 +98,10 @@
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.Interfaces\ATAP.Utilities.StronglyTypedIds.Interfaces.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.StronglyTypedIds.JsonConverter.Shim.SystemTextJson.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim\ATAP.Utilities.StronglyTypedIds.JsonConverter.Newtonsoft.Shim.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ATAP.Utilities.StronglyTypedIds.TestData\ATAP.Utilities.StronglyTypedIds.TestData.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,3 +1,5 @@
 {
-  
+  "DatabaseName" : "StronglyTypedIdsIntegrationTests"
+  , "DbConnectionString":"Server=::1;Integrated Security=True;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False"
+  , "DatabaseProvider" : "SqlServer2017Dialect.Provider"
 }

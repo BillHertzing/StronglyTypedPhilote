@@ -8,7 +8,6 @@ using Xunit.Abstractions;
 
 using ServiceStack;
 using ServiceStack.OrmLite;
-using ServiceStack.OrmLite.MSSQL;
 
 using System.ComponentModel;
 using System.Data;
