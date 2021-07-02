@@ -26,20 +26,15 @@ using ATAP.Utilities.StronglyTypedIds;
 using Itenso.TimePeriod;
 
 namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
-  // The DatabaseFixtureServiceStackMSSQL should be setup one time, before all tests are run
-  public class DatabaseFixtureServiceStackMSSQL : DatabaseFixture, IDisposable {
+  // The StronglyTypedIdsIntegrationTestsDatabaseFixture should be setup one time, before all tests are run
+  public class StronglyTypedIdsIntegrationTestsDatabaseFixture : ServiceStackOrmLiteDatabaseFixture, IDisposable {
 
     // The list of environment prefixes this test will recognize
     public static string[] commonTestEnvPrefixes = new string[1] { "CommonTest_" };
     public static string[] specificTestEnvPrefixes = new string[1] { "StronglyTypedIdsIntegrationTest_" };
 
-    private IConfiguration TestClassConfigurationRoot { get; }
+    private IConfiguration StronglyTypedIdsIntegrationTestsDatabaseFixtureConfigurationRoot { get; }
     private IConfiguration TestHostConfigurationRoot { get; }
-
-    /// <summary>
-    /// Used by ServiceStack OrmLite packages
-    /// </summary>
-    private IOrmLiteDialectProvider Provider { get; }
 
     /// <summary>
     /// part of the Disposing pattern to detect redundant calls
@@ -48,7 +43,7 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
     /// <summary>
     /// Default Constructor
     /// </summary>
-    public DatabaseFixtureServiceStackMSSQL() : base() {
+    public StronglyTypedIdsIntegrationTestsDatabaseFixture() : base() {
 
 
       #region initial testHostConfigurationBuilder and testHostConfigurationRoot
@@ -137,13 +132,12 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
         null);
       #endregion
 
-      TestClassConfigurationRoot = testClassConfigurationBuilder.Build();
-      DatabaseName = TestClassConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseNameConfigRootKey, TestingStringConstants.DatabaseNameDefault);
+      StronglyTypedIdsIntegrationTestsDatabaseFixtureConfigurationRoot = testClassConfigurationBuilder.Build();
+      DatabaseName = StronglyTypedIdsIntegrationTestsDatabaseFixtureConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseNameConfigRootKey, TestingStringConstants.DatabaseNameDefault);
       // ToDo: Move items specific to an integration technology into separate packages
-      IOrmLiteDialectProvider provider;
       switch (envNameFromConfiguration) {
         case TestingStringConstants.EnvironmentUnitTest: {
-            provider = SqlServer2017Dialect.Provider; // ToDo: remove this
+            Provider = SqlServer2017Dialect.Provider; // ToDo: remove this
             break;
           }
         case TestingStringConstants.EnvironmentMSSQLIntegrationTest: {
@@ -156,8 +150,8 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
             throw new NotSupportedException($"The environment {envNameFromConfiguration} is not supported.");
           }
         case TestingStringConstants.EnvironmentSSOrmLiteMSSQLIntegrationTest: {
-            ConnectionString = TestClassConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseConnectionStringConfigRootKey, TestingStringConstants.DatabaseConnectionStringDefault); ;
-            var ProviderString = TestClassConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseProviderConfigRootKey, TestingStringConstants.DatabaseProviderDefault);
+            ConnectionString = StronglyTypedIdsIntegrationTestsDatabaseFixtureConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseConnectionStringConfigRootKey, TestingStringConstants.DatabaseConnectionStringDefault); ;
+            var ProviderString = StronglyTypedIdsIntegrationTestsDatabaseFixtureConfigurationRoot.GetValue<string>(TestingStringConstants.DatabaseProviderConfigRootKey, TestingStringConstants.DatabaseProviderDefault);
             switch (ProviderString) {
               case "SqlServer2017Dialect.Provider": {
                   Provider = SqlServer2017Dialect.Provider;
@@ -214,7 +208,7 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
 
     }
 
-    ~DatabaseFixtureServiceStackMSSQL() => Dispose(false);
+    ~StronglyTypedIdsIntegrationTestsDatabaseFixture() => Dispose(false);
 
     // Public implementation of Dispose pattern callable by consumers.
     public void Dispose() {
@@ -243,10 +237,10 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
 
 
   public partial class StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001 {
-    protected DatabaseFixtureServiceStackMSSQL DatabaseFixture { get; }
+    protected StronglyTypedIdsIntegrationTestsDatabaseFixture DatabaseFixture { get; }
     protected ITestOutputHelper TestOutput { get; }
 
-    public StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001(ITestOutputHelper testOutput, DatabaseFixtureServiceStackMSSQL databaseFixture) {
+    public StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001(ITestOutputHelper testOutput, StronglyTypedIdsIntegrationTestsDatabaseFixture databaseFixture) {
       DatabaseFixture = databaseFixture;
       TestOutput = testOutput;
       // ToDo: Ensure the System.StringComparison.CurrentCulture is configured properly to match the test data, for String.StartsWith used in the tests

@@ -16,9 +16,9 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commented out below
   //  [CollectionDefinition(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
   //  [Collection(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001))]
-  public partial class StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001 : IClassFixture<DatabaseFixtureServiceStackMSSQL> {
+  public partial class StronglyTypedIdDatabaseServiceStackMSSQLIntegrationTests001 : IClassFixture<StronglyTypedIdsIntegrationTestsDatabaseFixture> {
 
-    //
+
     [Fact]
     public void GuidStronglyTypedIdTable() {
       // Arrange
@@ -99,7 +99,6 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
     //     stronglyTypedId.Should().BeEquivalentTo(inTestData.InstanceTestData);
     //   }
     // }
-
 
   }
 }
