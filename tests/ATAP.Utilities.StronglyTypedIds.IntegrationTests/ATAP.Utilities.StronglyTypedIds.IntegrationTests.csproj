@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <DefaultItemExcludes>SerializationFixture.Newtonsoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
+    <DefaultItemExcludes>StronglyTypedIdsDatabaseOrmLiteSQLiteIntegrationTests.cs;SerializationFixture.Newtonsoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
   </PropertyGroup>
 
   <PropertyGroup>

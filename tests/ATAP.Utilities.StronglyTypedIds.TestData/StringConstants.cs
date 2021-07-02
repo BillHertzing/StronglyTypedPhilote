@@ -1,5 +1,5 @@
 
-namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
+namespace ATAP.Utilities.StronglyTypedIds.TestData {
   public static class StronglyTypedIdsUnitTestsStringConstants {
     // ToDo: Localize the string constants
 

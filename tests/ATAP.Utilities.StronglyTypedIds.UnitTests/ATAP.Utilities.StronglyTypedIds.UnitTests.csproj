@@ -41,8 +41,8 @@
     <DotNetCliToolReference Include="dotnet-xunit" />
   </ItemGroup>
 
-  <!-- Standalone reference to Microsoft.Extensions.DependencyInjection is used by unitTest projects
-            that inject a Serializer via Dependency Injection-->
+  <!-- Standalone reference to Microsoft.Extensions.DependencyInjection is used by Test projects
+            that useDependency Injection-->
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
@@ -68,17 +68,26 @@
     <PackageReference Include="ATAP.Utilities.SerializerLoader" Version="1.0.0" />
   </ItemGroup>
 
+    <!-- Packages for tests that use ServiceStack-->
+  <ItemGroup>
+    <!-- ServiceStack  -->
+    <PackageReference Include="ServiceStack" />
+    <!-- ServiceStack serializers and dump utility -->
+    <PackageReference Include="ServiceStack.Text.EnumMemberSerializer" />
+    <PackageReference Include="ServiceStack.Text" />
+    <!-- ServiceStack ORMLite and SQLServer -->
+    <PackageReference Include="ServiceStack.OrmLite.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.MySQL.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.SQLite.Core" />
+  </ItemGroup>
+
   <!-- ToDo: Copy specified DLLs and PDBs of specific Shim assemblies for Serializer to inject -->
   <!-- Copy all Serialization libraries for the ISerializer DI-injected service to the outputdir-->
   <ItemGroup>
     <PackageReference Include="ATAP.Utilities.Serializer.Shim.SystemTextJson" Version="1.0.0" />
     <PackageReference Include="ATAP.Utilities.Serializer.Shim.NewtonsoftJson" Version="1.0.0" />
     <PackageReference Include="ATAP.Utilities.Serializer.Shim.ServiceStackJson" Version="1.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <!-- Library of rich time and interval manipulation routines -->
-    <PackageReference Include="TimePeriodLibrary.NET" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>

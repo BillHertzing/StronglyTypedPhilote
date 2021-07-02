@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Xunit.Abstractions;
 
 namespace ATAP.Utilities.StronglyTypedId.UnitTests {
-  // The SerializationFixtureSystemTextJson can only be setup one time, before all tests are run
+  // The SerializationSystemTextJsonFixture can only be setup one time, before all tests are run
   //  because JsonSerializerSettings cannot be modified after any Serialization/Deserialization operations have been performed
   public class SerializationFixtureNewtonsoft {
     public JsonSerializerSettings JsonSerializerSettings { get; set; }

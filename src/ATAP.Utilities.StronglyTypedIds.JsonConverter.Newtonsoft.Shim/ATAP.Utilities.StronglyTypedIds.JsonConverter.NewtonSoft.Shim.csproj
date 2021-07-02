@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <DefaultItemExcludes>StronglyTypedIdsJsonConverterNewtonSoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
-
   </PropertyGroup>
+
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

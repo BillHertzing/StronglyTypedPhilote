@@ -1,9 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
- <DefaultItemExcludes>SerializationFixture.Newtonsoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
-</PropertyGroup>
-
+    <DefaultItemExcludes>SerializationFixture.Newtonsoft.cs;$(DefaultItemExcludes)</DefaultItemExcludes>
+  </PropertyGroup>
 
   <PropertyGroup>
     <TargetFrameworks>net5.0;</TargetFrameworks>
@@ -45,15 +44,42 @@
   <ItemGroup>
     <DotNetCliToolReference Include="dotnet-xunit" />
   </ItemGroup>
-    <!-- Standalone reference to Microsoft.Extensions.DependencyInjection is used by unitTest projects
-            that inject a Serializer via Dependency Injection-->
+
+    <!-- ATAP Utility Packages that handle IConfiguration, and dynamic loading plugin assemblies, and plugins for Serializers -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <!-- ETW is not used in Unit tests, but ATAP libraries used by unit tests have a reference to this. UYnitl I can figure out how to include these as dependent packages in the appropriate `ATAP.Utilitiies.` librarirys, they are included specifically, here -->
+    <!-- Packages to implement ETW logging of method entry, method exit, and exceptions -->
+    <PackageReference Include="ATAP.Utilities.ETW" Version="1.0.0" />
+    <PackageReference Include="MethodBoundaryAspect.Fody" />
+    <!---->
+    <PackageReference Include="ATAP.Utilities.Testing" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Configuration.Extensions" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.FileIO" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.GenericHost.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.GenericHost.Extensions" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Loader.StringConstants" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.Interfaces" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.Serializer.StringConstants" Version="1.0.0" />
+    <PackageReference Include="ATAP.Utilities.SerializerLoader" Version="1.0.0" />
   </ItemGroup>
 
-    <ItemGroup>
-    <ProjectReference Include="..\..\src\ATAP.Utilities.Collection.Extensions\ATAP.Utilities.Collection.Extensions.csproj" />
+  <!-- Packages for tests that use ServiceStack-->
+  <ItemGroup>
+    <!-- ServiceStack  -->
+    <PackageReference Include="ServiceStack" />
+    <!-- ServiceStack serializers and dump utility -->
+    <PackageReference Include="ServiceStack.Text.EnumMemberSerializer" />
+    <PackageReference Include="ServiceStack.Text" />
+    <!-- ServiceStack ORMLite and SQLServer -->
+    <PackageReference Include="ServiceStack.OrmLite.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.MySQL.Core" />
+    <PackageReference Include="ServiceStack.OrmLite.SQLite.Core" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds\ATAP.Utilities.StronglyTypedIds.csproj" />
     <ProjectReference Include="..\..\src\ATAP.Utilities.StronglyTypedIds.Interfaces\ATAP.Utilities.StronglyTypedIds.Interfaces.csproj" />
@@ -63,6 +89,14 @@
     <ProjectReference Include="..\..\src\ATAP.Utilities.Philote.Interfaces\ATAP.Utilities.Philote.Interfaces.csproj" />
     <!-- <ProjectReference Include="..\..\src\ATAP.Utilities.Philote.JsonConverter.Shim.SystemTextJson\ATAP.Utilities.Philote.JsonConverter.Shim.SystemTextJson.csproj" /> -->
     <!-- <ProjectReference Include="..\..\src\ATAP.Utilities.Philote.JsonConverter.Shim.Newtonsoft\ATAP.Utilities.Philote.JsonConverter.Shim.Newtonsoft.csproj" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ATAP.Utilities.StronglyTypedIds.TestData\ATAP.Utilities.StronglyTypedIds.TestData.csproj" />
+  </ItemGroup>
+
+    <ItemGroup>
+    <ProjectReference Include="..\..\src\ATAP.Utilities.Collection.Extensions\ATAP.Utilities.Collection.Extensions.csproj" />
   </ItemGroup>
 
 

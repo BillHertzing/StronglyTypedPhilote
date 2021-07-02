@@ -1,16 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ATAP.Utilities.StronglyTypedIds;
 using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
+using System.ComponentModel;
 
 using ServiceStack;
 using ServiceStack.OrmLite;
-
-using System.ComponentModel;
 using System.Data;
+using ATAP.Utilities.StronglyTypedIds;
+using ATAP.Utilities.StronglyTypedIds.TestData;
 
 namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commented out below

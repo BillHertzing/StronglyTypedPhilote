@@ -9,6 +9,7 @@ using System.ComponentModel;
 using ATAP.Utilities.Testing;
 
 using ATAP.Utilities.StronglyTypedIds;
+using ATAP.Utilities.StronglyTypedIds.TestData;
 
 // For the tests that use the new Serializer/Deserializer
 using System.Text.Json;
@@ -47,11 +48,11 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
     [Theory]
     [MemberData(nameof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>.StronglyTypedIdTypeConverterTestData), MemberType = typeof(StronglyTypedIdTypeConverterTestDataGenerator<Guid>))]
     public void GuidIdConvertFromString(StronglyTypedIdTypeConverterTestData<Guid> inTestData) {
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+      if (inTestData == null) { throw new ArgumentNullException(nameof(inTestData)); }
       var converterGuid = TypeDescriptor.GetConverter(typeof(GuidStronglyTypedId));
       if (inTestData.SerializedTestData.StartsWith("0000", System.StringComparison.CurrentCulture) || inTestData.SerializedTestData.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
-        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData);
+        //var stronglyTypedId = SerializationSystemTextJsonFixture.Serializer.Deserialize<GuidStronglyTypedId>(inTestData.SerializedTestData);
         var stronglyTypedId =  converterGuid.ConvertFrom(inTestData.SerializedTestData);
         stronglyTypedId.Should().BeOfType(typeof(GuidStronglyTypedId));
         // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
@@ -68,7 +69,7 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
     public void GuidIdConvertToString(StronglyTypedIdTypeConverterTestData<Guid> inTestData)
     {
       // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+      if (inTestData == null) { throw new ArgumentNullException(nameof(inTestData)); }
       var converterGuid = TypeDescriptor.GetConverter(typeof(GuidStronglyTypedId));
       // GUIDS are random, two sets of test data have fixed, non-random guids, the rest are random
       if (inTestData.SerializedTestData.StartsWith("0000", System.StringComparison.CurrentCulture) || inTestData.SerializedTestData.StartsWith("01234", System.StringComparison.CurrentCulture))
@@ -91,11 +92,11 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
     [MemberData(nameof(StronglyTypedIdTypeConverterTestDataGenerator<int>.StronglyTypedIdTypeConverterTestData), MemberType = typeof(StronglyTypedIdTypeConverterTestDataGenerator<int>))]
     public void IntIdConvertFromString(StronglyTypedIdTypeConverterTestData<int> inTestData) {
       // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+      if (inTestData == null) { throw new ArgumentNullException(nameof(inTestData)); }
       var converterInt = TypeDescriptor.GetConverter(typeof(IntStronglyTypedId));
       if (inTestData.SerializedTestData.StartsWith("0000", System.StringComparison.CurrentCulture) || inTestData.SerializedTestData.StartsWith("01234", System.StringComparison.CurrentCulture))
       {
-        //var stronglyTypedId = SerializationFixtureSystemTextJson.Serializer.Deserialize<IntStronglyTypedId>(inTestData.SerializedTestData);
+        //var stronglyTypedId = SerializationSystemTextJsonFixture.Serializer.Deserialize<IntStronglyTypedId>(inTestData.SerializedTestData);
         var stronglyTypedId =  converterInt.ConvertFrom(inTestData.SerializedTestData);
         stronglyTypedId.Should().BeOfType(typeof(IntStronglyTypedId));
         // two sets of test data have fixed, non-random Integers, the rest are random
@@ -112,7 +113,7 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests
     public void IntIdConvertToString(StronglyTypedIdTypeConverterTestData<int> inTestData)
     {
       // ToDo low priority localize the unit test's exception's message
-      if (inTestData == null) { throw new ArgumentNullException($"{nameof(inTestData)} argument should never be null"); }
+      if (inTestData == null) { throw new ArgumentNullException(nameof(inTestData)); }
       var converterInt = TypeDescriptor.GetConverter(typeof(IntStronglyTypedId));
       // two sets of test data have fixed, non-random Integers, the rest are random
       if (inTestData.SerializedTestData.Equals("0") || inTestData.SerializedTestData.Equals("1234567"))

@@ -4,7 +4,7 @@ using ATAP.Utilities.StronglyTypedIds;
 using System;
 
 
-namespace ATAP.Utilities.StronglyTypedIds
+namespace ATAP.Utilities.StronglyTypedIds.TestData
 {
 
   //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes

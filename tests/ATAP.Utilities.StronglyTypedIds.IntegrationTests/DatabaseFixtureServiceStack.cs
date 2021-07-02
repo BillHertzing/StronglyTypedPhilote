@@ -4,7 +4,6 @@ using System.Data;
 using System.Linq;
 using System;
 using System.Text.Json;
-using System.IO;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
@@ -28,7 +27,7 @@ using Itenso.TimePeriod;
 
 namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   // The DatabaseFixtureServiceStackMSSQL should be setup one time, before all tests are run
-  public class DatabaseFixtureServiceStackMSSQL : IDisposable {
+  public class DatabaseFixtureServiceStackMSSQL : DatabaseFixture, IDisposable {
 
     // The list of environment prefixes this test will recognize
     public static string[] commonTestEnvPrefixes = new string[1] { "CommonTest_" };
@@ -37,30 +36,20 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
     private IConfiguration TestClassConfigurationRoot { get; }
     private IConfiguration TestHostConfigurationRoot { get; }
 
-    private string ConnectionString { get; }
-    private string DatabaseName{ get; }
     /// <summary>
-    /// Provider AutoProperty is used by ServiceStack OrmLite packages
+    /// Used by ServiceStack OrmLite packages
     /// </summary>
     private IOrmLiteDialectProvider Provider { get; }
-    public IDbConnection Db { get; }
-    // To detect redundant calls
+
+    /// <summary>
+    /// part of the Disposing pattern to detect redundant calls
+    /// </summary>
     private bool _disposed = false;
-    public DatabaseFixtureServiceStackMSSQL() {
+    /// <summary>
+    /// Default Constructor
+    /// </summary>
+    public DatabaseFixtureServiceStackMSSQL() : base() {
 
-
-      // Environment settings for a SQL Server host and instance and connection string parameters
-
-      #region initialStartup and loadedFrom directories
-      // When running as a Windows service, the initial working dir is usually %WinDir%\System32, but the program (and configuration files) is probably installed to a different directory
-      // When running as a *nix service, the initial working dir could be anything. The program (and machine-wide configuration files) are probably installed in the location where the service starts. //ToDo: verify this
-      // When running as a Windows or Linux Console App, the initial working dir could be anything, but the program (and machine-wide configuration files) is probably installed to a different directory.
-      // When running as a console app, it is very possible that there may be local (to the initial startup directory) configuration files to load
-      // get the initial startup directory
-      // get the directory where the executing assembly (usually .exe) and possibly machine-wide configuration files are installed to.
-      var initialStartupDirectory = Directory.GetCurrentDirectory(); //ToDo: Catch exceptions
-      var loadedFromDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); //ToDo: Catch exceptions
-      #endregion
 
       #region initial testHostConfigurationBuilder and testHostConfigurationRoot
       // Create the initial testHostConfigurationBuilder for this testHost's ConfigurationRoot. This creates an ordered chain of configuration providers. The first providers in the chain have the lowest priority, the last providers in the chain have a higher priority.
@@ -72,8 +61,8 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
         null,
         TestingStringConstants.genericTestSettingsFileName,
         TestingStringConstants.genericTestSettingsFileSuffix,
-        loadedFromDirectory,
-        initialStartupDirectory,
+        LoadedFromDirectory,
+        InitialStartupDirectory,
         commonTestEnvPrefixes,
         null,
         null);
@@ -123,8 +112,8 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
           envNameFromConfiguration,
           TestingStringConstants.genericTestSettingsFileName,
           TestingStringConstants.genericTestSettingsFileName,
-          loadedFromDirectory,
-          initialStartupDirectory,
+          LoadedFromDirectory,
+          InitialStartupDirectory,
           commonTestEnvPrefixes,
           null,
           null);
@@ -141,8 +130,8 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
         envNameFromConfiguration,
         StronglyTypedIdsIntegrationTestsStringConstants.TestClassSettingsFileName,
         StronglyTypedIdsIntegrationTestsStringConstants.TestClassSettingsFileNameSuffix,
-        loadedFromDirectory,
-        initialStartupDirectory,
+        LoadedFromDirectory,
+        InitialStartupDirectory,
         specificTestEnvPrefixes,
         null,
         null);

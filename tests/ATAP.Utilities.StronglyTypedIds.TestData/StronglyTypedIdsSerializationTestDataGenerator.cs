@@ -4,7 +4,7 @@ using ATAP.Utilities.StronglyTypedIds;
 using System;
 
 
-namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
+namespace ATAP.Utilities.StronglyTypedIds.TestData {
 
   //ToDo add validation tests to ensure illegal values are not allowed.  This applies to all XxTestDataGenerator classes
   public class StronglyTypedIdInterfaceTestData<TValue> where TValue : notnull {
@@ -23,13 +23,13 @@ namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
   public class StronglyTypedIdInterfaceTestDataGenerator<TValue> : IEnumerable<object[]> where TValue : notnull  {
     public static IEnumerable<object[]> StronglyTypedIdTestData() {
       switch (typeof(TValue)) {
-        case Type guidType when typeof(TValue) == typeof(Guid): {
+        case { } guidType when typeof(TValue) == typeof(Guid): {
             yield return new StronglyTypedIdInterfaceTestData<TValue>[] { new StronglyTypedIdInterfaceTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.Empty), SerializedTestData = "\"00000000-0000-0000-0000-000000000000\"" } };
             yield return new StronglyTypedIdInterfaceTestData<TValue>[] { new StronglyTypedIdInterfaceTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new GuidStronglyTypedId(new Guid("01234567-abcd-9876-cdef-456789abcdef")), SerializedTestData = "\"01234567-abcd-9876-cdef-456789abcdef\"" } };
             yield return new StronglyTypedIdInterfaceTestData<TValue>[] { new StronglyTypedIdInterfaceTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new GuidStronglyTypedId(Guid.NewGuid()), SerializedTestData = "" } };
           }
           break;
-        case Type intType when typeof(TValue) == typeof(int): {
+        case {} intType when typeof(TValue) == typeof(int): {
             yield return new StronglyTypedIdInterfaceTestData<TValue>[] { new StronglyTypedIdInterfaceTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new IntStronglyTypedId(0), SerializedTestData = "0" } };
             yield return new StronglyTypedIdInterfaceTestData<TValue>[] { new StronglyTypedIdInterfaceTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new IntStronglyTypedId(1234567), SerializedTestData = "1234567" } };
             yield return new StronglyTypedIdInterfaceTestData<TValue>[] { new StronglyTypedIdInterfaceTestData<TValue> { InstanceTestData = (IAbstractStronglyTypedId<TValue>)new IntStronglyTypedId(new Random().Next()), SerializedTestData = "" } };

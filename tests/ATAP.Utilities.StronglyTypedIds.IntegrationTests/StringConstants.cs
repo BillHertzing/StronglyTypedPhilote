@@ -28,12 +28,7 @@ namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
     #region string constants: EnvironmentVariablePrefixs
     public const string CustomEnvironmentVariablePrefix = "GenericTest_";
     #endregion
-
-    // ToDo: replace with newest "best practices" that use IHostEnvironment (i.e., deprecate these)
-    #region string constants: Additional Environments
-    #endregion
-
-
+    
   }
 }
 
