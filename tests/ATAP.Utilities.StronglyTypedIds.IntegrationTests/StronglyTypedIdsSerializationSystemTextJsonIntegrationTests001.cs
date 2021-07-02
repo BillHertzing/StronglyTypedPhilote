@@ -14,7 +14,7 @@ using System.Text.Json;
 // For the tests that use the old Newtonsoft Serializer/Deserializer
 //using Newtonsoft.Json;
 
-namespace ATAP.Utilities.StronglyTypedIds.UnitTests {
+namespace ATAP.Utilities.StronglyTypedIds.IntegrationTests {
   // Attribution: https://github.com/xunit/xunit/issues/2007, however, we only need a class fixture not a collectionfixtire, so, commented out below
   //  [CollectionDefinition(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001), DisableParallelization = true)]
   //  [Collection(nameof(StronglyTypedIdSerializationSystemTextJsonUnitTests001))]
